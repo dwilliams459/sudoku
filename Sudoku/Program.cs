@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using Serilog;
 
-namespace Soduko
+namespace Sudoku
 {
     class Program
     {
@@ -9,50 +12,67 @@ namespace Soduko
         {
             try
             {
-                var puzzle = new Sudoku();
-                SetupPuzzle(puzzle);
-                puzzle.Solve();
+                File.Delete("./output.txt");
 
+                Log.Logger = new LoggerConfiguration()
+                    .WriteTo.File("./output.txt", outputTemplate: "{Message:lj}{NewLine}")
+                    .MinimumLevel.Debug()
+                    .CreateLogger();
+
+                Log.Information($"Starting Sudoku {DateTime.Now}");
+                Log.Information("====================================================");
+                Log.Information(" ");
+
+                var puzzle = new Sudoku();
+
+                string jsonFile = null;
+                if (args != null && args.Length > 0)
+                {
+                    jsonFile = args[0];
+                }
+
+                //LoadGrid(puzzle, jsonFile);
+                if (LoadFromGridJson(puzzle, jsonFile) == true)
+                {
+                    puzzle.Solve();
+                }
+
+                Log.CloseAndFlush();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Log.Information(ex.Message);
+                Log.Information(ex.StackTrace);
             }
         }
 
-        public static void SetupPuzzle(Sudoku puzzle)
+        public static void LoadGrid(Sudoku puzzle, string jsonFile = "./input.json")
         {
+            string json = File.ReadAllText(jsonFile);
+            var valueLocations = JsonConvert.DeserializeObject<List<ValueLocation>>(json);
 
-            puzzle.Grid.AddValue(1, 3, 2);
-            puzzle.Grid.AddValue(1, 5, 8);
-            puzzle.Grid.AddValue(1, 8, 4);
-            puzzle.Grid.AddValue(1, 9, 6);
-            puzzle.Grid.AddValue(2, 2, 4);
-            puzzle.Grid.AddValue(2, 6, 7);
-            puzzle.Grid.AddValue(3, 3, 3);
-            puzzle.Grid.AddValue(3, 6, 5);
-            puzzle.Grid.AddValue(3, 9, 8);
+            puzzle.Grid.AddLocations(valueLocations);
+        }
 
-            puzzle.Grid.AddValue(4, 4, 3);
-            puzzle.Grid.AddValue(4, 6, 6);
-            puzzle.Grid.AddValue(4, 7, 2);
-            puzzle.Grid.AddValue(5, 1, 7);
-            puzzle.Grid.AddValue(5, 5, 2);
-            puzzle.Grid.AddValue(5, 9, 1);
-            puzzle.Grid.AddValue(6, 3, 5);
-            puzzle.Grid.AddValue(6, 4, 1);
-            puzzle.Grid.AddValue(6, 6, 8);
-            
-            puzzle.Grid.AddValue(7, 1, 2);
-            puzzle.Grid.AddValue(7, 4, 8);
-            puzzle.Grid.AddValue(7, 7, 4);
-            puzzle.Grid.AddValue(8, 4, 7);
-            puzzle.Grid.AddValue(8, 8, 9);
-            puzzle.Grid.AddValue(9, 1, 4);
-            puzzle.Grid.AddValue(9, 2, 8);
-            puzzle.Grid.AddValue(9, 5, 6);
-            puzzle.Grid.AddValue(9, 7, 1);
+        public static bool LoadFromGridJson(Sudoku puzzle, string jsonFile = "")
+        {
+            jsonFile = (string.IsNullOrWhiteSpace(jsonFile)) ? "./inputgrid.json" : jsonFile;
+
+            string json = string.Empty;
+            List<GridRowValues> valueLocations = new List<GridRowValues>();
+            try
+            {
+                json = File.ReadAllText(jsonFile);
+                valueLocations = JsonConvert.DeserializeObject<List<GridRowValues>>(json);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Error reading and parsing input file {jsonFile}: {ex.Message}");
+                return false;
+            }
+
+            puzzle.Grid.AddLocations(valueLocations);
+            return true;
         }
     }
 }

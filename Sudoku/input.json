@@ -1,0 +1,137 @@
+[
+  {
+    "Row": 1,
+    "Col": 3,
+    "Value": 2
+  },
+  {
+    "Row": 1,
+    "Col": 5,
+    "Value": 8
+  },
+  {
+    "Row": 1,
+    "Col": 8,
+    "Value": 4
+  },
+  {
+    "Row": 1,
+    "Col": 9,
+    "Value": 6
+  },
+  {
+    "Row": 2,
+    "Col": 2,
+    "Value": 4
+  },
+  {
+    "Row": 2,
+    "Col": 6,
+    "Value": 7
+  },
+  {
+    "Row": 3,
+    "Col": 3,
+    "Value": 3
+  },
+  {
+    "Row": 3,
+    "Col": 6,
+    "Value": 5
+  },
+  {
+    "Row": 3,
+    "Col": 9,
+    "Value": 8
+  },
+  {
+    "Row": 4,
+    "Col": 4,
+    "Value": 3
+  },
+  {
+    "Row": 4,
+    "Col": 6,
+    "Value": 6
+  },
+  {
+    "Row": 4,
+    "Col": 7,
+    "Value": 2
+  },
+  {
+    "Row": 5,
+    "Col": 1,
+    "Value": 7
+  },
+  {
+    "Row": 5,
+    "Col": 5,
+    "Value": 2
+  },
+  {
+    "Row": 5,
+    "Col": 9,
+    "Value": 1
+  },
+  {
+    "Row": 6,
+    "Col": 3,
+    "Value": 5
+  },
+  {
+    "Row": 6,
+    "Col": 4,
+    "Value": 1
+  },
+  {
+    "Row": 6,
+    "Col": 6,
+    "Value": 8
+  },
+  {
+    "Row": 7,
+    "Col": 1,
+    "Value": 2
+  },
+  {
+    "Row": 7,
+    "Col": 4,
+    "Value": 8
+  },
+  {
+    "Row": 7,
+    "Col": 7,
+    "Value": 4
+  },
+  {
+    "Row": 8,
+    "Col": 4,
+    "Value": 7
+  },
+  {
+    "Row": 8,
+    "Col": 8,
+    "Value": 9
+  },
+  {
+    "Row": 9,
+    "Col": 1,
+    "Value": 4
+  },
+  {
+    "Row": 9,
+    "Col": 2,
+    "Value": 8
+  },
+  {
+    "Row": 9,
+    "Col": 5,
+    "Value": 6
+  },
+  {
+    "Row": 9,
+    "Col": 7,
+    "Value": 1
+  }
+]

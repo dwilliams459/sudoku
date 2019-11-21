@@ -1,0 +1,4 @@
+Starting Sudoku 11/20/2019 11:08:54 PM
+====================================================
+ 
+Error reading and parsing input file input3.json: Could not find file 'C:\Projects\Sandbox\Sudoku\sudoku\input3.json'.

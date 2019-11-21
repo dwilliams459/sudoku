@@ -1,0 +1,360 @@
+Starting Sudoku 11/17/2019 12:12:40 AM
+====================================================
+ 
+Starting Grid
+Grid
+============
+    |   | 2 ||   | 8 |   ||   | 4 | 6
+ -------------------------------------
+    | 4 |   ||   |   | 7 ||   |   |  
+ -------------------------------------
+    |   | 3 ||   |   | 5 ||   |   | 8
+ =====================================
+    |   |   || 3 |   | 6 || 2 |   |  
+ -------------------------------------
+  7 |   |   ||   | 2 |   ||   |   | 1
+ -------------------------------------
+    |   | 5 || 1 |   | 8 ||   |   |  
+ =====================================
+  2 |   |   || 8 |   |   || 4 |   |  
+ -------------------------------------
+    |   |   || 7 |   |   ||   | 9 |  
+ -------------------------------------
+  4 | 8 |   ||   | 6 |   || 1 |   |  
+ 
+
+Iteration: 1
+=============================
+Marking Canditates
+============
+Candidates Marked: 187
+Candidates
+============
+Row 1, Col 1, Values: 1, 5, 9
+Row 1, Col 2, Values: 1, 5, 7, 9
+Row 1, Col 4, Values: 9
+Row 1, Col 6, Values: 1, 3, 9
+Row 1, Col 7, Values: 3, 5, 7, 9
+ 
+Row 2, Col 1, Values: 1, 5, 6, 8, 9
+Row 2, Col 3, Values: 1, 6, 8, 9
+Row 2, Col 4, Values: 2, 6, 9
+Row 2, Col 5, Values: 1, 3, 9
+Row 2, Col 7, Values: 3, 5, 9
+Row 2, Col 8, Values: 1, 2, 3, 5
+Row 2, Col 9, Values: 2, 3, 5, 9
+ 
+Row 3, Col 1, Values: 1, 6, 9
+Row 3, Col 2, Values: 1, 6, 7, 9
+Row 3, Col 4, Values: 2, 4, 6, 9
+Row 3, Col 5, Values: 1, 4, 9
+Row 3, Col 7, Values: 7, 9
+Row 3, Col 8, Values: 1, 2, 7
+ 
+Row 4, Col 1, Values: 1, 8, 9
+Row 4, Col 2, Values: 1, 9
+Row 4, Col 3, Values: 1, 4, 8, 9
+Row 4, Col 5, Values: 4, 5, 7, 9
+Row 4, Col 8, Values: 5, 7, 8
+Row 4, Col 9, Values: 4, 5, 7, 9
+ 
+Row 5, Col 2, Values: 3, 6, 9
+Row 5, Col 3, Values: 4, 6, 8, 9
+Row 5, Col 4, Values: 4, 5, 9
+Row 5, Col 6, Values: 4, 9
+Row 5, Col 7, Values: 3, 5, 6, 8, 9
+Row 5, Col 8, Values: 3, 5, 6, 8
+ 
+Row 6, Col 1, Values: 3, 6, 9
+Row 6, Col 2, Values: 2, 3, 6, 9
+Row 6, Col 5, Values: 4, 7, 9
+Row 6, Col 7, Values: 3, 6, 7, 9
+Row 6, Col 8, Values: 3, 6, 7
+Row 6, Col 9, Values: 3, 4, 7, 9
+ 
+Row 7, Col 2, Values: 1, 3, 5, 6, 7, 9
+Row 7, Col 3, Values: 1, 6, 7, 9
+Row 7, Col 5, Values: 1, 3, 5, 9
+Row 7, Col 6, Values: 1, 3, 9
+Row 7, Col 8, Values: 3, 5, 6, 7
+Row 7, Col 9, Values: 3, 5, 7
+ 
+Row 8, Col 1, Values: 1, 3, 5, 6
+Row 8, Col 2, Values: 1, 3, 5, 6
+Row 8, Col 3, Values: 1, 6
+Row 8, Col 5, Values: 1, 3, 4, 5
+Row 8, Col 6, Values: 1, 2, 3, 4
+Row 8, Col 7, Values: 3, 5, 6, 8
+Row 8, Col 9, Values: 2, 3, 5
+ 
+Row 9, Col 3, Values: 7, 9
+Row 9, Col 4, Values: 2, 5, 9
+Row 9, Col 6, Values: 2, 3, 9
+Row 9, Col 8, Values: 2, 3, 5, 7
+Row 9, Col 9, Values: 2, 3, 5, 7
+ 
+Block and Column Row Interaction
+============
+Candidate 1 in row 1
+Removed 9 instances of candiate 1 in row 1
+Candidate 1 in row 2
+Removed 9 instances of candiate 1 in row 2
+Candidate 1 in col 1
+Removed 9 instances of candiate 1 in col 1
+Candidate 2 in row 2
+Removed 9 instances of candiate 2 in row 2
+Candidate 3 in row 1
+Removed 9 instances of candiate 3 in row 1
+Candidate 3 in col 1
+Removed 9 instances of candiate 3 in col 1
+Candidate 3 in col 2
+Removed 9 instances of candiate 3 in col 2
+Candidate 1 in col 3
+Removed 9 instances of candiate 1 in col 3
+Candidate 3 in row 3
+Removed 9 instances of candiate 3 in row 3
+Candidate 3 in col 2
+Removed 9 instances of candiate 3 in col 2
+Candidate 3 in col 3
+Removed 9 instances of candiate 3 in col 3
+Candidate 1 in row 3
+Removed 9 instances of candiate 1 in row 3
+Candidate 1 in row 4
+Removed 9 instances of candiate 1 in row 4
+Candidate 1 in row 3
+Removed 9 instances of candiate 1 in row 3
+Candidate 1 in row 4
+Removed 9 instances of candiate 1 in row 4
+Candidate 1 in col 4
+Removed 9 instances of candiate 1 in col 4
+Candidate 2 in row 4
+Removed 9 instances of candiate 2 in row 4
+Candidate 2 in col 3
+Removed 9 instances of candiate 2 in col 3
+Candidate 3 in row 3
+Removed 9 instances of candiate 3 in row 3
+Candidate 3 in row 4
+Removed 9 instances of candiate 3 in row 4
+Candidate 3 in col 4
+Removed 9 instances of candiate 3 in col 4
+Candidate 2 in row 4
+Removed 9 instances of candiate 2 in row 4
+Candidate 2 in col 4
+Removed 9 instances of candiate 2 in col 4
+Candidate 3 in row 3
+Removed 9 instances of candiate 3 in row 3
+Candidate 3 in row 4
+Removed 9 instances of candiate 3 in row 4
+Candidate 3 in col 3
+Removed 9 instances of candiate 3 in col 3
+Candidate 3 in col 4
+Removed 9 instances of candiate 3 in col 4
+Removed candidates: 243
+Candidates
+============
+Row 1, Col 1, Values: 5, 9
+Row 1, Col 2, Values: 5, 7, 9
+Row 1, Col 4, Values: 9
+Row 1, Col 6, Values: 9
+Row 1, Col 7, Values: 5, 7, 9
+ 
+Row 2, Col 1, Values: 5, 6, 8, 9
+Row 2, Col 3, Values: 6, 8, 9
+Row 2, Col 4, Values: 6, 9
+Row 2, Col 5, Values: 3, 9
+Row 2, Col 7, Values: 3, 5, 9
+Row 2, Col 8, Values: 3, 5
+Row 2, Col 9, Values: 3, 5, 9
+ 
+Row 3, Col 1, Values: 6, 9
+Row 3, Col 2, Values: 6, 7, 9
+Row 3, Col 4, Values: 4, 6, 9
+Row 3, Col 5, Values: 4, 9
+Row 3, Col 7, Values: 7, 9
+Row 3, Col 8, Values: 2, 7
+ 
+Row 4, Col 1, Values: 8, 9
+Row 4, Col 2, Values: 9
+Row 4, Col 3, Values: 4, 8, 9
+Row 4, Col 5, Values: 4, 5, 7, 9
+Row 4, Col 8, Values: 5, 7, 8
+Row 4, Col 9, Values: 4, 5, 7, 9
+ 
+Row 5, Col 2, Values: 6, 9
+Row 5, Col 3, Values: 4, 6, 8, 9
+Row 5, Col 4, Values: 4, 5, 9
+Row 5, Col 6, Values: 4, 9
+Row 5, Col 7, Values: 3, 5, 6, 8, 9
+Row 5, Col 8, Values: 3, 5, 6, 8
+ 
+Row 6, Col 1, Values: 6, 9
+Row 6, Col 2, Values: 2, 6, 9
+Row 6, Col 5, Values: 4, 7, 9
+Row 6, Col 7, Values: 3, 6, 7, 9
+Row 6, Col 8, Values: 3, 6, 7
+Row 6, Col 9, Values: 3, 4, 7, 9
+ 
+Row 7, Col 2, Values: 1, 5, 6, 7, 9
+Row 7, Col 3, Values: 6, 7, 9
+Row 7, Col 5, Values: 1, 3, 5, 9
+Row 7, Col 6, Values: 1, 3, 9
+Row 7, Col 8, Values: 3, 5, 6, 7
+Row 7, Col 9, Values: 3, 5, 7
+ 
+Row 8, Col 1, Values: 5, 6
+Row 8, Col 2, Values: 1, 5, 6
+Row 8, Col 3, Values: 6
+Row 8, Col 5, Values: 1, 3, 4, 5
+Row 8, Col 6, Values: 1, 2, 3, 4
+Row 8, Col 7, Values: 3, 5, 6, 8
+Row 8, Col 9, Values: 2, 3, 5
+ 
+Row 9, Col 3, Values: 7, 9
+Row 9, Col 4, Values: 5, 9
+Row 9, Col 6, Values: 2, 3, 9
+Row 9, Col 8, Values: 2, 3, 5, 7
+Row 9, Col 9, Values: 2, 3, 5, 7
+ 
+Assigned cells: 4
+Grid
+============
+    |   | 2 || 9 | 8 | 9 ||   | 4 | 6
+ -------------------------------------
+    | 4 |   ||   |   | 7 ||   |   |  
+ -------------------------------------
+    |   | 3 ||   |   | 5 ||   |   | 8
+ =====================================
+    | 9 |   || 3 |   | 6 || 2 |   |  
+ -------------------------------------
+  7 |   |   ||   | 2 |   ||   |   | 1
+ -------------------------------------
+    |   | 5 || 1 |   | 8 ||   |   |  
+ =====================================
+  2 |   |   || 8 |   |   || 4 |   |  
+ -------------------------------------
+    |   | 6 || 7 |   |   ||   | 9 |  
+ -------------------------------------
+  4 | 8 |   ||   | 6 |   || 1 |   |  
+ 
+Candidates
+============
+Row 1, Col 1, Values: 5, 9
+Row 1, Col 2, Values: 5, 7, 9
+Row 1, Col 7, Values: 5, 7, 9
+ 
+Row 2, Col 1, Values: 5, 6, 8, 9
+Row 2, Col 3, Values: 6, 8, 9
+Row 2, Col 4, Values: 6, 9
+Row 2, Col 5, Values: 3, 9
+Row 2, Col 7, Values: 3, 5, 9
+Row 2, Col 8, Values: 3, 5
+Row 2, Col 9, Values: 3, 5, 9
+ 
+Row 3, Col 1, Values: 6, 9
+Row 3, Col 2, Values: 6, 7, 9
+Row 3, Col 4, Values: 4, 6, 9
+Row 3, Col 5, Values: 4, 9
+Row 3, Col 7, Values: 7, 9
+Row 3, Col 8, Values: 2, 7
+ 
+Row 4, Col 1, Values: 8, 9
+Row 4, Col 3, Values: 4, 8, 9
+Row 4, Col 5, Values: 4, 5, 7, 9
+Row 4, Col 8, Values: 5, 7, 8
+Row 4, Col 9, Values: 4, 5, 7, 9
+ 
+Row 5, Col 2, Values: 6, 9
+Row 5, Col 3, Values: 4, 6, 8, 9
+Row 5, Col 4, Values: 4, 5, 9
+Row 5, Col 6, Values: 4, 9
+Row 5, Col 7, Values: 3, 5, 6, 8, 9
+Row 5, Col 8, Values: 3, 5, 6, 8
+ 
+Row 6, Col 1, Values: 6, 9
+Row 6, Col 2, Values: 2, 6, 9
+Row 6, Col 5, Values: 4, 7, 9
+Row 6, Col 7, Values: 3, 6, 7, 9
+Row 6, Col 8, Values: 3, 6, 7
+Row 6, Col 9, Values: 3, 4, 7, 9
+ 
+Row 7, Col 2, Values: 1, 5, 6, 7, 9
+Row 7, Col 3, Values: 6, 7, 9
+Row 7, Col 5, Values: 1, 3, 5, 9
+Row 7, Col 6, Values: 1, 3, 9
+Row 7, Col 8, Values: 3, 5, 6, 7
+Row 7, Col 9, Values: 3, 5, 7
+ 
+Row 8, Col 1, Values: 5, 6
+Row 8, Col 2, Values: 1, 5, 6
+Row 8, Col 5, Values: 1, 3, 4, 5
+Row 8, Col 6, Values: 1, 2, 3, 4
+Row 8, Col 7, Values: 3, 5, 6, 8
+Row 8, Col 9, Values: 2, 3, 5
+ 
+Row 9, Col 3, Values: 7, 9
+Row 9, Col 4, Values: 5, 9
+Row 9, Col 6, Values: 2, 3, 9
+Row 9, Col 8, Values: 2, 3, 5, 7
+Row 9, Col 9, Values: 2, 3, 5, 7
+ 
+Candidates
+============
+Row 1, Col 1, Values: 5, 9
+Row 1, Col 2, Values: 5, 7, 9
+Row 1, Col 7, Values: 5, 7, 9
+ 
+Row 2, Col 1, Values: 5, 6, 8, 9
+Row 2, Col 3, Values: 6, 8, 9
+Row 2, Col 4, Values: 6, 9
+Row 2, Col 5, Values: 3, 9
+Row 2, Col 7, Values: 3, 5, 9
+Row 2, Col 8, Values: 3, 5
+Row 2, Col 9, Values: 3, 5, 9
+ 
+Row 3, Col 1, Values: 6, 9
+Row 3, Col 2, Values: 6, 7, 9
+Row 3, Col 4, Values: 4, 6, 9
+Row 3, Col 5, Values: 4, 9
+Row 3, Col 7, Values: 7, 9
+Row 3, Col 8, Values: 2, 7
+ 
+Row 4, Col 1, Values: 8, 9
+Row 4, Col 3, Values: 4, 8, 9
+Row 4, Col 5, Values: 4, 5, 7, 9
+Row 4, Col 8, Values: 5, 7, 8
+Row 4, Col 9, Values: 4, 5, 7, 9
+ 
+Row 5, Col 2, Values: 6, 9
+Row 5, Col 3, Values: 4, 6, 8, 9
+Row 5, Col 4, Values: 4, 5, 9
+Row 5, Col 6, Values: 4, 9
+Row 5, Col 7, Values: 3, 5, 6, 8, 9
+Row 5, Col 8, Values: 3, 5, 6, 8
+ 
+Row 6, Col 1, Values: 6, 9
+Row 6, Col 2, Values: 2, 6, 9
+Row 6, Col 5, Values: 4, 7, 9
+Row 6, Col 7, Values: 3, 6, 7, 9
+Row 6, Col 8, Values: 3, 6, 7
+Row 6, Col 9, Values: 3, 4, 7, 9
+ 
+Row 7, Col 2, Values: 1, 5, 6, 7, 9
+Row 7, Col 3, Values: 6, 7, 9
+Row 7, Col 5, Values: 1, 3, 5, 9
+Row 7, Col 6, Values: 1, 3, 9
+Row 7, Col 8, Values: 3, 5, 6, 7
+Row 7, Col 9, Values: 3, 5, 7
+ 
+Row 8, Col 1, Values: 5, 6
+Row 8, Col 2, Values: 1, 5, 6
+Row 8, Col 5, Values: 1, 3, 4, 5
+Row 8, Col 6, Values: 1, 2, 3, 4
+Row 8, Col 7, Values: 3, 5, 6, 8
+Row 8, Col 9, Values: 2, 3, 5
+ 
+Row 9, Col 3, Values: 7, 9
+Row 9, Col 4, Values: 5, 9
+Row 9, Col 6, Values: 2, 3, 9
+Row 9, Col 8, Values: 2, 3, 5, 7
+Row 9, Col 9, Values: 2, 3, 5, 7
+ 
