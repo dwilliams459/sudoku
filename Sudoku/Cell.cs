@@ -26,12 +26,12 @@ namespace Sudoku
             SquareRow = (Row % 3 == 0) ? 3 : Row % 3;  // Square row is 1, 2, or 3
             SquareCol = (Col % 3 == 0) ? 3 : Col % 3;  // Square col is 1, 2, or 3
             
-            Square = SquareFromRowCol(Row, Col);
+            Square = GridSquare(Row, Col);
             
             Candidates = new List<int>();
 
             Index = (Row * 9) + col;
-            int squareIndex = (SquareRow * 3) + SquareCol;
+            SquareIndex = ((SquareRow - 1) * 3) + SquareCol;
         }
         
         public string CellValueOrSpace
@@ -52,7 +52,7 @@ namespace Sudoku
             }
         }
 
-        public static int SquareFromRowCol(int row, int col)
+        public static int GridSquare(int row, int col)
         {
             int squareCol = (int)Math.Floor((decimal)(col - 1) / 3);
             if (row >= 1 && row <= 3)
@@ -67,20 +67,6 @@ namespace Sudoku
             {
                 return 7 + squareCol;
             }
-        }
-
-        public static int RowFromSquareRow(int square, int squareRow)
-        {
-            if (squareRow > 3) return 0;
-            var squareAdd = (int)(Math.Floor((decimal)(square - 1) / 3));
-            return squareAdd + squareRow;
-        }
-
-        public static int ColFromSquareCol(int square, int squareCol)
-        {
-            if (squareCol > 3) return 0;
-            var squareAdd = (int)(Math.Floor((decimal)(square - 1) / 3));
-            return squareAdd + squareCol;
         }
 
         public static int GridRow(int square, int squareRow)

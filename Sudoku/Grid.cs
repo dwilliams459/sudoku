@@ -63,6 +63,7 @@ namespace Sudoku
             for (int value = 1; value <= 9; value++)
             {
                 // Get list of locations (square indexes) for this value
+                var cells = Cells.Where(c => c.Square == square && c.Candidates.Contains(value));
                 List<int> locations = Cells.Where(c => c.Square == square && c.Candidates.Contains(value)).Select(c => c.SquareIndex).ToList();
                 valueLocations.Add(value, locations);
             }
@@ -80,8 +81,8 @@ namespace Sudoku
 
         public GridCell Cell(int square, int squareRow, int squareCol)
         {
-            int row = GridCell.RowFromSquareRow(square, squareRow);
-            int col = GridCell.ColFromSquareCol(square, squareCol);
+            int row = GridCell.GridRow(square, squareRow);
+            int col = GridCell.GridCol(square, squareCol);
             return Cell(row, col);
         }
 
@@ -96,7 +97,7 @@ namespace Sudoku
 
             if (!original)
             {
-                Log.Information($"Assigned {value} to {row}, {col} (square {GridCell.SquareFromRowCol(row, col)})");
+                Log.Information($"Assigned {value} to {row}, {col} (square {GridCell.GridSquare(row, col)})");
             }
 
             // Remove value from list of candidates for this row, col, square

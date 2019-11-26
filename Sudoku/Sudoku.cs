@@ -26,7 +26,7 @@ namespace Sudoku
             Grid.PrintGrid(0);
             Grid.ValidateGrid();
 
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 40; i++)
             {
                 Log.Information("");
                 Log.Information("Iteration: " + i);
@@ -41,6 +41,8 @@ namespace Sudoku
                 
                 RemoveCandiatesByRowAndColumn();
                 Grid.PrintGridWithCandiates();
+
+                //CheckPreemptiveSets();
 
                 Log.Debug($"Assign candiates with Single Possible Location..");
                 Grid.AssignedCells = 0;
@@ -125,7 +127,7 @@ namespace Sudoku
 
         public bool MatchInSquare(int row, int col, int value)
         {
-            int square = GridCell.SquareFromRowCol(row, col);
+            int square = GridCell.GridSquare(row, col);
             var matched = Grid.Cells.Count(c => c.Square == square && c.Value == value);
             return (matched > 0);
         }
@@ -164,17 +166,17 @@ namespace Sudoku
             if (candidateInRow1 && !candidateInRow2 && !candidateInRow3)
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in row1, !row2, !row3");
-                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.RowFromSquareRow(square, 1), valueX, square);
+                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 1), valueX, square);
             }
             else if (!candidateInRow1 && candidateInRow2 && !candidateInRow3)
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, row2, !row3");
-                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.RowFromSquareRow(square, 2), valueX, square);
+                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 2), valueX, square);
             }
             else if (!candidateInRow1 && !candidateInRow2 && candidateInRow3)
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, !row2, row3");
-                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.RowFromSquareRow(square, 3), valueX, square);
+                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 3), valueX, square);
             }
 
             return removedCandiates;
@@ -250,17 +252,17 @@ namespace Sudoku
             if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
             {
                 Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.ColFromSquareCol(square, 3), valueX, square);
+                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
             }
             else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
             {
                 Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.ColFromSquareCol(square, 1), valueX, square);
+                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
             }
             else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
             {
                 Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.ColFromSquareCol(square, 2), valueX, square);
+                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
             }
 
             return removedCandiates;
@@ -367,7 +369,7 @@ namespace Sudoku
                         // Does value1.locations = value2.locations
                         // var a = ints1.All(ints2.Contains) && ints1.Count == ints2.Count;
                         // All Value1 locations are in Value 2 locations, And val1 and val2 have the same number of locations
-                        bool match = (valLocs[val1].All(valLocs[val2].Contains) && (valLocs[val1].Count() == valLocs[val2].Count()));
+                        bool match = (valLocs[val1].All(valLocs[val2].Contains));
                         if (match)
                         {
                             HandlePreemtivePair(square, val1, val2, valLocs[val1]);
