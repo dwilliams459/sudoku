@@ -7,14 +7,20 @@
 
   <ItemGroup>
     <None Remove="input.json" />
-    <None Remove="inputgrid.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="grids\*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>  
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="$(SolutionDir)grids\**"  CopyToOutputDirectory="PreserveNewest"  />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="input.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="inputgrid.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

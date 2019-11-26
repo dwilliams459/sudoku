@@ -1,0 +1,1056 @@
+Starting Sudoku 11/22/2019 9:46:21 PM
+====================================================
+ 
+Starting Grid
+Grid
+============
+     |   |.2 ||   |.8 |   ||   |.4 |.6
+ --------------------------------------
+     |.4 |   ||   |   |.7 ||   |   |  
+ --------------------------------------
+     |   |.3 ||   |   |.5 ||   |   |.8
+ ======================================
+     |   |   ||.3 |   |.6 ||.2 |   |  
+ --------------------------------------
+  .7 |   |   ||   |.2 |   ||   |   |.1
+ --------------------------------------
+     |   |.5 ||.1 |   |.8 ||   |   |  
+ ======================================
+  .2 |   |   ||.8 |   |   ||.4 |   |  
+ --------------------------------------
+     |   |   ||.7 |   |   ||   |.9 |  
+ --------------------------------------
+  .4 |.8 |   ||   |.6 |   ||.1 |   |  
+ 
+
+Iteration: 1
+=============================
+Marking Canditates
+============
+Seting Candidates...
+Candidates Marked: 187
+Candidates (187)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value  , Candidates: 1, 5, 9
+Row 1, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 5, 7, 9
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value  , Candidates: 1, 5, 6, 8, 9
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value  , Candidates: 1, 6, 8, 9
+Row 3, Col 1 (sRow 3, sCol 1), Value  , Candidates: 1, 6, 9
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 1, 6, 7, 9
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value  , Candidates: 9
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value  , Candidates: 1, 3, 9
+Row 2, Col 4 (sRow 2, sCol 1), Value  , Candidates: 2, 6, 9
+Row 2, Col 5 (sRow 2, sCol 2), Value  , Candidates: 1, 3, 9
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 4, 6, 9
+Row 3, Col 5 (sRow 3, sCol 2), Value  , Candidates: 1, 4, 9
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value  , Candidates: 3, 5, 7, 9
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value  , Candidates: 3, 5, 9
+Row 2, Col 8 (sRow 2, sCol 2), Value  , Candidates: 1, 2, 3, 5
+Row 2, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 3, 5, 9
+Row 3, Col 7 (sRow 3, sCol 1), Value  , Candidates: 7, 9
+Row 3, Col 8 (sRow 3, sCol 2), Value  , Candidates: 1, 2, 7
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value  , Candidates: 1, 8, 9
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 9
+Row 4, Col 3 (sRow 1, sCol 3), Value  , Candidates: 1, 4, 8, 9
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 3, 6, 9
+Row 5, Col 3 (sRow 2, sCol 3), Value  , Candidates: 4, 6, 8, 9
+Row 6, Col 1 (sRow 3, sCol 1), Value  , Candidates: 3, 6, 9
+Row 6, Col 2 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 6, 9
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value  , Candidates: 4, 5, 7, 9
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value  , Candidates: 4, 5, 9
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value  , Candidates: 4, 9
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 7, 9
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value  , Candidates: 5, 7, 8
+Row 4, Col 9 (sRow 1, sCol 3), Value  , Candidates: 4, 5, 7, 9
+Row 5, Col 7 (sRow 2, sCol 1), Value  , Candidates: 3, 5, 6, 8, 9
+Row 5, Col 8 (sRow 2, sCol 2), Value  , Candidates: 3, 5, 6, 8
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value  , Candidates: 3, 6, 7, 9
+Row 6, Col 8 (sRow 3, sCol 2), Value  , Candidates: 3, 6, 7
+Row 6, Col 9 (sRow 3, sCol 3), Value  , Candidates: 3, 4, 7, 9
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 3, 5, 6, 7, 9
+Row 7, Col 3 (sRow 1, sCol 3), Value  , Candidates: 1, 6, 7, 9
+Row 8, Col 1 (sRow 2, sCol 1), Value  , Candidates: 1, 3, 5, 6
+Row 8, Col 2 (sRow 2, sCol 2), Value  , Candidates: 1, 3, 5, 6
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 1, 6
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value  , Candidates: 7, 9
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 1, 3, 5, 9
+Row 7, Col 6 (sRow 1, sCol 3), Value  , Candidates: 1, 3, 9
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value  , Candidates: 1, 3, 4, 5
+Row 8, Col 6 (sRow 2, sCol 3), Value  , Candidates: 1, 2, 3, 4
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 5, 9
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 9
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value  , Candidates: 3, 5, 6, 7
+Row 7, Col 9 (sRow 1, sCol 3), Value  , Candidates: 3, 5, 7
+Row 8, Col 7 (sRow 2, sCol 1), Value  , Candidates: 3, 5, 6, 8
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 3, 5
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 5, 7
+Row 9, Col 9 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 5, 7
+Remove candiates by row and column...
+Removed 4 instances of candiate 1 in row 3
+Removed 4 instances of candiate 1 in col 3
+Removed 3 instances of candiate 1 in col 5
+Removed 3 instances of candiate 3 in row 5
+Removed 3 instances of candiate 3 in col 5
+Remove candiates by row and column removed 17 candidates
+Candidates (170)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value  , Candidates: 1, 5, 9
+Row 1, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 5, 7, 9
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value  , Candidates: 1, 5, 6, 8, 9
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6, 8, 9
+Row 3, Col 1 (sRow 3, sCol 1), Value  , Candidates: 6, 9
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 6, 7, 9
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value  , Candidates: 9
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value  , Candidates: 1, 3, 9
+Row 2, Col 4 (sRow 2, sCol 1), Value  , Candidates: 2, 6, 9
+Row 2, Col 5 (sRow 2, sCol 2), Value  , Candidates: 9
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 4, 6, 9
+Row 3, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 9
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value  , Candidates: 3, 5, 7, 9
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value  , Candidates: 3, 5, 9
+Row 2, Col 8 (sRow 2, sCol 2), Value  , Candidates: 1, 2, 3, 5
+Row 2, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 3, 5, 9
+Row 3, Col 7 (sRow 3, sCol 1), Value  , Candidates: 7, 9
+Row 3, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 7
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value  , Candidates: 1, 8, 9
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 9
+Row 4, Col 3 (sRow 1, sCol 3), Value  , Candidates: 4, 8, 9
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 6, 9
+Row 5, Col 3 (sRow 2, sCol 3), Value  , Candidates: 4, 6, 8, 9
+Row 6, Col 1 (sRow 3, sCol 1), Value  , Candidates: 3, 6, 9
+Row 6, Col 2 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 6, 9
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value  , Candidates: 4, 5, 7, 9
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value  , Candidates: 4, 5, 9
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value  , Candidates: 4, 9
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 7, 9
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value  , Candidates: 5, 7, 8
+Row 4, Col 9 (sRow 1, sCol 3), Value  , Candidates: 4, 5, 7, 9
+Row 5, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5, 6, 8, 9
+Row 5, Col 8 (sRow 2, sCol 2), Value  , Candidates: 5, 6, 8
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value  , Candidates: 3, 6, 7, 9
+Row 6, Col 8 (sRow 3, sCol 2), Value  , Candidates: 3, 6, 7
+Row 6, Col 9 (sRow 3, sCol 3), Value  , Candidates: 3, 4, 7, 9
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 3, 5, 6, 7, 9
+Row 7, Col 3 (sRow 1, sCol 3), Value  , Candidates: 6, 7, 9
+Row 8, Col 1 (sRow 2, sCol 1), Value  , Candidates: 1, 3, 5, 6
+Row 8, Col 2 (sRow 2, sCol 2), Value  , Candidates: 1, 3, 5, 6
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value  , Candidates: 7, 9
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 5, 9
+Row 7, Col 6 (sRow 1, sCol 3), Value  , Candidates: 1, 3, 9
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value  , Candidates: 4, 5
+Row 8, Col 6 (sRow 2, sCol 3), Value  , Candidates: 1, 2, 3, 4
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 5, 9
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 9
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value  , Candidates: 3, 5, 6, 7
+Row 7, Col 9 (sRow 1, sCol 3), Value  , Candidates: 3, 5, 7
+Row 8, Col 7 (sRow 2, sCol 1), Value  , Candidates: 3, 5, 6, 8
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 3, 5
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 5, 7
+Row 9, Col 9 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 5, 7
+Assign candiates with Single Possible Location..
+AssignCandidatesWithSinglePossibleLocationInSquare...
+Only one possible location in square 2 for candidate 1
+Removed 2 instances of candiate 1 in col 6
+Removed 2 instances of candiate 1 in row 1
+Assigned 1 to 1, 6
+Only one possible location in square 3 for candidate 1
+Removed 1 instances of candiate 1 in row 2
+Assigned 1 to 2, 8
+Only one possible location in square 4 for candidate 2
+Assigned 2 to 6, 2
+Only one possible location in square 4 for candidate 3
+Removed 1 instances of candiate 3 in col 1
+Removed 3 instances of candiate 3 in row 6
+Assigned 3 to 6, 1
+Only one possible location in square 9 for candidate 8
+Removed 1 instances of candiate 8 in col 7
+Assigned 8 to 8, 7
+AssignCandidatesWithSinglePossibleLocationInRow...
+One possible location in row 1 for candidate 3
+Removed 1 instances of candiate 3 in col 7
+Removed 1 instances of candiate 3 in square 3
+Assigned 3 to 1, 7
+One possible location in row 1 for candidate 7
+Removed 2 instances of candiate 7 in col 2
+Assigned 7 to 1, 2
+One possible location in row 7 for candidate 1
+Removed 2 instances of candiate 1 in col 2
+Removed 1 instances of candiate 1 in square 7
+Assigned 1 to 7, 2
+SetCandidatesWithSinglePossibleLocationInCol...
+One possible location in col 1 for candidate 1
+Assigned 1 to 4, 1
+One possible location in col 1 for candidate 8
+Removed 1 instances of candiate 8 in row 2
+Assigned 8 to 2, 1
+One possible location in col 2 for candidate 3
+Removed 2 instances of candiate 3 in row 8
+Assigned 3 to 8, 2
+SinglePossibleLocation set values to unique candidates: Assigned 11 cells
+
+Assigned 11 cells
+Grid
+============
+     | 7 |.2 ||   |.8 | 1 || 3 |.4 |.6
+ --------------------------------------
+   8 |.4 |   ||   |   |.7 ||   | 1 |  
+ --------------------------------------
+     |   |.3 ||   |   |.5 ||   |   |.8
+ ======================================
+   1 |   |   ||.3 |   |.6 ||.2 |   |  
+ --------------------------------------
+  .7 |   |   ||   |.2 |   ||   |   |.1
+ --------------------------------------
+   3 | 2 |.5 ||.1 |   |.8 ||   |   |  
+ ======================================
+  .2 | 1 |   ||.8 |   |   ||.4 |   |  
+ --------------------------------------
+     | 3 |   ||.7 |   |   || 8 |.9 |  
+ --------------------------------------
+  .4 |.8 |   ||   |.6 |   ||.1 |   |  
+ 
+Valid Grid
+
+Iteration: 2
+=============================
+Marking Canditates
+============
+Seting Candidates...
+Candidates Marked: 114
+Candidates (114)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value  , Candidates: 5, 9
+Row 1, Col 2 (sRow 1, sCol 2), Value 7, Candidates: 
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6, 9
+Row 3, Col 1 (sRow 3, sCol 1), Value  , Candidates: 6, 9
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 6, 9
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value  , Candidates: 9
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value 1, Candidates: 
+Row 2, Col 4 (sRow 2, sCol 1), Value  , Candidates: 2, 6, 9
+Row 2, Col 5 (sRow 2, sCol 2), Value  , Candidates: 3, 9
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 4, 6, 9
+Row 3, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 9
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5, 9
+Row 2, Col 8 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 2, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 5, 9
+Row 3, Col 7 (sRow 3, sCol 1), Value  , Candidates: 7, 9
+Row 3, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 7
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value 1, Candidates: 
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 9
+Row 4, Col 3 (sRow 1, sCol 3), Value  , Candidates: 4, 8, 9
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 6, 9
+Row 5, Col 3 (sRow 2, sCol 3), Value  , Candidates: 4, 6, 8, 9
+Row 6, Col 1 (sRow 3, sCol 1), Value 3, Candidates: 
+Row 6, Col 2 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value  , Candidates: 4, 5, 7, 9
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value  , Candidates: 4, 5, 9
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value  , Candidates: 4, 9
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 7, 9
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value  , Candidates: 5, 7, 8
+Row 4, Col 9 (sRow 1, sCol 3), Value  , Candidates: 4, 5, 7, 9
+Row 5, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5, 6, 9
+Row 5, Col 8 (sRow 2, sCol 2), Value  , Candidates: 3, 5, 6, 8
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value  , Candidates: 6, 7, 9
+Row 6, Col 8 (sRow 3, sCol 2), Value  , Candidates: 6, 7
+Row 6, Col 9 (sRow 3, sCol 3), Value  , Candidates: 4, 7, 9
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value 1, Candidates: 
+Row 7, Col 3 (sRow 1, sCol 3), Value  , Candidates: 6, 7, 9
+Row 8, Col 1 (sRow 2, sCol 1), Value  , Candidates: 5, 6
+Row 8, Col 2 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value  , Candidates: 7, 9
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 3, 5, 9
+Row 7, Col 6 (sRow 1, sCol 3), Value  , Candidates: 3, 9
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value  , Candidates: 1, 4, 5
+Row 8, Col 6 (sRow 2, sCol 3), Value  , Candidates: 2, 4
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 5, 9
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 9
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value  , Candidates: 3, 5, 6, 7
+Row 7, Col 9 (sRow 1, sCol 3), Value  , Candidates: 3, 5, 7
+Row 8, Col 7 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 5
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 5, 7
+Row 9, Col 9 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 5, 7
+Remove candiates by row and column...
+Remove candiates by row and column removed 0 candidates
+Candidates (114)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value  , Candidates: 5, 9
+Row 1, Col 2 (sRow 1, sCol 2), Value 7, Candidates: 
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6, 9
+Row 3, Col 1 (sRow 3, sCol 1), Value  , Candidates: 6, 9
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 6, 9
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value  , Candidates: 9
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value 1, Candidates: 
+Row 2, Col 4 (sRow 2, sCol 1), Value  , Candidates: 2, 6, 9
+Row 2, Col 5 (sRow 2, sCol 2), Value  , Candidates: 3, 9
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 4, 6, 9
+Row 3, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 9
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5, 9
+Row 2, Col 8 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 2, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 5, 9
+Row 3, Col 7 (sRow 3, sCol 1), Value  , Candidates: 7, 9
+Row 3, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 7
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value 1, Candidates: 
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 9
+Row 4, Col 3 (sRow 1, sCol 3), Value  , Candidates: 4, 8, 9
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 6, 9
+Row 5, Col 3 (sRow 2, sCol 3), Value  , Candidates: 4, 6, 8, 9
+Row 6, Col 1 (sRow 3, sCol 1), Value 3, Candidates: 
+Row 6, Col 2 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value  , Candidates: 4, 5, 7, 9
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value  , Candidates: 4, 5, 9
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value  , Candidates: 4, 9
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4, 7, 9
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value  , Candidates: 5, 7, 8
+Row 4, Col 9 (sRow 1, sCol 3), Value  , Candidates: 4, 5, 7, 9
+Row 5, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5, 6, 9
+Row 5, Col 8 (sRow 2, sCol 2), Value  , Candidates: 3, 5, 6, 8
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value  , Candidates: 6, 7, 9
+Row 6, Col 8 (sRow 3, sCol 2), Value  , Candidates: 6, 7
+Row 6, Col 9 (sRow 3, sCol 3), Value  , Candidates: 4, 7, 9
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value 1, Candidates: 
+Row 7, Col 3 (sRow 1, sCol 3), Value  , Candidates: 6, 7, 9
+Row 8, Col 1 (sRow 2, sCol 1), Value  , Candidates: 5, 6
+Row 8, Col 2 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value  , Candidates: 7, 9
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 3, 5, 9
+Row 7, Col 6 (sRow 1, sCol 3), Value  , Candidates: 3, 9
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value  , Candidates: 1, 4, 5
+Row 8, Col 6 (sRow 2, sCol 3), Value  , Candidates: 2, 4
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 2, 5, 9
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 9
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value  , Candidates: 3, 5, 6, 7
+Row 7, Col 9 (sRow 1, sCol 3), Value  , Candidates: 3, 5, 7
+Row 8, Col 7 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value  , Candidates: 2, 5
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 5, 7
+Row 9, Col 9 (sRow 3, sCol 3), Value  , Candidates: 2, 3, 5, 7
+Assign candiates with Single Possible Location..
+AssignCandidatesWithSinglePossibleLocationInSquare...
+Only one possible location in square 1 for candidate 5
+Removed 1 instances of candiate 5 in col 1
+Assigned 5 to 1, 1
+Only one possible location in square 2 for candidate 3
+Removed 1 instances of candiate 3 in col 5
+Assigned 3 to 2, 5
+Only one possible location in square 6 for candidate 3
+Removed 2 instances of candiate 3 in col 8
+Assigned 3 to 5, 8
+Only one possible location in square 6 for candidate 8
+Removed 1 instances of candiate 8 in row 4
+Assigned 8 to 4, 8
+Only one possible location in square 8 for candidate 1
+Assigned 1 to 8, 5
+Only one possible location in square 8 for candidate 4
+Removed 1 instances of candiate 4 in col 6
+Assigned 4 to 8, 6
+Only one possible location in square 9 for candidate 6
+Removed 1 instances of candiate 6 in col 8
+Removed 1 instances of candiate 6 in row 7
+Assigned 6 to 7, 8
+AssignCandidatesWithSinglePossibleLocationInRow...
+One possible location in row 1 for candidate 9
+Removed 4 instances of candiate 9 in col 4
+Removed 1 instances of candiate 9 in square 2
+Assigned 9 to 1, 4
+One possible location in row 5 for candidate 8
+Assigned 8 to 5, 3
+One possible location in row 6 for candidate 6
+Removed 1 instances of candiate 6 in col 7
+Assigned 6 to 6, 7
+One possible location in row 8 for candidate 2
+Removed 2 instances of candiate 2 in col 9
+Removed 1 instances of candiate 2 in square 9
+Assigned 2 to 8, 9
+SetCandidatesWithSinglePossibleLocationInCol...
+One possible location in col 1 for candidate 9
+Removed 2 instances of candiate 9 in row 3
+Removed 1 instances of candiate 9 in square 1
+Assigned 9 to 3, 1
+One possible location in col 3 for candidate 4
+Removed 2 instances of candiate 4 in row 4
+Assigned 4 to 4, 3
+One possible location in col 6 for candidate 2
+Removed 1 instances of candiate 2 in row 9
+Assigned 2 to 9, 6
+One possible location in col 6 for candidate 3
+Removed 1 instances of candiate 3 in row 7
+Assigned 3 to 7, 6
+One possible location in col 6 for candidate 9
+Removed 2 instances of candiate 9 in row 5
+Removed 2 instances of candiate 9 in square 5
+Assigned 9 to 5, 6
+One possible location in col 7 for candidate 7
+Removed 1 instances of candiate 7 in row 3
+Assigned 7 to 3, 7
+One possible location in col 7 for candidate 9
+Removed 1 instances of candiate 9 in row 2
+Assigned 9 to 2, 7
+One possible location in col 8 for candidate 2
+Removed 1 instances of candiate 2 in row 3
+Assigned 2 to 3, 8
+One possible location in col 8 for candidate 5
+Removed 2 instances of candiate 5 in row 9
+Removed 1 instances of candiate 5 in square 9
+Assigned 5 to 9, 8
+One possible location in col 8 for candidate 7
+Removed 2 instances of candiate 7 in row 6
+Removed 1 instances of candiate 7 in square 6
+Assigned 7 to 6, 8
+One possible location in col 9 for candidate 3
+Assigned 3 to 9, 9
+One possible location in col 9 for candidate 4
+Removed 1 instances of candiate 4 in row 6
+Assigned 4 to 6, 9
+One possible location in col 9 for candidate 7
+Removed 1 instances of candiate 7 in row 7
+Assigned 7 to 7, 9
+One possible location in col 9 for candidate 9
+Removed 1 instances of candiate 9 in row 4
+Assigned 9 to 4, 9
+SinglePossibleLocation set values to unique candidates: Assigned 25 cells
+
+Assigned 25 cells
+Grid
+============
+   5 | 7 |.2 || 9 |.8 | 1 || 3 |.4 |.6
+ --------------------------------------
+   8 |.4 |   ||   | 3 |.7 || 9 | 1 |  
+ --------------------------------------
+   9 |   |.3 ||   |   |.5 || 7 | 2 |.8
+ ======================================
+   1 |   | 4 ||.3 |   |.6 ||.2 | 8 | 9
+ --------------------------------------
+  .7 |   | 8 ||   |.2 | 9 ||   | 3 |.1
+ --------------------------------------
+   3 | 2 |.5 ||.1 |   |.8 || 6 | 7 | 4
+ ======================================
+  .2 | 1 |   ||.8 |   | 3 ||.4 | 6 | 7
+ --------------------------------------
+     | 3 |   ||.7 | 1 | 4 || 8 |.9 | 2
+ --------------------------------------
+  .4 |.8 |   ||   |.6 | 2 ||.1 | 5 | 3
+ 
+Valid Grid
+
+Iteration: 3
+=============================
+Marking Canditates
+============
+Seting Candidates...
+Candidates Marked: 21
+Candidates (21)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value 5, Candidates: 
+Row 1, Col 2 (sRow 1, sCol 2), Value 7, Candidates: 
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 3, Col 1 (sRow 3, sCol 1), Value 9, Candidates: 
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 6
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value 9, Candidates: 
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value 1, Candidates: 
+Row 2, Col 4 (sRow 2, sCol 1), Value  , Candidates: 2, 6
+Row 2, Col 5 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value  , Candidates: 4, 6
+Row 3, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value 9, Candidates: 
+Row 2, Col 8 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 2, Col 9 (sRow 2, sCol 3), Value  , Candidates: 5
+Row 3, Col 7 (sRow 3, sCol 1), Value 7, Candidates: 
+Row 3, Col 8 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value 1, Candidates: 
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 
+Row 4, Col 3 (sRow 1, sCol 3), Value 4, Candidates: 
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 6
+Row 5, Col 3 (sRow 2, sCol 3), Value 8, Candidates: 
+Row 6, Col 1 (sRow 3, sCol 1), Value 3, Candidates: 
+Row 6, Col 2 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value  , Candidates: 5, 7
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value  , Candidates: 4, 5
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value 9, Candidates: 
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 4, Col 9 (sRow 1, sCol 3), Value 9, Candidates: 
+Row 5, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5
+Row 5, Col 8 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value 6, Candidates: 
+Row 6, Col 8 (sRow 3, sCol 2), Value 7, Candidates: 
+Row 6, Col 9 (sRow 3, sCol 3), Value 4, Candidates: 
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value 1, Candidates: 
+Row 7, Col 3 (sRow 1, sCol 3), Value  , Candidates: 9
+Row 8, Col 1 (sRow 2, sCol 1), Value  , Candidates: 6
+Row 8, Col 2 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value  , Candidates: 7, 9
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 5, 9
+Row 7, Col 6 (sRow 1, sCol 3), Value 3, Candidates: 
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 8, Col 6 (sRow 2, sCol 3), Value 4, Candidates: 
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value 2, Candidates: 
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value 6, Candidates: 
+Row 7, Col 9 (sRow 1, sCol 3), Value 7, Candidates: 
+Row 8, Col 7 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value 2, Candidates: 
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value 5, Candidates: 
+Row 9, Col 9 (sRow 3, sCol 3), Value 3, Candidates: 
+Remove candiates by row and column...
+Remove candiates by row and column removed 0 candidates
+Candidates (21)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value 5, Candidates: 
+Row 1, Col 2 (sRow 1, sCol 2), Value 7, Candidates: 
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 3, Col 1 (sRow 3, sCol 1), Value 9, Candidates: 
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 6
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value 9, Candidates: 
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value 1, Candidates: 
+Row 2, Col 4 (sRow 2, sCol 1), Value  , Candidates: 2, 6
+Row 2, Col 5 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value  , Candidates: 4, 6
+Row 3, Col 5 (sRow 3, sCol 2), Value  , Candidates: 4
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value 9, Candidates: 
+Row 2, Col 8 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 2, Col 9 (sRow 2, sCol 3), Value  , Candidates: 5
+Row 3, Col 7 (sRow 3, sCol 1), Value 7, Candidates: 
+Row 3, Col 8 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value 1, Candidates: 
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 
+Row 4, Col 3 (sRow 1, sCol 3), Value 4, Candidates: 
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 6
+Row 5, Col 3 (sRow 2, sCol 3), Value 8, Candidates: 
+Row 6, Col 1 (sRow 3, sCol 1), Value 3, Candidates: 
+Row 6, Col 2 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value  , Candidates: 5, 7
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value  , Candidates: 4, 5
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value 9, Candidates: 
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 4, Col 9 (sRow 1, sCol 3), Value 9, Candidates: 
+Row 5, Col 7 (sRow 2, sCol 1), Value  , Candidates: 5
+Row 5, Col 8 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value 6, Candidates: 
+Row 6, Col 8 (sRow 3, sCol 2), Value 7, Candidates: 
+Row 6, Col 9 (sRow 3, sCol 3), Value 4, Candidates: 
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value 1, Candidates: 
+Row 7, Col 3 (sRow 1, sCol 3), Value  , Candidates: 9
+Row 8, Col 1 (sRow 2, sCol 1), Value  , Candidates: 6
+Row 8, Col 2 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 6
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value  , Candidates: 7, 9
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 5, 9
+Row 7, Col 6 (sRow 1, sCol 3), Value 3, Candidates: 
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 8, Col 6 (sRow 2, sCol 3), Value 4, Candidates: 
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value 2, Candidates: 
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value 6, Candidates: 
+Row 7, Col 9 (sRow 1, sCol 3), Value 7, Candidates: 
+Row 8, Col 7 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value 2, Candidates: 
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value 5, Candidates: 
+Row 9, Col 9 (sRow 3, sCol 3), Value 3, Candidates: 
+Assign candiates with Single Possible Location..
+AssignCandidatesWithSinglePossibleLocationInSquare...
+Only one possible location in square 2 for candidate 2
+Assigned 2 to 2, 4
+Only one possible location in square 2 for candidate 6
+Removed 1 instances of candiate 6 in row 3
+Assigned 6 to 3, 4
+Only one possible location in square 3 for candidate 5
+Assigned 5 to 2, 9
+Only one possible location in square 4 for candidate 6
+Assigned 6 to 5, 2
+Only one possible location in square 5 for candidate 4
+Assigned 4 to 5, 4
+Only one possible location in square 5 for candidate 5
+Removed 1 instances of candiate 5 in col 5
+Assigned 5 to 4, 5
+Only one possible location in square 6 for candidate 5
+Assigned 5 to 5, 7
+Only one possible location in square 7 for candidate 7
+Assigned 7 to 9, 3
+Only one possible location in square 7 for candidate 9
+Removed 1 instances of candiate 9 in row 7
+Assigned 9 to 7, 3
+AssignCandidatesWithSinglePossibleLocationInRow...
+One possible location in row 2 for candidate 6
+Removed 1 instances of candiate 6 in col 3
+Assigned 6 to 2, 3
+One possible location in row 3 for candidate 4
+Assigned 4 to 3, 5
+One possible location in row 8 for candidate 6
+Assigned 6 to 8, 1
+SetCandidatesWithSinglePossibleLocationInCol...
+SinglePossibleLocation set values to unique candidates: Assigned 12 cells
+
+Assigned 12 cells
+Grid
+============
+   5 | 7 |.2 || 9 |.8 | 1 || 3 |.4 |.6
+ --------------------------------------
+   8 |.4 | 6 || 2 | 3 |.7 || 9 | 1 | 5
+ --------------------------------------
+   9 |   |.3 || 6 | 4 |.5 || 7 | 2 |.8
+ ======================================
+   1 |   | 4 ||.3 | 5 |.6 ||.2 | 8 | 9
+ --------------------------------------
+  .7 | 6 | 8 || 4 |.2 | 9 || 5 | 3 |.1
+ --------------------------------------
+   3 | 2 |.5 ||.1 |   |.8 || 6 | 7 | 4
+ ======================================
+  .2 | 1 | 9 ||.8 |   | 3 ||.4 | 6 | 7
+ --------------------------------------
+   6 | 3 |   ||.7 | 1 | 4 || 8 |.9 | 2
+ --------------------------------------
+  .4 |.8 | 7 ||   |.6 | 2 ||.1 | 5 | 3
+ 
+Valid Grid
+
+Iteration: 4
+=============================
+Marking Canditates
+============
+Seting Candidates...
+Candidates Marked: 0
+Candidates (0)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value 5, Candidates: 
+Row 1, Col 2 (sRow 1, sCol 2), Value 7, Candidates: 
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value 6, Candidates: 
+Row 3, Col 1 (sRow 3, sCol 1), Value 9, Candidates: 
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value 9, Candidates: 
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value 1, Candidates: 
+Row 2, Col 4 (sRow 2, sCol 1), Value 2, Candidates: 
+Row 2, Col 5 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value 6, Candidates: 
+Row 3, Col 5 (sRow 3, sCol 2), Value 4, Candidates: 
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value 9, Candidates: 
+Row 2, Col 8 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 2, Col 9 (sRow 2, sCol 3), Value 5, Candidates: 
+Row 3, Col 7 (sRow 3, sCol 1), Value 7, Candidates: 
+Row 3, Col 8 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value 1, Candidates: 
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 
+Row 4, Col 3 (sRow 1, sCol 3), Value 4, Candidates: 
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value 6, Candidates: 
+Row 5, Col 3 (sRow 2, sCol 3), Value 8, Candidates: 
+Row 6, Col 1 (sRow 3, sCol 1), Value 3, Candidates: 
+Row 6, Col 2 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value 5, Candidates: 
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value 4, Candidates: 
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value 9, Candidates: 
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 4, Col 9 (sRow 1, sCol 3), Value 9, Candidates: 
+Row 5, Col 7 (sRow 2, sCol 1), Value 5, Candidates: 
+Row 5, Col 8 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value 6, Candidates: 
+Row 6, Col 8 (sRow 3, sCol 2), Value 7, Candidates: 
+Row 6, Col 9 (sRow 3, sCol 3), Value 4, Candidates: 
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value 1, Candidates: 
+Row 7, Col 3 (sRow 1, sCol 3), Value 9, Candidates: 
+Row 8, Col 1 (sRow 2, sCol 1), Value 6, Candidates: 
+Row 8, Col 2 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value 7, Candidates: 
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 
+Row 7, Col 6 (sRow 1, sCol 3), Value 3, Candidates: 
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 8, Col 6 (sRow 2, sCol 3), Value 4, Candidates: 
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value 2, Candidates: 
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value 6, Candidates: 
+Row 7, Col 9 (sRow 1, sCol 3), Value 7, Candidates: 
+Row 8, Col 7 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value 2, Candidates: 
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value 5, Candidates: 
+Row 9, Col 9 (sRow 3, sCol 3), Value 3, Candidates: 
+Remove candiates by row and column...
+Remove candiates by row and column removed 0 candidates
+Candidates (0)
+===============
+Square: 1
+Row 1, Col 1 (sRow 1, sCol 1), Value 5, Candidates: 
+Row 1, Col 2 (sRow 1, sCol 2), Value 7, Candidates: 
+Row 1, Col 3 (sRow 1, sCol 3), Value 2, Candidates: 
+Row 2, Col 1 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 2, Col 2 (sRow 2, sCol 2), Value 4, Candidates: 
+Row 2, Col 3 (sRow 2, sCol 3), Value 6, Candidates: 
+Row 3, Col 1 (sRow 3, sCol 1), Value 9, Candidates: 
+Row 3, Col 2 (sRow 3, sCol 2), Value  , Candidates: 
+Row 3, Col 3 (sRow 3, sCol 3), Value 3, Candidates: 
+Square: 2
+Row 1, Col 4 (sRow 1, sCol 1), Value 9, Candidates: 
+Row 1, Col 5 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 1, Col 6 (sRow 1, sCol 3), Value 1, Candidates: 
+Row 2, Col 4 (sRow 2, sCol 1), Value 2, Candidates: 
+Row 2, Col 5 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 2, Col 6 (sRow 2, sCol 3), Value 7, Candidates: 
+Row 3, Col 4 (sRow 3, sCol 1), Value 6, Candidates: 
+Row 3, Col 5 (sRow 3, sCol 2), Value 4, Candidates: 
+Row 3, Col 6 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 3
+Row 1, Col 7 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 1, Col 8 (sRow 1, sCol 2), Value 4, Candidates: 
+Row 1, Col 9 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 2, Col 7 (sRow 2, sCol 1), Value 9, Candidates: 
+Row 2, Col 8 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 2, Col 9 (sRow 2, sCol 3), Value 5, Candidates: 
+Row 3, Col 7 (sRow 3, sCol 1), Value 7, Candidates: 
+Row 3, Col 8 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 3, Col 9 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value 1, Candidates: 
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 
+Row 4, Col 3 (sRow 1, sCol 3), Value 4, Candidates: 
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value 6, Candidates: 
+Row 5, Col 3 (sRow 2, sCol 3), Value 8, Candidates: 
+Row 6, Col 1 (sRow 3, sCol 1), Value 3, Candidates: 
+Row 6, Col 2 (sRow 3, sCol 2), Value 2, Candidates: 
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+Square: 5
+Row 4, Col 4 (sRow 1, sCol 1), Value 3, Candidates: 
+Row 4, Col 5 (sRow 1, sCol 2), Value 5, Candidates: 
+Row 4, Col 6 (sRow 1, sCol 3), Value 6, Candidates: 
+Row 5, Col 4 (sRow 2, sCol 1), Value 4, Candidates: 
+Row 5, Col 5 (sRow 2, sCol 2), Value 2, Candidates: 
+Row 5, Col 6 (sRow 2, sCol 3), Value 9, Candidates: 
+Row 6, Col 4 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 6, Col 5 (sRow 3, sCol 2), Value  , Candidates: 
+Row 6, Col 6 (sRow 3, sCol 3), Value 8, Candidates: 
+Square: 6
+Row 4, Col 7 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 4, Col 8 (sRow 1, sCol 2), Value 8, Candidates: 
+Row 4, Col 9 (sRow 1, sCol 3), Value 9, Candidates: 
+Row 5, Col 7 (sRow 2, sCol 1), Value 5, Candidates: 
+Row 5, Col 8 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 5, Col 9 (sRow 2, sCol 3), Value 1, Candidates: 
+Row 6, Col 7 (sRow 3, sCol 1), Value 6, Candidates: 
+Row 6, Col 8 (sRow 3, sCol 2), Value 7, Candidates: 
+Row 6, Col 9 (sRow 3, sCol 3), Value 4, Candidates: 
+Square: 7
+Row 7, Col 1 (sRow 1, sCol 1), Value 2, Candidates: 
+Row 7, Col 2 (sRow 1, sCol 2), Value 1, Candidates: 
+Row 7, Col 3 (sRow 1, sCol 3), Value 9, Candidates: 
+Row 8, Col 1 (sRow 2, sCol 1), Value 6, Candidates: 
+Row 8, Col 2 (sRow 2, sCol 2), Value 3, Candidates: 
+Row 8, Col 3 (sRow 2, sCol 3), Value  , Candidates: 
+Row 9, Col 1 (sRow 3, sCol 1), Value 4, Candidates: 
+Row 9, Col 2 (sRow 3, sCol 2), Value 8, Candidates: 
+Row 9, Col 3 (sRow 3, sCol 3), Value 7, Candidates: 
+Square: 8
+Row 7, Col 4 (sRow 1, sCol 1), Value 8, Candidates: 
+Row 7, Col 5 (sRow 1, sCol 2), Value  , Candidates: 
+Row 7, Col 6 (sRow 1, sCol 3), Value 3, Candidates: 
+Row 8, Col 4 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 8, Col 5 (sRow 2, sCol 2), Value 1, Candidates: 
+Row 8, Col 6 (sRow 2, sCol 3), Value 4, Candidates: 
+Row 9, Col 4 (sRow 3, sCol 1), Value  , Candidates: 
+Row 9, Col 5 (sRow 3, sCol 2), Value 6, Candidates: 
+Row 9, Col 6 (sRow 3, sCol 3), Value 2, Candidates: 
+Square: 9
+Row 7, Col 7 (sRow 1, sCol 1), Value 4, Candidates: 
+Row 7, Col 8 (sRow 1, sCol 2), Value 6, Candidates: 
+Row 7, Col 9 (sRow 1, sCol 3), Value 7, Candidates: 
+Row 8, Col 7 (sRow 2, sCol 1), Value 8, Candidates: 
+Row 8, Col 8 (sRow 2, sCol 2), Value 9, Candidates: 
+Row 8, Col 9 (sRow 2, sCol 3), Value 2, Candidates: 
+Row 9, Col 7 (sRow 3, sCol 1), Value 1, Candidates: 
+Row 9, Col 8 (sRow 3, sCol 2), Value 5, Candidates: 
+Row 9, Col 9 (sRow 3, sCol 3), Value 3, Candidates: 
+Assign candiates with Single Possible Location..
+AssignCandidatesWithSinglePossibleLocationInSquare...
+AssignCandidatesWithSinglePossibleLocationInRow...
+SetCandidatesWithSinglePossibleLocationInCol...
+SinglePossibleLocation set values to unique candidates: Assigned 0 cells
+
+Assigned 0 cells
+Grid
+============
+   5 | 7 |.2 || 9 |.8 | 1 || 3 |.4 |.6
+ --------------------------------------
+   8 |.4 | 6 || 2 | 3 |.7 || 9 | 1 | 5
+ --------------------------------------
+   9 |   |.3 || 6 | 4 |.5 || 7 | 2 |.8
+ ======================================
+   1 |   | 4 ||.3 | 5 |.6 ||.2 | 8 | 9
+ --------------------------------------
+  .7 | 6 | 8 || 4 |.2 | 9 || 5 | 3 |.1
+ --------------------------------------
+   3 | 2 |.5 ||.1 |   |.8 || 6 | 7 | 4
+ ======================================
+  .2 | 1 | 9 ||.8 |   | 3 ||.4 | 6 | 7
+ --------------------------------------
+   6 | 3 |   ||.7 | 1 | 4 || 8 |.9 | 2
+ --------------------------------------
+  .4 |.8 | 7 ||   |.6 | 2 ||.1 | 5 | 3
+ 
+Valid Grid
+No assigned cells, exiting

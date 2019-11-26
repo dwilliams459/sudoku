@@ -16,7 +16,7 @@ namespace Sudoku
 
                 Log.Logger = new LoggerConfiguration()
                     .WriteTo.File("./output.txt", outputTemplate: "{Message:lj}{NewLine}")
-                    .MinimumLevel.Debug()
+                    .MinimumLevel.Verbose()
                     .CreateLogger();
 
                 Log.Information($"Starting Sudoku {DateTime.Now}");
@@ -37,12 +37,15 @@ namespace Sudoku
                     puzzle.Solve();
                 }
 
-                Log.CloseAndFlush();
             }
             catch (Exception ex)
             {
                 Log.Information(ex.Message);
                 Log.Information(ex.StackTrace);
+            }
+            finally
+            {
+                Log.CloseAndFlush();
             }
         }
 
@@ -56,13 +59,19 @@ namespace Sudoku
 
         public static bool LoadFromGridJson(Sudoku puzzle, string jsonFile = "")
         {
-            jsonFile = (string.IsNullOrWhiteSpace(jsonFile)) ? "./inputgrid.json" : jsonFile;
+            jsonFile = (string.IsNullOrWhiteSpace(jsonFile)) ? "./hard1.json" : jsonFile;
 
             string json = string.Empty;
             List<GridRowValues> valueLocations = new List<GridRowValues>();
             try
             {
-                json = File.ReadAllText(jsonFile);
+                string jsonFilePath = jsonFile;
+                if (!File.Exists(jsonFilePath))
+                { 
+                    jsonFilePath = Path.Combine("grids", jsonFile);
+                }
+
+                json = File.ReadAllText(jsonFilePath);
                 valueLocations = JsonConvert.DeserializeObject<List<GridRowValues>>(json);
             }
             catch (Exception ex)

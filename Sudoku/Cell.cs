@@ -9,14 +9,32 @@ namespace Sudoku
     {
         public int Row;
         public int Col;
+        public int SquareRow { get; }
+        public int SquareCol { get; }
         public int? Value { get; set; }
+        public int Square { get; }
         public bool Original { get; set; }
-
+        public int Index { get; }
+        public int SquareIndex { get; set; }
         public List<int> Candidates { get; set; }
 
-        public int TotalCandidates => Candidates.Count();
+        public GridCell(int row, int col)
+        {
+            Row = row;
+            Col = col;
 
-        public string ValueOrSpace
+            SquareRow = (Row % 3 == 0) ? 3 : Row % 3;  // Square row is 1, 2, or 3
+            SquareCol = (Col % 3 == 0) ? 3 : Col % 3;  // Square col is 1, 2, or 3
+            
+            Square = SquareFromRowCol(Row, Col);
+            
+            Candidates = new List<int>();
+
+            Index = (Row * 9) + col;
+            int squareIndex = (SquareRow * 3) + SquareCol;
+        }
+        
+        public string CellValueOrSpace
         {
             get
             {
@@ -24,7 +42,7 @@ namespace Sudoku
             }
         }
 
-        public string ValueMarkedWithOriginal
+        public string CellValueMarkedWithOriginal
         {
             get
             {
@@ -34,14 +52,7 @@ namespace Sudoku
             }
         }
 
-        public int Square;
-
-        public void SetSquare()
-        {
-            Square = GetSquare(Row, Col);
-        }
-
-        public static int GetSquare(int row, int col)
+        public static int SquareFromRowCol(int row, int col)
         {
             int squareCol = (int)Math.Floor((decimal)(col - 1) / 3);
             if (row >= 1 && row <= 3)
@@ -57,9 +68,6 @@ namespace Sudoku
                 return 7 + squareCol;
             }
         }
-
-        public int SquareRow => Row % 3;
-        public int SquareCol => Col % 3;
 
         public static int RowFromSquareRow(int square, int squareRow)
         {
@@ -108,13 +116,6 @@ namespace Sudoku
             return 0;
         }
 
-        public GridCell(int row, int col)
-        {
-            Row = row;
-            Col = col;
-            SetSquare();
 
-            Candidates = new List<int>();
-        }
     }
 }

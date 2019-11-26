@@ -1,0 +1,18 @@
+
+Square: 4
+Row 4, Col 1 (sRow 1, sCol 1), Value  , Candidates: 1, 8, 9
+Row 4, Col 2 (sRow 1, sCol 2), Value  , Candidates: 1, 9
+Row 4, Col 3 (sRow 1, sCol 3), Value  , Candidates: 1, 4, 8, 9
+Row 5, Col 1 (sRow 2, sCol 1), Value 7, Candidates: 
+Row 5, Col 2 (sRow 2, sCol 2), Value  , Candidates: 3, 6, 9
+Row 5, Col 3 (sRow 2, sCol 3), Value  , Candidates: 4, 6, 8, 9
+Row 6, Col 1 (sRow 3, sCol 1), Value  , Candidates: 3, 6, 9
+Row 6, Col 2 (sRow 3, sCol 2), Value  , Candidates: 2, 3, 6, 9
+Row 6, Col 3 (sRow 3, sCol 3), Value 5, Candidates: 
+
+
+for each Square
+  for each unassigned integer (candiate).  query: in square, value == null
+    how many times does candiate appear in square? if only 1 time
+      targetCell = cells where (in square, contains candiate).FirstOrDefault()
+
