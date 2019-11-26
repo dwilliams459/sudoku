@@ -31,10 +31,16 @@ namespace Sudoku
                     jsonFile = args[0];
                 }
 
+                int iterations = 0;
+                if (args != null && args.Length > 1)
+                {
+                    int.TryParse(args[1], out iterations);
+                }
+
                 //LoadGrid(puzzle, jsonFile);
                 if (LoadFromGridJson(puzzle, jsonFile) == true)
                 {
-                    puzzle.Solve();
+                    puzzle.Solve(iterations);
                 }
 
             }
@@ -67,7 +73,7 @@ namespace Sudoku
             {
                 string jsonFilePath = jsonFile;
                 if (!File.Exists(jsonFilePath))
-                { 
+                {
                     jsonFilePath = Path.Combine("grids", jsonFile);
                 }
 
