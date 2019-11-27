@@ -6,6 +6,14 @@ using Serilog;
 
 namespace Sudoku
 {
+
+    public enum PremptiveSetType
+    {
+        Row = 1,
+        Col = 2,
+        Square = 3
+    }
+
     public class Sudoku
     {
 
@@ -148,7 +156,7 @@ namespace Sudoku
                 for (int valueX = 1; valueX <= 9; valueX++)
                 {
                     removedCandiates += RemoveIfCanidateOnlyInOneRow(square, valueX);
-                    //removedCandiates += RemoveIfCanidateInExactlyTwoCols(square, valueX);
+                    removedCandiates += RemoveIfCanidateOnlyInOneCol(square, valueX);
                 }
             }
             Log.Information($"Remove candiates by row and column removed {removedCandiates} candidates");
@@ -178,6 +186,35 @@ namespace Sudoku
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, !row2, row3");
                 removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 3), valueX, square);
+            }
+
+            return removedCandiates;
+        }
+
+        private int RemoveIfCanidateOnlyInOneCol(int square, int valueX)
+        {
+            int removedCandiates = 0;
+
+            // For a square, does square col (1, 2, 3) have any of candidate X in them?
+            bool candidateInCol1 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+            bool candidateInCol2 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+            bool candidateInCol3 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+
+            // If Candiate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
+            if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
+            {
+                Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
+                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
+            }
+            else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
+            {
+                Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
+                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
+            }
+            else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
+            {
+                Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
+                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
             }
 
             return removedCandiates;
@@ -239,35 +276,6 @@ namespace Sudoku
 
         //     return removedCandiates;
         // }
-
-        private int RemoveIfCanidateInExactlyOneCol(int square, int valueX)
-        {
-            int removedCandiates = 0;
-
-            // For a square, does square col (1, 2, 3) have any of candidate X in them?
-            bool candidateInCol1 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInCol2 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInCol3 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-
-            // If Candiate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
-            if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
-            }
-            else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
-            }
-            else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
-            }
-
-            return removedCandiates;
-        }
 
 
         /// <summary>
@@ -355,64 +363,93 @@ namespace Sudoku
             {
                 Grid.PrintSquareGridWithCandiates(square);
 
-                // For the following calculations, we need grid data as Value/location NOT Candidate/Cell
-                // Grid uses SquareIndex, NOT row/column
-                // For each value1 (1-9), possible locations = List<int>
-                // Get valueLocations Dictionary<int<int>> (4:1,2; 5:7,8; 7:1,2)
-                var valLocs = Grid.ValueLocations(square);
-                // For each value1 (1-9)
-
-                /// >> HIDDEN PAIRS <<
-                // Find pairs of values that have 2 identical locations
-                // Example: Given Values(with locations): 1(1,3); 2(4,5); 3(1,4,5); 4(1,3)
-                //     Would match values 1(1,3) and 4(1,3) as a pair 
-
-                // Value1: For each value with ONLY two locations (NOT candidates)
-                foreach (var value1 in valLocs.Where(v => v.Value.Count() == 2))
-                {
-                    // For each value2 with ONLY two locations and not == value1 
-                    // The '>' below prevents evaluating same values twice: (values 1,2 and 2,1)
-                    foreach (var value2 in valLocs.Where(v => v.Value.Count() == 2 && v.Key > value1.Key))
-                    {
-                        // Does value1.locations == value2.locations?
-                        if (value1.Value.All(value2.Value.Contains) && value1.Value.Count == value2.Value.Count)
-                        {
-                            Log.Debug($"Match found for value(locations): {value1.Key}.locations contains {value2.Key}.locations");
-                            Log.Verbose($"Value1: {value1}.Locations({string.Join(",", value1.Value)})");
-                            Log.Verbose($"Value2: {value2}.Locations({string.Join(",", value2.Value)})");
-
-                            // Get list of values (1,4) and list of values (1,4)
-                            var values = new List<int> { value1.Key, value2.Key };
-                            var locations = new List<int> { value1.Value[0], value1.Value[1] }; 
-
-                            // Now that I know that, what do I do??
-                            HandleHiddenPair(square, values, locations);
-                        }
-                    }
-                }
-                // Clear as mud?  :O
+                ManagePremetiveSetPairs(square);
 
             }
         }
 
-        private void HandleHiddenPair(int square, List<int> values, List<int> locations)
+
+        /// <summary>
+        /// Find Matches/pairs in a square.
+        /// </summary>
+        /// <param name="square"></param>
+        private void ManagePremetiveSetPairs(int square)
+        {
+            // For the following calculations, we need grid data as Value/location NOT Candidate/Cell
+            // Grid uses SquareIndex, NOT row/column
+            // For each value1 (1-9), possible locations = List<int>
+            // Get valueLocations Dictionary<int<int>> (4:1,2; 5:7,8; 7:1,2)
+            var valLocs = Grid.ValueLocationsBySquare(square);
+
+            /// >> HIDDEN PAIRS <<
+            // Find pairs of values that have 2 identical locations
+            // Example: Given Values(with locations): 1(1,3); 2(4,5); 3(1,4,5); 4(1,3)
+            //     Would match values 1(1,3) and 4(1,3) as a pair 
+
+            // Value1: For each value with ONLY two locations (NOT candidates)
+            foreach (var value1 in valLocs.Where(v => v.Value.Count() == 2))
+            {
+                // For each value2 with ONLY two locations and not == value1 
+                // The '>' below prevents evaluating same values twice: (values 1,2 and 2,1)
+                foreach (var value2 in valLocs.Where(v => v.Value.Count() == 2 && v.Key > value1.Key))
+                {
+                    // Does value1.locations == value2.locations?
+                    if (value1.Value.All(value2.Value.Contains) && value1.Value.Count == value2.Value.Count)
+                    {
+                        Log.Debug($"Match found for value(locations): {value1.Key}.locations contains {value2.Key}.locations");
+                        Log.Verbose($"Value1: {value1}.Locations({string.Join(",", value1.Value)})");
+                        Log.Verbose($"Value2: {value2}.Locations({string.Join(",", value2.Value)})");
+
+                        // Get list of values (1,4) and list of values (1,4)
+                        var values = new List<int> { value1.Key, value2.Key };
+                        var locations = new List<int> { value1.Value[0], value1.Value[1] };
+
+                        // Now that I know that, what do I do??
+                        HandleHiddenPairInSquare(square, values, locations);
+                    }
+                }
+            }
+            // Clear as mud?  :O
+        }
+
+        /// <summary>
+        /// Find Matches/pairs in a row.
+        /// </summary>
+        /// <param name="row"></param>
+        private void ManagePremetiveSetsInRow(int row)
+        {
+            // >> See ManagePremetiveSetsInSquare for more comments <<
+            // Get valueLocations Dictionary<int<int>> (4:1,2; 5:7,8; 7:1,2)
+            var valLocs = Grid.ValueLocationsByRow(row);
+
+            // Value1: For each value with ONLY two locations (NOT candidates)
+            foreach (var value1 in valLocs.Where(v => v.Value.Count() == 2))
+            {
+                // For each value2 with ONLY two locations and not == value1 
+                foreach (var value2 in valLocs.Where(v => v.Value.Count() == 2 && v.Key > value1.Key))
+                {
+                    // Does value1.locations == value2.locations?
+                    if (value1.Value.All(value2.Value.Contains) && value1.Value.Count == value2.Value.Count)
+                    {
+                        Log.Debug($"Match found for value(locations): {value1.Key}.locations contains {value2.Key}.locations");
+                        Log.Verbose($"Value1: {value1}.Locations({string.Join(",", value1.Value)})");
+                        Log.Verbose($"Value2: {value2}.Locations({string.Join(",", value2.Value)})");
+
+                        // Get list of values (1,4) and list of values (1,4)
+                        var values = new List<int> { value1.Key, value2.Key };
+                        var locations = new List<int> { value1.Value[0], value1.Value[1] };
+
+                        // Now that I know that, what do I do??
+                        HandleHiddenPairInSquare(row, values, locations);
+                    }
+                }
+            }
+            // Clear as mud?  :O
+        }
+
+        private void HandleHiddenPairInSquare(int square, List<int> values, List<int> locations)
         {
             Log.Debug($"Handle HiddenPair sqare {square}, values {string.Join(",", values)}, locations {string.Join(",", locations)}");
-            // value 1 and value 2 are in the same row, remove other values from candidates
-            // for all cells in square (other than location 1, location 2)
-            // foreach (GridCell cell in Grid.Cells.Where(c => c.Square == square
-            //             && c.SquareIndex != locations[0] && c.SquareIndex != locations[1]))
-            // {
-            //     // Remove value 1, value 2
-            //     cell.Candidates.Remove(value1);
-            //     cell.Candidates.Remove(value2);
-            // }
-
-            // // For both locations, the only candidates should be value1 and value2.
-            // var cellLoc1 = Grid.Cells.Where(c => c.Square == square && c.SquareIndex == locations[0]).FirstOrDefault();
-            // cellLoc1.Candidates = new List<int> { value1, value2 };
-            // var cellLoc2 = Grid.Cells.Where(c => c.Square == square && c.SquareIndex == locations[1]).FirstOrDefault();
-            // cellLoc2.Candidates = new List<int> { value1, value2 };
         }
 
     }

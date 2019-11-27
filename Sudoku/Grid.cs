@@ -52,14 +52,60 @@ namespace Sudoku
         public int TotalCandiates => Cells.Sum(c => c.Candidates.Count());
         public int TotalValues => Cells.Count(c => (c.Value > 0));
 
-        public Dictionary<int, List<int>> ValueLocations(int square)
+
+        /// <summary>
+        /// Piviot a columns cell-candiates to value-locations.  (Location is a row index)
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public Dictionary<int, List<int>> ValueLocationsByCol(int col)
         {
             Dictionary<int, List<int>> valueLocations = new Dictionary<int, List<int>>();
 
-            // Piviot cell-candiates to value-locations.  (Location is a SquareIndex)
-            // Example:
-            // (Cell.Candidates) 1:1,3,4; 2:3,4; 3:4,5
-            // (Value.Locations) 1:1; 2:0; 3:2; 4:3, 5:1 
+            // Convert col cell-candiates to value-locations.  (Location is a row index)
+            // Example: (Draw the following on a 5x5 grid if needed)
+            // For col 1, row(candidates): 1(1,3,4), 2(3,4), 3(4,5)
+            // Becomes: Value(# of Locations) 1(1), 2(0), 3(2), 4(3), 5(1) 
+            for (int value = 1; value <= 9; value++)
+            {
+                // Get list of locations (rows) for this value
+                List<int> locations = Cells.Where(c => c.Col == col && c.Candidates.Contains(value)).Select(c => c.Col).ToList();
+                valueLocations.Add(value, locations);
+            }
+
+            return valueLocations;
+        }
+
+        /// <summary>
+        /// Piviot a columns cell-candiates to value-locations.  (Location is a col index)
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public Dictionary<int, List<int>> ValueLocationsByRow(int row)
+        {
+            Dictionary<int, List<int>> valueLocations = new Dictionary<int, List<int>>();
+
+            // See comments in ValueLocationByCol
+            for (int value = 1; value <= 9; value++)
+            {
+                // Get list of locations (cols) for this value
+                List<int> locations = Cells.Where(c => c.Row == row && c.Candidates.Contains(value)).Select(c => c.Row).ToList();
+                valueLocations.Add(value, locations);
+            }
+
+            return valueLocations;
+        }
+
+        /// <summary>
+        /// Piviot cell-candiates to value-locations.  (Location is a SquareIndex)
+        /// </summary>
+        /// <param name="square"></param>
+        /// <returns></returns>
+        public Dictionary<int, List<int>> ValueLocationsBySquare(int square)
+        {
+            Dictionary<int, List<int>> valueLocations = new Dictionary<int, List<int>>();
+
+            // See comments in ValueLocationByCol
             for (int value = 1; value <= 9; value++)
             {
                 // Get list of locations (square indexes) for this value
