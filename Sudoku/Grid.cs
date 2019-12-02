@@ -69,7 +69,7 @@ namespace Sudoku
             for (int value = 1; value <= 9; value++)
             {
                 // Get list of locations (rows) for this value
-                List<int> locations = Cells.Where(c => c.Col == col && c.Candidates.Contains(value)).Select(c => c.Col).ToList();
+                List<int> locations = Cells.Where(c => c.Col == col && c.Candidates.Contains(value)).Select(c => c.Row).ToList();
                 valueLocations.Add(value, locations);
             }
 
@@ -89,7 +89,7 @@ namespace Sudoku
             for (int value = 1; value <= 9; value++)
             {
                 // Get list of locations (cols) for this value
-                List<int> locations = Cells.Where(c => c.Row == row && c.Candidates.Contains(value)).Select(c => c.Row).ToList();
+                List<int> locations = Cells.Where(c => c.Row == row && c.Candidates.Contains(value)).Select(c => c.Col).ToList();
                 valueLocations.Add(value, locations);
             }
 
@@ -109,7 +109,6 @@ namespace Sudoku
             for (int value = 1; value <= 9; value++)
             {
                 // Get list of locations (square indexes) for this value
-                var cells = Cells.Where(c => c.Square == square && c.Candidates.Contains(value));
                 List<int> locations = Cells.Where(c => c.Square == square && c.Candidates.Contains(value)).Select(c => c.SquareIndex).ToList();
                 valueLocations.Add(value, locations);
             }
@@ -132,11 +131,21 @@ namespace Sudoku
             return Cell(row, col);
         }
 
+        public GridCell CellBySquareIndex(int square, int squareIndex)
+        {
+            var cell = Cells.Where(c => c.Square == square && c.SquareIndex == squareIndex).FirstOrDefault();
+            return cell;
+        }
+
         public void AssignValueToCell(int row, int col, int value, bool original = false)
         {
             if (row > 9 || row < 1) return;
             if (col > 9 || col < 1) return;
-
+            if (value == 9)
+            {
+                int square = this.Cell(row, col).Square;
+                Log.Verbose($"Setting in square {square}({row},{col}), value {value}");
+            }
             var cell = Cells.FirstOrDefault(c => c.Row == row && c.Col == col);
             cell.Value = value;
             cell.Original = original;
@@ -166,10 +175,10 @@ namespace Sudoku
             }
         }
 
-        public int RemoveCandidatesInRow(int row, int candidate, int notSquare = 0)
+        public int RemoveCandidatesInRow(int row, int candidate, int notInSquare = 0)
         {
             int removedCandidates = 0;
-            Cells.Where(c => c.Row == row  && c.Square != notSquare).ToList().ForEach(c =>
+            Cells.Where(c => c.Row == row  && c.Square != notInSquare).ToList().ForEach(c =>
             {
                 if (c.Candidates.Contains(candidate))
                 {
@@ -190,10 +199,58 @@ namespace Sudoku
             return removedCandidates;
         }
 
-        public int RemoveCandidatesInCol(int col, int candidate, int notSquare = 0)
+        public int RemoveCandidatesInRow(int row, int candidate, List<int> notInCells)
         {
             int removedCandidates = 0;
-            Cells.Where(c => c.Col == col && c.Square != notSquare).ToList().ForEach(c =>
+            Cells.Where(c => c.Row == row  && !notInCells.Contains(c.Index)).ToList().ForEach(c =>
+            {
+                if (c.Candidates.Contains(candidate))
+                {
+                    c.Candidates.Remove(candidate);
+                    removedCandidates++;
+                }
+            });
+
+            if (removedCandidates > 0)
+            {
+                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in row {row}");
+            }
+            else
+            {
+                Log.Verbose($"  No instances of candiate {candidate} in row {row}");
+            }
+
+            return removedCandidates;
+        }
+
+        public int RemoveCandidatesInCol(int col, int candidate, int notInSquare = 0)
+        {
+            int removedCandidates = 0;
+            Cells.Where(c => c.Col == col && c.Square != notInSquare).ToList().ForEach(c =>
+            {
+                if (c.Candidates.Contains(candidate))
+                {
+                    c.Candidates.Remove(candidate);
+                    removedCandidates++;
+                }
+            });
+
+            if (removedCandidates > 0)
+            {
+                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in col {col}");
+            }
+            else
+            {
+                Log.Verbose($"  No instances of candiate {candidate} in col {col}");
+            }
+
+            return removedCandidates;
+        }
+
+        public int RemoveCandidatesInCol(int col, int candidate, List<int> notInCells)
+        {
+            int removedCandidates = 0;
+            Cells.Where(c => c.Col == col && notInCells.Contains(c.Index)).ToList().ForEach(c =>
             {
                 if (c.Candidates.Contains(candidate))
                 {
@@ -258,6 +315,11 @@ namespace Sudoku
             {
                 cell.Candidates.Clear();
             }
+        }
+
+        public int CandidateCountBySquare(int square, List<int> locations)
+        {
+            return Cells.Count(c => c.Square == square && locations.Contains(c.SquareIndex));
         }
 
         public bool ValidateGrid()
@@ -510,7 +572,7 @@ namespace Sudoku
                 }
             }
 
-            Log.Information(gridSquare.ToString());
+            Log.Verbose(gridSquare.ToString());
 
         }
     }
