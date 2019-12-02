@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using Serilog;
 
 namespace Sudoku
@@ -34,7 +35,7 @@ namespace Sudoku
             Grid.PrintGrid(0);
             Grid.ValidateGrid();
 
-            iterations = (iterations == 0) ? 10 : iterations;
+            iterations = (iterations == 0) ? 30 : iterations;
             for (int i = 1; i <= iterations; i++)
             {
                 Log.Information("");
@@ -334,13 +335,24 @@ namespace Sudoku
                         AssignedWithSinglePossibleLocation++;
                     }
                 }
-
             }
         }
 
         public void AssignCandidatesWithSinglePossibleLocation()
         {
             Log.Debug("Assigning candidates with single possible location...");
+            Dictionary<GridCell, int> removeCandidates = new Dictionary<GridCell, int>();
+
+            bool assignedValue = false;
+
+            do
+            {
+                assignedValue = AssignFirstValidCandidate(assignedValue);
+            } while (assignedValue == true);
+        }
+
+        private bool AssignFirstValidCandidate(bool assignedValue)
+        {
             foreach (GridCell cell in Grid.Cells)
             {
                 foreach (int candidate in cell.Candidates)
@@ -351,11 +363,37 @@ namespace Sudoku
                     if (targetCells != null && targetCells.Count() == 1)
                     {
                         var targetCell = targetCells.FirstOrDefault();
-                        Grid.AssignValueToCell(targetCell.Row, targetCell.Col, candidate);
+                        Grid.AssignValueToCell(targetCell.Row, targetCell.Col, candidate, false, true);
                         AssignedWithSinglePossibleLocation++;
+                        return true;
                     }
                 }
             }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Perform a deep Copy of the object, using Json as a serialisation method. NOTE: Private members are not cloned using this method.
+        /// </summary>
+        /// <typeparam name="T">The type of object being copied.</typeparam>
+        /// <param name="source">The object instance to copy.</param>
+        /// <returns>The copied object.</returns>
+        public static Grid CloneGridViaJson(Grid source)
+        {
+            // Don't serialize a null object, simply return the default for that object
+            if (Object.ReferenceEquals(source, null))
+            {
+                return default(Grid);
+            }
+
+            // initialize inner objects individually
+            // for example in default constructor some list property initialized with some values,
+            // but in 'source' these items are cleaned -
+            // without ObjectCreationHandling.Replace default constructor values will be added to result
+            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
+
+            return JsonConvert.DeserializeObject<Grid>(JsonConvert.SerializeObject(source), deserializeSettings);
         }
 
         /// <summary>

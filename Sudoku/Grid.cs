@@ -137,7 +137,7 @@ namespace Sudoku
             return cell;
         }
 
-        public void AssignValueToCell(int row, int col, int value, bool original = false)
+        public void AssignValueToCell(int row, int col, int value, bool original = false, bool removeCandiates = true)
         {
             if (row > 9 || row < 1) return;
             if (col > 9 || col < 1) return;
@@ -156,7 +156,7 @@ namespace Sudoku
             }
 
             // Remove value from list of candidates for this row, col, square
-            if (!original)
+            if (!original && removeCandiates)
             {
                 cell.Candidates.Clear();
                 RemoveCandidatesInCol(col, value);

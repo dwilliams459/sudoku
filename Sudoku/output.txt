@@ -1,28 +1,30 @@
-Starting Sudoku 12/2/2019 9:03:30 AM
+Starting Sudoku 12/2/2019 5:20:55 PM
 ====================================================
  
-Setting in square 9(8,8), value 9
+Setting in square 2(1,5), value 9
+Setting in square 4(5,3), value 9
+Setting in square 5(6,4), value 9
 Starting Grid
-Total cells with assigned values: 28
+Total cells with assigned values: 23
 Grid
 ============
-     |   |.2 ||   |.8 |   ||   |.4 |.6
+  .4 |   |   ||   |.9 |.7 ||   |   |  
  --------------------------------------
-     |.4 |   ||   |   |.7 ||   |   |  
+  .7 |.8 |   ||   |.1 |   ||   |   |.4
  --------------------------------------
-     |   |.3 ||   |   |.5 ||   |   |.8
+  .3 |   |   ||   |   |   ||   |   |  
  ======================================
-     |   |   ||.3 |   |.6 ||.2 |   |  
+     |   |   ||   |.8 |   ||   |   |  
  --------------------------------------
-  .7 |   |   ||   |.2 |   ||   |   |.1
+     |   |.9 ||   |   |.5 ||.3 |   |  
  --------------------------------------
-     |   |.5 ||.1 |   |.8 ||   |   |  
+     |   |.6 ||.9 |   |   ||.2 |   |.8
  ======================================
-  .2 |   |   ||.8 |   |   ||.4 |   |  
+     |.2 |   ||   |   |   ||.8 |   |  
  --------------------------------------
-     |   |   ||.7 |   |   ||   |.9 |.2
+     |   |   ||   |   |.6 ||   |   |.3
  --------------------------------------
-  .4 |.8 |   ||   |.6 |   ||.1 |   |  
+  .6 |   |   ||.3 |.7 |   ||   |   |  
  
 Valid Grid
 
@@ -31,414 +33,879 @@ Iteration: 1
 Marking Canditates
 ============
 Seting Candidates...
-Candidates Marked: 180
+Candidates Marked: 238
 Grid
 ============
-  (159)      | (1579)     | 2*         || (9)        | 8*         | (139)      || (3579)     | 4*         | 6*        
+  4*         | (156)      | (125)      || (2568)     | 9*         | 7*         || (156)      | (123568)   | (1256)    
  -------------------------------------------------------------------------------------------------------------------------
-  (15689)    | 4*         | (1689)     || (269)      | (139)      | 7*         || (359)      | (1235)     | (359)     
+  7*         | 8*         | (25)       || (256)      | 1*         | (23)       || (569)      | (23569)    | 4*        
  -------------------------------------------------------------------------------------------------------------------------
-  (169)      | (1679)     | 3*         || (2469)     | (149)      | 5*         || (79)       | (127)      | 8*        
+  3*         | (1569)     | (125)      || (24568)    | (2456)     | (248)      || (15679)    | (1256789)  | (125679)  
  =========================================================================================================================
-  (189)      | (19)       | (1489)     || 3*         | (4579)     | 6*         || 2*         | (578)      | (4579)    
+  (125)      | (13457)    | (123457)   || (12467)    | 8*         | (1234)     || (145679)   | (145679)   | (15679)   
  -------------------------------------------------------------------------------------------------------------------------
-  7*         | (369)      | (4689)     || (459)      | 2*         | (49)       || (35689)    | (3568)     | 1*        
+  (128)      | (147)      | 9*         || (12467)    | (246)      | 5*         || 3*         | (1467)     | (167)     
  -------------------------------------------------------------------------------------------------------------------------
-  (369)      | (2369)     | 5*         || 1*         | (479)      | 8*         || (3679)     | (367)      | (3479)    
+  (15)       | (13457)    | 6*         || 9*         | (34)       | (134)      || 2*         | (1457)     | 8*        
  =========================================================================================================================
-  2*         | (135679)   | (1679)     || 8*         | (1359)     | (139)      || 4*         | (3567)     | (357)     
+  (159)      | 2*         | (13457)    || (145)      | (45)       | (149)      || 8*         | (145679)   | (15679)   
  -------------------------------------------------------------------------------------------------------------------------
-  (1356)     | (1356)     | (16)       || 7*         | (1345)     | (134)      || (3568)     | 9*         | 2*        
+  (1589)     | (14579)    | (14578)    || (12458)    | (245)      | 6*         || (14579)    | (124579)   | 3*        
  -------------------------------------------------------------------------------------------------------------------------
-  4*         | 8*         | (79)       || (259)      | 6*         | (239)      || 1*         | (357)      | (357)     
+  6*         | (1459)     | (1458)     || 3*         | 7*         | (12489)    || (1459)     | (12459)    | (1259)    
  
 Remove candiates by row and column...
-  Candidate 7 square 1: !col1, col2, !col3
-  Removed 1 instances of candiate 7 in col 2
-  For square 1, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 2
-  Candidate 2 square 2: col1, !col2, !col3
-  Removed 1 instances of candiate 2 in col 4
+  Candidate 2 square 1: !col1, !col2, col3
+  Removed 1 instances of candiate 2 in col 3
+  Candidate 6 square 1: !col1, col2, !col3
+  No instances of candiate 6 in col 2
+  For square 1, candidate 9: in !row1, !row2, row3
+  Removed 3 instances of candiate 9 in row 3
+  Candidate 9 square 1: !col1, col2, !col3
+  Removed 2 instances of candiate 9 in col 2
+  For square 2, candidate 3: in !row1, row2, !row3
+  Removed 1 instances of candiate 3 in row 2
+  Candidate 3 square 2: !col1, !col2, col3
+  Removed 2 instances of candiate 3 in col 6
   For square 2, candidate 4: in !row1, !row2, row3
   No instances of candiate 4 in row 3
-  Candidate 6 square 2: col1, !col2, !col3
-  No instances of candiate 6 in col 4
-  Candidate 1 square 3: !col1, col2, !col3
-  No instances of candiate 1 in col 8
-  Candidate 2 square 3: !col1, col2, !col3
-  No instances of candiate 2 in col 8
-  For square 4, candidate 1: in row1, !row2, !row3
-  No instances of candiate 1 in row 4
-  For square 4, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 6
-  Candidate 2 square 4: !col1, col2, !col3
-  No instances of candiate 2 in col 2
-  Candidate 4 square 4: !col1, !col2, col3
-  No instances of candiate 4 in col 3
-  Candidate 7 square 5: !col1, col2, !col3
-  No instances of candiate 7 in col 5
-  Candidate 4 square 6: !col1, !col2, col3
-  No instances of candiate 4 in col 9
-  Candidate 7 square 7: !col1, !col2, col3
-  No instances of candiate 7 in col 3
-  For square 8, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 9
-  Candidate 2 square 8: !col1, !col2, col3
-  No instances of candiate 2 in col 6
-  For square 8, candidate 4: in !row1, row2, !row3
-  No instances of candiate 4 in row 8
-  For square 9, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 8
-  Candidate 8 square 9: col1, !col2, !col3
-  Removed 1 instances of candiate 8 in col 7
-Remove candiates by row and column removed 3 candidates
-Match found in Square 2 for values: 2,6
-  Value1(locations): 2(4,7)
-  Value2(locations): 6(4,7)
-Clear other candidates in two matching cells
-  Existing candidates at 2-4: 2,6,9
-  Existing candidates at 2-7: 2,4,6,9
-  Removed 3 candidates in square 2
-Match found in Square 3 for values: 1,2
-  Value1(locations): 1(5,8)
-  Value2(locations): 2(5,8)
-Clear other candidates in two matching cells
-  Existing candidates at 3-5: 1,2,3,5
-  Existing candidates at 3-8: 1,2,7
-  Removed 3 candidates in square 3
-Match found in Col 4 for values: 2,6
-  Value1(locations): 2(2,3)
-  Value2(locations): 6(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 4-2: 2,6
-  Existing candidates at 4-3: 2,6
-Match found in Col 8 for values: 1,2
-  Value1(locations): 1(2,3)
-  Value2(locations): 2(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 8-2: 1,2
-  Existing candidates at 8-3: 1,2
-Grid
-============
-  (159)      | (1579)     | 2*         || (9)        | 8*         | (139)      || (3579)     | 4*         | 6*        
- -------------------------------------------------------------------------------------------------------------------------
-  (15689)    | 4*         | (1689)     || (26)       | (139)      | 7*         || (359)      | (12)       | (359)     
- -------------------------------------------------------------------------------------------------------------------------
-  (169)      | (1679)     | 3*         || (26)       | (149)      | 5*         || (79)       | (12)       | 8*        
- =========================================================================================================================
-  (189)      | (19)       | (1489)     || 3*         | (4579)     | 6*         || 2*         | (578)      | (4579)    
- -------------------------------------------------------------------------------------------------------------------------
-  7*         | (369)      | (4689)     || (459)      | 2*         | (49)       || (3569)     | (3568)     | 1*        
- -------------------------------------------------------------------------------------------------------------------------
-  (369)      | (2369)     | 5*         || 1*         | (479)      | 8*         || (3679)     | (367)      | (3479)    
- =========================================================================================================================
-  2*         | (13569)    | (1679)     || 8*         | (1359)     | (139)      || 4*         | (3567)     | (357)     
- -------------------------------------------------------------------------------------------------------------------------
-  (1356)     | (1356)     | (16)       || 7*         | (1345)     | (134)      || (3568)     | 9*         | 2*        
- -------------------------------------------------------------------------------------------------------------------------
-  4*         | 8*         | (79)       || (59)       | 6*         | (239)      || 1*         | (357)      | (357)     
- 
-Removed 9 candidates (iteration 1)
-Remove candiates by row and column...
-  Candidate 7 square 1: !col1, col2, !col3
-  No instances of candiate 7 in col 2
-  For square 1, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 2
-  Candidate 2 square 2: col1, !col2, !col3
-  No instances of candiate 2 in col 4
-  For square 2, candidate 4: in !row1, !row2, row3
-  No instances of candiate 4 in row 3
-  Candidate 4 square 2: !col1, col2, !col3
-  Removed 3 instances of candiate 4 in col 5
-  Candidate 6 square 2: col1, !col2, !col3
-  No instances of candiate 6 in col 4
-  Candidate 1 square 3: !col1, col2, !col3
-  No instances of candiate 1 in col 8
-  Candidate 2 square 3: !col1, col2, !col3
-  No instances of candiate 2 in col 8
-  Candidate 7 square 3: col1, !col2, !col3
-  Removed 1 instances of candiate 7 in col 7
-  For square 4, candidate 1: in row1, !row2, !row3
-  No instances of candiate 1 in row 4
-  For square 4, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 6
-  Candidate 2 square 4: !col1, col2, !col3
-  No instances of candiate 2 in col 2
-  Candidate 4 square 4: !col1, !col2, col3
-  No instances of candiate 4 in col 3
-  For square 5, candidate 4: in !row1, row2, !row3
-  Removed 1 instances of candiate 4 in row 5
-  Candidate 7 square 5: !col1, col2, !col3
-  No instances of candiate 7 in col 5
-  Candidate 4 square 6: !col1, !col2, col3
-  No instances of candiate 4 in col 9
-  Candidate 8 square 6: !col1, col2, !col3
+  For square 3, candidate 3: in row1, !row2, !row3
+  No instances of candiate 3 in row 1
+  Candidate 3 square 3: !col1, col2, !col3
+  No instances of candiate 3 in col 8
+  For square 3, candidate 7: in !row1, !row2, row3
+  No instances of candiate 7 in row 3
+  Candidate 8 square 3: !col1, col2, !col3
   No instances of candiate 8 in col 8
-  Candidate 7 square 7: !col1, !col2, col3
-  No instances of candiate 7 in col 3
-  For square 8, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 9
-  Candidate 2 square 8: !col1, !col2, col3
-  No instances of candiate 2 in col 6
-  For square 8, candidate 4: in !row1, row2, !row3
-  No instances of candiate 4 in row 8
-  Candidate 4 square 8: !col1, !col2, col3
-  Removed 1 instances of candiate 4 in col 6
-  For square 9, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 8
-  Candidate 8 square 9: col1, !col2, !col3
-  No instances of candiate 8 in col 7
-Remove candiates by row and column removed 6 candidates
-Match found in Square 2 for values: 2,6
-  Value1(locations): 2(4,7)
-  Value2(locations): 6(4,7)
-Clear other candidates in two matching cells
-  Existing candidates at 2-4: 2,6
-  Existing candidates at 2-7: 2,6
-Match found in Square 3 for values: 1,2
-  Value1(locations): 1(5,8)
-  Value2(locations): 2(5,8)
-Clear other candidates in two matching cells
-  Existing candidates at 3-5: 1,2
-  Existing candidates at 3-8: 1,2
-Match found in Col 4 for values: 2,6
-  Value1(locations): 2(2,3)
-  Value2(locations): 6(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 4-2: 2,6
-  Existing candidates at 4-3: 2,6
-Match found in Col 8 for values: 1,2
-  Value1(locations): 1(2,3)
-  Value2(locations): 2(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 8-2: 1,2
-  Existing candidates at 8-3: 1,2
+  For square 3, candidate 9: in !row1, row2, !row3
+  No instances of candiate 9 in row 2
+  Candidate 2 square 4: col1, !col2, !col3
+  No instances of candiate 2 in col 1
+  For square 4, candidate 8: in !row1, row2, !row3
+  No instances of candiate 8 in row 5
+  Candidate 8 square 4: col1, !col2, !col3
+  Removed 1 instances of candiate 8 in col 1
+  For square 5, candidate 3: in !row1, !row2, row3
+  Removed 1 instances of candiate 3 in row 6
+  Candidate 3 square 5: !col1, col2, !col3
+  No instances of candiate 3 in col 5
+  Candidate 7 square 5: col1, !col2, !col3
+  No instances of candiate 7 in col 4
+  For square 6, candidate 9: in row1, !row2, !row3
+  No instances of candiate 9 in row 4
+  For square 7, candidate 3: in row1, !row2, !row3
+  No instances of candiate 3 in row 7
+  Candidate 3 square 7: !col1, !col2, col3
+  Removed 1 instances of candiate 3 in col 3
+  Candidate 8 square 7: !col1, !col2, col3
+  No instances of candiate 8 in col 3
+  Candidate 9 square 7: col1, !col2, !col3
+  No instances of candiate 9 in col 1
+  Candidate 9 square 8: !col1, !col2, col3
+  No instances of candiate 9 in col 6
+  For square 9, candidate 6: in row1, !row2, !row3
+  No instances of candiate 6 in row 7
+Remove candiates by row and column removed 12 candidates
 Grid
 ============
-  (159)      | (1579)     | 2*         || (9)        | 8*         | (139)      || (3579)     | 4*         | 6*        
+  4*         | (156)      | (125)      || (2568)     | 9*         | 7*         || (156)      | (123568)   | (1256)    
  -------------------------------------------------------------------------------------------------------------------------
-  (15689)    | 4*         | (1689)     || (26)       | (139)      | 7*         || (359)      | (12)       | (359)     
+  7*         | 8*         | (25)       || (256)      | 1*         | (23)       || (569)      | (2569)     | 4*        
  -------------------------------------------------------------------------------------------------------------------------
-  (169)      | (1679)     | 3*         || (26)       | (149)      | 5*         || (79)       | (12)       | 8*        
+  3*         | (1569)     | (125)      || (24568)    | (2456)     | (248)      || (1567)     | (125678)   | (12567)   
  =========================================================================================================================
-  (189)      | (19)       | (1489)     || 3*         | (579)      | 6*         || 2*         | (578)      | (4579)    
+  (125)      | (13457)    | (1457)     || (12467)    | 8*         | (124)      || (145679)   | (145679)   | (15679)   
  -------------------------------------------------------------------------------------------------------------------------
-  7*         | (369)      | (689)      || (459)      | 2*         | (9)        || (3569)     | (3568)     | 1*        
+  (128)      | (147)      | 9*         || (12467)    | (246)      | 5*         || 3*         | (1467)     | (167)     
  -------------------------------------------------------------------------------------------------------------------------
-  (369)      | (2369)     | 5*         || 1*         | (79)       | 8*         || (369)      | (367)      | (3479)    
+  (15)       | (1457)     | 6*         || 9*         | (34)       | (14)       || 2*         | (1457)     | 8*        
  =========================================================================================================================
-  2*         | (13569)    | (1679)     || 8*         | (1359)     | (139)      || 4*         | (3567)     | (357)     
+  (159)      | 2*         | (13457)    || (145)      | (45)       | (149)      || 8*         | (145679)   | (15679)   
  -------------------------------------------------------------------------------------------------------------------------
-  (1356)     | (1356)     | (16)       || 7*         | (135)      | (134)      || (3568)     | 9*         | 2*        
+  (159)      | (1457)     | (14578)    || (12458)    | (245)      | 6*         || (14579)    | (124579)   | 3*        
  -------------------------------------------------------------------------------------------------------------------------
-  4*         | 8*         | (79)       || (59)       | 6*         | (239)      || 1*         | (357)      | (357)     
+  6*         | (145)      | (1458)     || 3*         | 7*         | (12489)    || (1459)     | (12459)    | (1259)    
  
-Removed 6 candidates (iteration 2)
+Removed 12 candidates (iteration 1)
 Remove candiates by row and column...
-  Candidate 7 square 1: !col1, col2, !col3
-  No instances of candiate 7 in col 2
-  For square 1, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 2
-  Candidate 2 square 2: col1, !col2, !col3
-  No instances of candiate 2 in col 4
+  Candidate 2 square 1: !col1, !col2, col3
+  No instances of candiate 2 in col 3
+  Candidate 6 square 1: !col1, col2, !col3
+  No instances of candiate 6 in col 2
+  For square 1, candidate 9: in !row1, !row2, row3
+  No instances of candiate 9 in row 3
+  Candidate 9 square 1: !col1, col2, !col3
+  No instances of candiate 9 in col 2
+  For square 2, candidate 3: in !row1, row2, !row3
+  No instances of candiate 3 in row 2
+  Candidate 3 square 2: !col1, !col2, col3
+  No instances of candiate 3 in col 6
   For square 2, candidate 4: in !row1, !row2, row3
   No instances of candiate 4 in row 3
-  Candidate 4 square 2: !col1, col2, !col3
-  No instances of candiate 4 in col 5
-  Candidate 6 square 2: col1, !col2, !col3
-  No instances of candiate 6 in col 4
-  Candidate 1 square 3: !col1, col2, !col3
-  No instances of candiate 1 in col 8
-  Candidate 2 square 3: !col1, col2, !col3
-  No instances of candiate 2 in col 8
-  Candidate 7 square 3: col1, !col2, !col3
-  No instances of candiate 7 in col 7
-  For square 4, candidate 1: in row1, !row2, !row3
-  No instances of candiate 1 in row 4
-  For square 4, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 6
-  Candidate 2 square 4: !col1, col2, !col3
-  No instances of candiate 2 in col 2
-  For square 4, candidate 4: in row1, !row2, !row3
-  Removed 1 instances of candiate 4 in row 4
-  Candidate 4 square 4: !col1, !col2, col3
-  No instances of candiate 4 in col 3
-  For square 5, candidate 4: in !row1, row2, !row3
-  No instances of candiate 4 in row 5
-  Candidate 4 square 5: col1, !col2, !col3
-  No instances of candiate 4 in col 4
-  Candidate 7 square 5: !col1, col2, !col3
-  No instances of candiate 7 in col 5
-  For square 6, candidate 4: in !row1, !row2, row3
-  No instances of candiate 4 in row 6
-  Candidate 4 square 6: !col1, !col2, col3
-  No instances of candiate 4 in col 9
-  Candidate 8 square 6: !col1, col2, !col3
+  For square 3, candidate 3: in row1, !row2, !row3
+  No instances of candiate 3 in row 1
+  Candidate 3 square 3: !col1, col2, !col3
+  No instances of candiate 3 in col 8
+  For square 3, candidate 7: in !row1, !row2, row3
+  No instances of candiate 7 in row 3
+  Candidate 8 square 3: !col1, col2, !col3
   No instances of candiate 8 in col 8
-  Candidate 7 square 7: !col1, !col2, col3
-  No instances of candiate 7 in col 3
-  For square 8, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 9
-  Candidate 2 square 8: !col1, !col2, col3
-  No instances of candiate 2 in col 6
-  For square 8, candidate 4: in !row1, row2, !row3
-  No instances of candiate 4 in row 8
-  Candidate 4 square 8: !col1, !col2, col3
-  No instances of candiate 4 in col 6
-  For square 9, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 8
-  Candidate 8 square 9: col1, !col2, !col3
-  No instances of candiate 8 in col 7
-Remove candiates by row and column removed 1 candidates
-Match found in Square 2 for values: 2,6
-  Value1(locations): 2(4,7)
-  Value2(locations): 6(4,7)
-Clear other candidates in two matching cells
-  Existing candidates at 2-4: 2,6
-  Existing candidates at 2-7: 2,6
-Match found in Square 3 for values: 1,2
-  Value1(locations): 1(5,8)
-  Value2(locations): 2(5,8)
-Clear other candidates in two matching cells
-  Existing candidates at 3-5: 1,2
-  Existing candidates at 3-8: 1,2
-Match found in Col 4 for values: 2,6
-  Value1(locations): 2(2,3)
-  Value2(locations): 6(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 4-2: 2,6
-  Existing candidates at 4-3: 2,6
-Match found in Col 8 for values: 1,2
-  Value1(locations): 1(2,3)
-  Value2(locations): 2(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 8-2: 1,2
-  Existing candidates at 8-3: 1,2
-Grid
-============
-  (159)      | (1579)     | 2*         || (9)        | 8*         | (139)      || (3579)     | 4*         | 6*        
- -------------------------------------------------------------------------------------------------------------------------
-  (15689)    | 4*         | (1689)     || (26)       | (139)      | 7*         || (359)      | (12)       | (359)     
- -------------------------------------------------------------------------------------------------------------------------
-  (169)      | (1679)     | 3*         || (26)       | (149)      | 5*         || (79)       | (12)       | 8*        
- =========================================================================================================================
-  (189)      | (19)       | (1489)     || 3*         | (579)      | 6*         || 2*         | (578)      | (579)     
- -------------------------------------------------------------------------------------------------------------------------
-  7*         | (369)      | (689)      || (459)      | 2*         | (9)        || (3569)     | (3568)     | 1*        
- -------------------------------------------------------------------------------------------------------------------------
-  (369)      | (2369)     | 5*         || 1*         | (79)       | 8*         || (369)      | (367)      | (3479)    
- =========================================================================================================================
-  2*         | (13569)    | (1679)     || 8*         | (1359)     | (139)      || 4*         | (3567)     | (357)     
- -------------------------------------------------------------------------------------------------------------------------
-  (1356)     | (1356)     | (16)       || 7*         | (135)      | (134)      || (3568)     | 9*         | 2*        
- -------------------------------------------------------------------------------------------------------------------------
-  4*         | 8*         | (79)       || (59)       | 6*         | (239)      || 1*         | (357)      | (357)     
- 
-Removed 1 candidates (iteration 3)
-Remove candiates by row and column...
-  Candidate 7 square 1: !col1, col2, !col3
-  No instances of candiate 7 in col 2
-  For square 1, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 2
-  Candidate 2 square 2: col1, !col2, !col3
-  No instances of candiate 2 in col 4
-  For square 2, candidate 4: in !row1, !row2, row3
-  No instances of candiate 4 in row 3
-  Candidate 4 square 2: !col1, col2, !col3
-  No instances of candiate 4 in col 5
-  Candidate 6 square 2: col1, !col2, !col3
-  No instances of candiate 6 in col 4
-  Candidate 1 square 3: !col1, col2, !col3
-  No instances of candiate 1 in col 8
-  Candidate 2 square 3: !col1, col2, !col3
-  No instances of candiate 2 in col 8
-  Candidate 7 square 3: col1, !col2, !col3
-  No instances of candiate 7 in col 7
-  For square 4, candidate 1: in row1, !row2, !row3
-  No instances of candiate 1 in row 4
-  For square 4, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 6
-  Candidate 2 square 4: !col1, col2, !col3
-  No instances of candiate 2 in col 2
-  For square 4, candidate 4: in row1, !row2, !row3
-  No instances of candiate 4 in row 4
-  Candidate 4 square 4: !col1, !col2, col3
-  No instances of candiate 4 in col 3
-  For square 5, candidate 4: in !row1, row2, !row3
-  No instances of candiate 4 in row 5
-  Candidate 4 square 5: col1, !col2, !col3
-  No instances of candiate 4 in col 4
-  Candidate 7 square 5: !col1, col2, !col3
-  No instances of candiate 7 in col 5
-  For square 6, candidate 4: in !row1, !row2, row3
-  No instances of candiate 4 in row 6
-  Candidate 4 square 6: !col1, !col2, col3
-  No instances of candiate 4 in col 9
-  Candidate 8 square 6: !col1, col2, !col3
-  No instances of candiate 8 in col 8
-  Candidate 7 square 7: !col1, !col2, col3
-  No instances of candiate 7 in col 3
-  For square 8, candidate 2: in !row1, !row2, row3
-  No instances of candiate 2 in row 9
-  Candidate 2 square 8: !col1, !col2, col3
-  No instances of candiate 2 in col 6
-  For square 8, candidate 4: in !row1, row2, !row3
-  No instances of candiate 4 in row 8
-  Candidate 4 square 8: !col1, !col2, col3
-  No instances of candiate 4 in col 6
-  For square 9, candidate 8: in !row1, row2, !row3
-  No instances of candiate 8 in row 8
-  Candidate 8 square 9: col1, !col2, !col3
-  No instances of candiate 8 in col 7
+  For square 3, candidate 9: in !row1, row2, !row3
+  No instances of candiate 9 in row 2
+  Candidate 2 square 4: col1, !col2, !col3
+  No instances of candiate 2 in col 1
+  For square 4, candidate 3: in row1, !row2, !row3
+  No instances of candiate 3 in row 4
+  Candidate 3 square 4: !col1, col2, !col3
+  No instances of candiate 3 in col 2
+  For square 4, candidate 8: in !row1, row2, !row3
+  No instances of candiate 8 in row 5
+  Candidate 8 square 4: col1, !col2, !col3
+  No instances of candiate 8 in col 1
+  For square 5, candidate 3: in !row1, !row2, row3
+  No instances of candiate 3 in row 6
+  Candidate 3 square 5: !col1, col2, !col3
+  No instances of candiate 3 in col 5
+  Candidate 7 square 5: col1, !col2, !col3
+  No instances of candiate 7 in col 4
+  For square 6, candidate 9: in row1, !row2, !row3
+  No instances of candiate 9 in row 4
+  For square 7, candidate 3: in row1, !row2, !row3
+  No instances of candiate 3 in row 7
+  Candidate 3 square 7: !col1, !col2, col3
+  No instances of candiate 3 in col 3
+  Candidate 8 square 7: !col1, !col2, col3
+  No instances of candiate 8 in col 3
+  Candidate 9 square 7: col1, !col2, !col3
+  No instances of candiate 9 in col 1
+  Candidate 9 square 8: !col1, !col2, col3
+  No instances of candiate 9 in col 6
+  For square 9, candidate 6: in row1, !row2, !row3
+  No instances of candiate 6 in row 7
 Remove candiates by row and column removed 0 candidates
-Match found in Square 2 for values: 2,6
-  Value1(locations): 2(4,7)
-  Value2(locations): 6(4,7)
-Clear other candidates in two matching cells
-  Existing candidates at 2-4: 2,6
-  Existing candidates at 2-7: 2,6
-Match found in Square 3 for values: 1,2
-  Value1(locations): 1(5,8)
-  Value2(locations): 2(5,8)
-Clear other candidates in two matching cells
-  Existing candidates at 3-5: 1,2
-  Existing candidates at 3-8: 1,2
-Match found in Col 4 for values: 2,6
-  Value1(locations): 2(2,3)
-  Value2(locations): 6(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 4-2: 2,6
-  Existing candidates at 4-3: 2,6
-Match found in Col 8 for values: 1,2
-  Value1(locations): 1(2,3)
-  Value2(locations): 2(2,3)
-Clear other candidates in two matching cells
-  Existing candidates at 8-2: 1,2
-  Existing candidates at 8-3: 1,2
 Grid
 ============
-  (159)      | (1579)     | 2*         || (9)        | 8*         | (139)      || (3579)     | 4*         | 6*        
+  4*         | (156)      | (125)      || (2568)     | 9*         | 7*         || (156)      | (123568)   | (1256)    
  -------------------------------------------------------------------------------------------------------------------------
-  (15689)    | 4*         | (1689)     || (26)       | (139)      | 7*         || (359)      | (12)       | (359)     
+  7*         | 8*         | (25)       || (256)      | 1*         | (23)       || (569)      | (2569)     | 4*        
  -------------------------------------------------------------------------------------------------------------------------
-  (169)      | (1679)     | 3*         || (26)       | (149)      | 5*         || (79)       | (12)       | 8*        
+  3*         | (1569)     | (125)      || (24568)    | (2456)     | (248)      || (1567)     | (125678)   | (12567)   
  =========================================================================================================================
-  (189)      | (19)       | (1489)     || 3*         | (579)      | 6*         || 2*         | (578)      | (579)     
+  (125)      | (13457)    | (1457)     || (12467)    | 8*         | (124)      || (145679)   | (145679)   | (15679)   
  -------------------------------------------------------------------------------------------------------------------------
-  7*         | (369)      | (689)      || (459)      | 2*         | (9)        || (3569)     | (3568)     | 1*        
+  (128)      | (147)      | 9*         || (12467)    | (246)      | 5*         || 3*         | (1467)     | (167)     
  -------------------------------------------------------------------------------------------------------------------------
-  (369)      | (2369)     | 5*         || 1*         | (79)       | 8*         || (369)      | (367)      | (3479)    
+  (15)       | (1457)     | 6*         || 9*         | (34)       | (14)       || 2*         | (1457)     | 8*        
  =========================================================================================================================
-  2*         | (13569)    | (1679)     || 8*         | (1359)     | (139)      || 4*         | (3567)     | (357)     
+  (159)      | 2*         | (13457)    || (145)      | (45)       | (149)      || 8*         | (145679)   | (15679)   
  -------------------------------------------------------------------------------------------------------------------------
-  (1356)     | (1356)     | (16)       || 7*         | (135)      | (134)      || (3568)     | 9*         | 2*        
+  (159)      | (1457)     | (14578)    || (12458)    | (245)      | 6*         || (14579)    | (124579)   | 3*        
  -------------------------------------------------------------------------------------------------------------------------
-  4*         | 8*         | (79)       || (59)       | 6*         | (239)      || 1*         | (357)      | (357)     
+  6*         | (145)      | (1458)     || 3*         | 7*         | (12489)    || (1459)     | (12459)    | (1259)    
  
-Removed 0 candidates (iteration 4)
+Removed 0 candidates (iteration 2)
 Assign candiates with Single Possible Location..
 Assigning candidates with single possible location...
-Assigned 4 to 3, 5 (square 2)
-  No instances of candiate 4 in col 5
+Assigned 3 to 1, 8 (square 3)
+  No instances of candiate 3 in col 8
+  No instances of candiate 3 in row 1
+  No instances of candiate 3 in square 3
+Assigned 3 to 2, 6 (square 2)
+  No instances of candiate 3 in col 6
+  No instances of candiate 3 in row 2
+  No instances of candiate 3 in square 2
+Setting in square 1(3,2), value 9
+Assigned 9 to 3, 2 (square 1)
+  No instances of candiate 9 in col 2
+  No instances of candiate 9 in row 3
+  No instances of candiate 9 in square 1
+Assigned 6 to 1, 2 (square 1)
+  No instances of candiate 6 in col 2
+  Removed 3 instances of candiate 6 in row 1
+  No instances of candiate 6 in square 1
+Assigned 8 to 3, 8 (square 3)
+  No instances of candiate 8 in col 8
+  Removed 2 instances of candiate 8 in row 3
+  No instances of candiate 8 in square 3
+Assigned 3 to 4, 2 (square 4)
+  No instances of candiate 3 in col 2
+  No instances of candiate 3 in row 4
+  No instances of candiate 3 in square 4
+Assigned 8 to 5, 1 (square 4)
+  No instances of candiate 8 in col 1
+  No instances of candiate 8 in row 5
+  No instances of candiate 8 in square 4
+Assigned 2 to 4, 1 (square 4)
+  No instances of candiate 2 in col 1
+  Removed 2 instances of candiate 2 in row 4
+  No instances of candiate 2 in square 4
+Assigned 3 to 6, 5 (square 5)
+  No instances of candiate 3 in col 5
+  No instances of candiate 3 in row 6
+  No instances of candiate 3 in square 5
+Assigned 3 to 7, 3 (square 7)
+  No instances of candiate 3 in col 3
+  No instances of candiate 3 in row 7
+  No instances of candiate 3 in square 7
+Assigned 8 to 9, 6 (square 8)
+  No instances of candiate 8 in col 6
+  Removed 1 instances of candiate 8 in row 9
+  Removed 1 instances of candiate 8 in square 8
+Assigned 8 to 1, 4 (square 2)
+  No instances of candiate 8 in col 4
+  No instances of candiate 8 in row 1
+  No instances of candiate 8 in square 2
+Assigned 2 to 3, 6 (square 2)
+  No instances of candiate 2 in col 6
+  Removed 4 instances of candiate 2 in row 3
+  Removed 1 instances of candiate 2 in square 2
+Setting in square 8(7,6), value 9
+Assigned 9 to 7, 6 (square 8)
+  No instances of candiate 9 in col 6
+  Removed 3 instances of candiate 9 in row 7
+  No instances of candiate 9 in square 8
+Setting in square 7(8,1), value 9
+Assigned 9 to 8, 1 (square 7)
+  No instances of candiate 9 in col 1
+  Removed 2 instances of candiate 9 in row 8
+  No instances of candiate 9 in square 7
+Assigned 8 to 8, 3 (square 7)
+  No instances of candiate 8 in col 3
+  No instances of candiate 8 in row 8
+  No instances of candiate 8 in square 7
+Assigned 7 to 4, 3 (square 4)
+  No instances of candiate 7 in col 3
+  Removed 4 instances of candiate 7 in row 4
+  Removed 2 instances of candiate 7 in square 4
+Assigned 7 to 5, 4 (square 5)
+  No instances of candiate 7 in col 4
+  Removed 2 instances of candiate 7 in row 5
+  No instances of candiate 7 in square 5
+Assigned 7 to 8, 2 (square 7)
+  No instances of candiate 7 in col 2
+  Removed 2 instances of candiate 7 in row 8
+  No instances of candiate 7 in square 7
+Assigned 7 to 3, 7 (square 3)
+  No instances of candiate 7 in col 7
+  Removed 1 instances of candiate 7 in row 3
+  No instances of candiate 7 in square 3
+Assigned 7 to 7, 9 (square 9)
+  No instances of candiate 7 in col 9
+  Removed 1 instances of candiate 7 in row 7
+  No instances of candiate 7 in square 9
+Assigned 7 to 6, 8 (square 6)
+  No instances of candiate 7 in col 8
+  No instances of candiate 7 in row 6
+  No instances of candiate 7 in square 6
+Assigned 2 to 8, 4 (square 8)
+  No instances of candiate 2 in col 4
+  Removed 2 instances of candiate 2 in row 8
+  No instances of candiate 2 in square 8
+Assigned 2 to 5, 5 (square 5)
+  No instances of candiate 2 in col 5
+  No instances of candiate 2 in row 5
+  No instances of candiate 2 in square 5
+Assigned 6 to 3, 5 (square 2)
+  No instances of candiate 6 in col 5
+  Removed 2 instances of candiate 6 in row 3
+  Removed 1 instances of candiate 6 in square 2
+Assigned 6 to 4, 4 (square 5)
+  No instances of candiate 6 in col 4
+  Removed 3 instances of candiate 6 in row 4
+  No instances of candiate 6 in square 5
+Assigned 6 to 2, 7 (square 3)
+  No instances of candiate 6 in col 7
+  Removed 1 instances of candiate 6 in row 2
+  No instances of candiate 6 in square 3
+Assigned 6 to 5, 9 (square 6)
+  No instances of candiate 6 in col 9
+  Removed 1 instances of candiate 6 in row 5
+  No instances of candiate 6 in square 6
+Assigned 1 to 7, 4 (square 8)
+  No instances of candiate 1 in col 4
+  Removed 2 instances of candiate 1 in row 7
+  No instances of candiate 1 in square 8
+Assigned 4 to 3, 4 (square 2)
+  No instances of candiate 4 in col 4
   No instances of candiate 4 in row 3
   No instances of candiate 4 in square 2
+Assigned 5 to 2, 4 (square 2)
+  No instances of candiate 5 in col 4
+  Removed 2 instances of candiate 5 in row 2
+  No instances of candiate 5 in square 2
+Assigned 1 to 6, 1 (square 4)
+  No instances of candiate 1 in col 1
+  Removed 2 instances of candiate 1 in row 6
+  Removed 1 instances of candiate 1 in square 4
+Assigned 1 to 4, 6 (square 5)
+  No instances of candiate 1 in col 6
+  Removed 3 instances of candiate 1 in row 4
+  No instances of candiate 1 in square 5
+Assigned 4 to 6, 6 (square 5)
+  No instances of candiate 4 in col 6
+  Removed 1 instances of candiate 4 in row 6
+  No instances of candiate 4 in square 5
+Assigned 5 to 7, 1 (square 7)
+  No instances of candiate 5 in col 1
+  Removed 2 instances of candiate 5 in row 7
+  Removed 2 instances of candiate 5 in square 7
+Assigned 5 to 6, 2 (square 4)
+  No instances of candiate 5 in col 2
+  No instances of candiate 5 in row 6
+  No instances of candiate 5 in square 4
+Assigned 6 to 7, 8 (square 9)
+  No instances of candiate 6 in col 8
+  No instances of candiate 6 in row 7
+  No instances of candiate 6 in square 9
+Assigned 5 to 8, 5 (square 8)
+  No instances of candiate 5 in col 5
+  Removed 2 instances of candiate 5 in row 8
+  No instances of candiate 5 in square 8
+Assigned 4 to 7, 5 (square 8)
+  No instances of candiate 4 in col 5
+  No instances of candiate 4 in row 7
+  No instances of candiate 4 in square 8
+Assigned 1 to 9, 2 (square 7)
+  No instances of candiate 1 in col 2
+  Removed 4 instances of candiate 1 in row 9
+  No instances of candiate 1 in square 7
+Assigned 4 to 5, 2 (square 4)
+  No instances of candiate 4 in col 2
+  Removed 1 instances of candiate 4 in row 5
+  No instances of candiate 4 in square 4
+Assigned 4 to 9, 3 (square 7)
+  No instances of candiate 4 in col 3
+  Removed 2 instances of candiate 4 in row 9
+  No instances of candiate 4 in square 7
+SinglePossibleLocation set values to unique candidates: Assigned 42 cells
+
+Assigned 42 cells
+Total cells with assigned values: 65
+Grid
+============
+  4*         | 6          | (125)      || 8          | 9*         | 7*         || (15)       | 3          | (125)     
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | (2)        || 5          | 1*         | 3          || 6          | (29)       | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (15)       || 4          | 6          | 2          || 7          | 8          | (15)      
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || (459)      | (459)      | (59)      
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | (1)        | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || (14)       | (14)       | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || (59)       | (259)      | (259)     
+ 
+Grid
+============
+  .4 | 6 |   || 8 |.9 |.7 ||   | 3 |  
+ --------------------------------------
+  .7 |.8 |   || 5 |.1 | 3 || 6 |   |.4
+ --------------------------------------
+  .3 | 9 |   || 4 | 6 | 2 || 7 | 8 |  
+ ======================================
+   2 | 3 | 7 || 6 |.8 | 1 ||   |   |  
+ --------------------------------------
+   8 | 4 |.9 || 7 | 2 |.5 ||.3 |   | 6
+ --------------------------------------
+   1 | 5 |.6 ||.9 | 3 | 4 ||.2 | 7 |.8
+ ======================================
+   5 |.2 | 3 || 1 | 4 | 9 ||.8 | 6 | 7
+ --------------------------------------
+   9 | 7 | 8 || 2 | 5 |.6 ||   |   |.3
+ --------------------------------------
+  .6 | 1 | 4 ||.3 |.7 | 8 ||   |   |  
+ 
+Valid Grid
+
+Iteration: 2
+====================================================
+Marking Canditates
+============
+Seting Candidates...
+Candidates Marked: 36
+Grid
+============
+  4*         | 6          | (125)      || 8          | 9*         | 7*         || (15)       | 3          | (125)     
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | (2)        || 5          | 1*         | 3          || 6          | (29)       | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (15)       || 4          | 6          | 2          || 7          | 8          | (15)      
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || (459)      | (459)      | (59)      
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | (1)        | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || (14)       | (14)       | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || (59)       | (259)      | (259)     
+ 
+Remove candiates by row and column...
+  Candidate 1 square 1: !col1, !col2, col3
+  No instances of candiate 1 in col 3
+  Candidate 2 square 1: !col1, !col2, col3
+  No instances of candiate 2 in col 3
+  Candidate 5 square 1: !col1, !col2, col3
+  No instances of candiate 5 in col 3
+  For square 3, candidate 9: in !row1, row2, !row3
+  No instances of candiate 9 in row 2
+  Candidate 9 square 3: !col1, col2, !col3
+  Removed 2 instances of candiate 9 in col 8
+  For square 6, candidate 1: in !row1, row2, !row3
+  No instances of candiate 1 in row 5
+  Candidate 1 square 6: !col1, col2, !col3
+  Removed 1 instances of candiate 1 in col 8
+  For square 6, candidate 4: in row1, !row2, !row3
+  No instances of candiate 4 in row 4
+  For square 6, candidate 5: in row1, !row2, !row3
+  No instances of candiate 5 in row 4
+  For square 6, candidate 9: in row1, !row2, !row3
+  No instances of candiate 9 in row 4
+  For square 9, candidate 1: in !row1, row2, !row3
+  No instances of candiate 1 in row 8
+  Candidate 1 square 9: col1, !col2, !col3
+  Removed 1 instances of candiate 1 in col 7
+  For square 9, candidate 2: in !row1, !row2, row3
+  No instances of candiate 2 in row 9
+  For square 9, candidate 4: in !row1, row2, !row3
+  No instances of candiate 4 in row 8
+  For square 9, candidate 5: in !row1, !row2, row3
+  No instances of candiate 5 in row 9
+  For square 9, candidate 9: in !row1, !row2, row3
+  No instances of candiate 9 in row 9
+Remove candiates by row and column removed 4 candidates
+Match found in Square 1 for values: 1,5
+  Value1(locations): 1(3,9)
+  Value2(locations): 5(3,9)
+Clear other candidates in two matching cells
+  Existing candidates at 1-3: 1,2,5
+  Existing candidates at 1-9: 1,5
+  Removed 1 candidates in square 1
+Match found in Row 3 for values: 1,5
+  Value1(locations): 1(3,9)
+  Value2(locations): 5(3,9)
+Clear other candidates in two matching cells
+  Existing candidates at 3-3: 1,5
+  Existing candidates at 3-9: 
+Match found in Col 3 for values: 1,5
+  Value1(locations): 1(1,3)
+  Value2(locations): 5(1,3)
+Clear other candidates in two matching cells
+  Existing candidates at 3-1: 1,5
+  Existing candidates at 3-3: 1,5
+Grid
+============
+  4*         | 6          | (15)       || 8          | 9*         | 7*         || (5)        | 3          | (125)     
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | (2)        || 5          | 1*         | 3          || 6          | (29)       | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (15)       || 4          | 6          | 2          || 7          | 8          | (15)      
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || (459)      | (45)       | (59)      
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | (1)        | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || (14)       | (4)        | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || (59)       | (25)       | (259)     
+ 
+Removed 5 candidates (iteration 1)
+Remove candiates by row and column...
+  Candidate 1 square 1: !col1, !col2, col3
+  No instances of candiate 1 in col 3
+  For square 1, candidate 2: in !row1, row2, !row3
+  Removed 1 instances of candiate 2 in row 2
+  Candidate 2 square 1: !col1, !col2, col3
+  No instances of candiate 2 in col 3
+  Candidate 5 square 1: !col1, !col2, col3
+  No instances of candiate 5 in col 3
+  Candidate 1 square 3: !col1, !col2, col3
+  No instances of candiate 1 in col 9
+  For square 3, candidate 2: in row1, !row2, !row3
+  No instances of candiate 2 in row 1
+  Candidate 2 square 3: !col1, !col2, col3
+  Removed 1 instances of candiate 2 in col 9
+  For square 3, candidate 9: in !row1, row2, !row3
+  No instances of candiate 9 in row 2
+  Candidate 9 square 3: !col1, col2, !col3
+  No instances of candiate 9 in col 8
+  For square 6, candidate 1: in !row1, row2, !row3
+  No instances of candiate 1 in row 5
+  Candidate 1 square 6: !col1, col2, !col3
+  No instances of candiate 1 in col 8
+  For square 6, candidate 4: in row1, !row2, !row3
+  No instances of candiate 4 in row 4
+  For square 6, candidate 5: in row1, !row2, !row3
+  No instances of candiate 5 in row 4
+  For square 6, candidate 9: in row1, !row2, !row3
+  No instances of candiate 9 in row 4
+  For square 9, candidate 1: in !row1, row2, !row3
+  No instances of candiate 1 in row 8
+  Candidate 1 square 9: col1, !col2, !col3
+  No instances of candiate 1 in col 7
+  For square 9, candidate 2: in !row1, !row2, row3
+  No instances of candiate 2 in row 9
+  Candidate 2 square 9: !col1, col2, !col3
+  No instances of candiate 2 in col 8
+  For square 9, candidate 4: in !row1, row2, !row3
+  No instances of candiate 4 in row 8
+  For square 9, candidate 5: in !row1, !row2, row3
+  No instances of candiate 5 in row 9
+  For square 9, candidate 9: in !row1, !row2, row3
+  No instances of candiate 9 in row 9
+Remove candiates by row and column removed 2 candidates
+Match found in Square 1 for values: 1,5
+  Value1(locations): 1(3,9)
+  Value2(locations): 5(3,9)
+Clear other candidates in two matching cells
+  Existing candidates at 1-3: 1,5
+  Existing candidates at 1-9: 1,5
+Match found in Row 3 for values: 1,5
+  Value1(locations): 1(3,9)
+  Value2(locations): 5(3,9)
+Clear other candidates in two matching cells
+  Existing candidates at 3-3: 1,5
+  Existing candidates at 3-9: 
+Match found in Col 3 for values: 1,5
+  Value1(locations): 1(1,3)
+  Value2(locations): 5(1,3)
+Clear other candidates in two matching cells
+  Existing candidates at 3-1: 1,5
+  Existing candidates at 3-3: 1,5
+Grid
+============
+  4*         | 6          | (15)       || 8          | 9*         | 7*         || (5)        | 3          | (125)     
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | (2)        || 5          | 1*         | 3          || 6          | (9)        | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (15)       || 4          | 6          | 2          || 7          | 8          | (15)      
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || (459)      | (45)       | (59)      
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | (1)        | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || (14)       | (4)        | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || (59)       | (25)       | (59)      
+ 
+Removed 2 candidates (iteration 2)
+Remove candiates by row and column...
+  Candidate 1 square 1: !col1, !col2, col3
+  No instances of candiate 1 in col 3
+  For square 1, candidate 2: in !row1, row2, !row3
+  No instances of candiate 2 in row 2
+  Candidate 2 square 1: !col1, !col2, col3
+  No instances of candiate 2 in col 3
+  Candidate 5 square 1: !col1, !col2, col3
+  No instances of candiate 5 in col 3
+  Candidate 1 square 3: !col1, !col2, col3
+  No instances of candiate 1 in col 9
+  For square 3, candidate 2: in row1, !row2, !row3
+  No instances of candiate 2 in row 1
+  Candidate 2 square 3: !col1, !col2, col3
+  No instances of candiate 2 in col 9
+  For square 3, candidate 9: in !row1, row2, !row3
+  No instances of candiate 9 in row 2
+  Candidate 9 square 3: !col1, col2, !col3
+  No instances of candiate 9 in col 8
+  For square 6, candidate 1: in !row1, row2, !row3
+  No instances of candiate 1 in row 5
+  Candidate 1 square 6: !col1, col2, !col3
+  No instances of candiate 1 in col 8
+  For square 6, candidate 4: in row1, !row2, !row3
+  No instances of candiate 4 in row 4
+  For square 6, candidate 5: in row1, !row2, !row3
+  No instances of candiate 5 in row 4
+  For square 6, candidate 9: in row1, !row2, !row3
+  No instances of candiate 9 in row 4
+  For square 9, candidate 1: in !row1, row2, !row3
+  No instances of candiate 1 in row 8
+  Candidate 1 square 9: col1, !col2, !col3
+  No instances of candiate 1 in col 7
+  For square 9, candidate 2: in !row1, !row2, row3
+  No instances of candiate 2 in row 9
+  Candidate 2 square 9: !col1, col2, !col3
+  No instances of candiate 2 in col 8
+  For square 9, candidate 4: in !row1, row2, !row3
+  No instances of candiate 4 in row 8
+  For square 9, candidate 5: in !row1, !row2, row3
+  No instances of candiate 5 in row 9
+  For square 9, candidate 9: in !row1, !row2, row3
+  No instances of candiate 9 in row 9
+Remove candiates by row and column removed 0 candidates
+Match found in Square 1 for values: 1,5
+  Value1(locations): 1(3,9)
+  Value2(locations): 5(3,9)
+Clear other candidates in two matching cells
+  Existing candidates at 1-3: 1,5
+  Existing candidates at 1-9: 1,5
+Match found in Row 3 for values: 1,5
+  Value1(locations): 1(3,9)
+  Value2(locations): 5(3,9)
+Clear other candidates in two matching cells
+  Existing candidates at 3-3: 1,5
+  Existing candidates at 3-9: 
+Match found in Col 3 for values: 1,5
+  Value1(locations): 1(1,3)
+  Value2(locations): 5(1,3)
+Clear other candidates in two matching cells
+  Existing candidates at 3-1: 1,5
+  Existing candidates at 3-3: 1,5
+Grid
+============
+  4*         | 6          | (15)       || 8          | 9*         | 7*         || (5)        | 3          | (125)     
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | (2)        || 5          | 1*         | 3          || 6          | (9)        | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (15)       || 4          | 6          | 2          || 7          | 8          | (15)      
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || (459)      | (45)       | (59)      
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | (1)        | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || (14)       | (4)        | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || (59)       | (25)       | (59)      
+ 
+Removed 0 candidates (iteration 3)
+Assign candiates with Single Possible Location..
+Assigning candidates with single possible location...
+Assigned 2 to 1, 9 (square 3)
+  No instances of candiate 2 in col 9
+  No instances of candiate 2 in row 1
+  No instances of candiate 2 in square 3
+Assigned 2 to 2, 3 (square 1)
+  No instances of candiate 2 in col 3
+  No instances of candiate 2 in row 2
+  No instances of candiate 2 in square 1
+Setting in square 3(2,8), value 9
+Assigned 9 to 2, 8 (square 3)
+  No instances of candiate 9 in col 8
+  No instances of candiate 9 in row 2
+  No instances of candiate 9 in square 3
+Assigned 1 to 3, 9 (square 3)
+  No instances of candiate 1 in col 9
+  Removed 1 instances of candiate 1 in row 3
+  No instances of candiate 1 in square 3
+Assigned 1 to 5, 8 (square 6)
+  No instances of candiate 1 in col 8
+  No instances of candiate 1 in row 5
+  No instances of candiate 1 in square 6
+Assigned 1 to 8, 7 (square 9)
+  No instances of candiate 1 in col 7
+  No instances of candiate 1 in row 8
+  No instances of candiate 1 in square 9
+Assigned 4 to 4, 7 (square 6)
+  No instances of candiate 4 in col 7
+  Removed 1 instances of candiate 4 in row 4
+  No instances of candiate 4 in square 6
+Assigned 4 to 8, 8 (square 9)
+  No instances of candiate 4 in col 8
+  No instances of candiate 4 in row 8
+  No instances of candiate 4 in square 9
+Setting in square 9(9,7), value 9
+Assigned 9 to 9, 7 (square 9)
+  No instances of candiate 9 in col 7
+  Removed 1 instances of candiate 9 in row 9
+  No instances of candiate 9 in square 9
+Assigned 5 to 1, 7 (square 3)
+  No instances of candiate 5 in col 7
+  Removed 1 instances of candiate 5 in row 1
+  No instances of candiate 5 in square 3
+Setting in square 6(4,9), value 9
+Assigned 9 to 4, 9 (square 6)
+  No instances of candiate 9 in col 9
+  No instances of candiate 9 in row 4
+  No instances of candiate 9 in square 6
+Assigned 2 to 9, 8 (square 9)
+  No instances of candiate 2 in col 8
+  No instances of candiate 2 in row 9
+  No instances of candiate 2 in square 9
+Assigned 5 to 4, 8 (square 6)
+  No instances of candiate 5 in col 8
+  No instances of candiate 5 in row 4
+  No instances of candiate 5 in square 6
+Assigned 5 to 9, 9 (square 9)
+  No instances of candiate 5 in col 9
+  No instances of candiate 5 in row 9
+  No instances of candiate 5 in square 9
+SinglePossibleLocation set values to unique candidates: Assigned 14 cells
+
+Assigned 14 cells
+Total cells with assigned values: 79
+Grid
+============
+  4*         | 6          | ()         || 8          | 9*         | 7*         || 5          | 3          | 2         
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | 2          || 5          | 1*         | 3          || 6          | 9          | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | ()         || 4          | 6          | 2          || 7          | 8          | 1         
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || 4          | 5          | 9         
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | 1          | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || 1          | 4          | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || 9          | 2          | 5         
+ 
+Grid
+============
+  .4 | 6 |   || 8 |.9 |.7 || 5 | 3 | 2
+ --------------------------------------
+  .7 |.8 | 2 || 5 |.1 | 3 || 6 | 9 |.4
+ --------------------------------------
+  .3 | 9 |   || 4 | 6 | 2 || 7 | 8 | 1
+ ======================================
+   2 | 3 | 7 || 6 |.8 | 1 || 4 | 5 | 9
+ --------------------------------------
+   8 | 4 |.9 || 7 | 2 |.5 ||.3 | 1 | 6
+ --------------------------------------
+   1 | 5 |.6 ||.9 | 3 | 4 ||.2 | 7 |.8
+ ======================================
+   5 |.2 | 3 || 1 | 4 | 9 ||.8 | 6 | 7
+ --------------------------------------
+   9 | 7 | 8 || 2 | 5 |.6 || 1 | 4 |.3
+ --------------------------------------
+  .6 | 1 | 4 ||.3 |.7 | 8 || 9 | 2 | 5
+ 
+Valid Grid
+
+Iteration: 3
+====================================================
+Marking Canditates
+============
+Seting Candidates...
+Candidates Marked: 2
+Grid
+============
+  4*         | 6          | (1)        || 8          | 9*         | 7*         || 5          | 3          | 2         
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | 2          || 5          | 1*         | 3          || 6          | 9          | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (5)        || 4          | 6          | 2          || 7          | 8          | 1         
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || 4          | 5          | 9         
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | 1          | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || 1          | 4          | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || 9          | 2          | 5         
+ 
+Remove candiates by row and column...
+  For square 1, candidate 1: in row1, !row2, !row3
+  No instances of candiate 1 in row 1
+  Candidate 1 square 1: !col1, !col2, col3
+  No instances of candiate 1 in col 3
+  For square 1, candidate 5: in !row1, !row2, row3
+  No instances of candiate 5 in row 3
+  Candidate 5 square 1: !col1, !col2, col3
+  No instances of candiate 5 in col 3
+Remove candiates by row and column removed 0 candidates
+Grid
+============
+  4*         | 6          | (1)        || 8          | 9*         | 7*         || 5          | 3          | 2         
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | 2          || 5          | 1*         | 3          || 6          | 9          | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | (5)        || 4          | 6          | 2          || 7          | 8          | 1         
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || 4          | 5          | 9         
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | 1          | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || 1          | 4          | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || 9          | 2          | 5         
+ 
+Removed 0 candidates (iteration 1)
+Assign candiates with Single Possible Location..
+Assigning candidates with single possible location...
+Assigned 1 to 1, 3 (square 1)
+  No instances of candiate 1 in col 3
+  No instances of candiate 1 in row 1
+  No instances of candiate 1 in square 1
+Assigned 5 to 3, 3 (square 1)
+  No instances of candiate 5 in col 3
+  No instances of candiate 5 in row 3
+  No instances of candiate 5 in square 1
+SinglePossibleLocation set values to unique candidates: Assigned 2 cells
+
+Assigned 2 cells
+Total cells with assigned values: 81
+Grid
+============
+  4*         | 6          | 1          || 8          | 9*         | 7*         || 5          | 3          | 2         
+ -------------------------------------------------------------------------------------------------------------------------
+  7*         | 8*         | 2          || 5          | 1*         | 3          || 6          | 9          | 4*        
+ -------------------------------------------------------------------------------------------------------------------------
+  3*         | 9          | 5          || 4          | 6          | 2          || 7          | 8          | 1         
+ =========================================================================================================================
+  2          | 3          | 7          || 6          | 8*         | 1          || 4          | 5          | 9         
+ -------------------------------------------------------------------------------------------------------------------------
+  8          | 4          | 9*         || 7          | 2          | 5*         || 3*         | 1          | 6         
+ -------------------------------------------------------------------------------------------------------------------------
+  1          | 5          | 6*         || 9*         | 3          | 4          || 2*         | 7          | 8*        
+ =========================================================================================================================
+  5          | 2*         | 3          || 1          | 4          | 9          || 8*         | 6          | 7         
+ -------------------------------------------------------------------------------------------------------------------------
+  9          | 7          | 8          || 2          | 5          | 6*         || 1          | 4          | 3*        
+ -------------------------------------------------------------------------------------------------------------------------
+  6*         | 1          | 4          || 3*         | 7*         | 8          || 9          | 2          | 5         
+ 
+Grid
+============
+  .4 | 6 | 1 || 8 |.9 |.7 || 5 | 3 | 2
+ --------------------------------------
+  .7 |.8 | 2 || 5 |.1 | 3 || 6 | 9 |.4
+ --------------------------------------
+  .3 | 9 | 5 || 4 | 6 | 2 || 7 | 8 | 1
+ ======================================
+   2 | 3 | 7 || 6 |.8 | 1 || 4 | 5 | 9
+ --------------------------------------
+   8 | 4 |.9 || 7 | 2 |.5 ||.3 | 1 | 6
+ --------------------------------------
+   1 | 5 |.6 ||.9 | 3 | 4 ||.2 | 7 |.8
+ ======================================
+   5 |.2 | 3 || 1 | 4 | 9 ||.8 | 6 | 7
+ --------------------------------------
+   9 | 7 | 8 || 2 | 5 |.6 || 1 | 4 |.3
+ --------------------------------------
+  .6 | 1 | 4 ||.3 |.7 | 8 || 9 | 2 | 5
+ 
+Valid Grid
+No empty cells, successful assignment, exit.
