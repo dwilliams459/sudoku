@@ -231,35 +231,6 @@ namespace Sudoku
             return removedCandiates;
         }
 
-        private int RemoveIfCanidateOnlyInOneSquare(int square, int valueX)
-        {
-            int removedCandiates = 0;
-
-            // For a square, does square col (1, 2, 3) have any of candidate X in them?
-            bool candidateInCol1 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInCol2 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInCol3 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-
-            // If Candiate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
-            if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
-            }
-            else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
-            }
-            else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
-            }
-
-            return removedCandiates;
-        }
-
         public void AssignCandidatesWithSinglePossibleLocation()
         {
             Log.Debug("Assigning candidates with single possible location... ");
