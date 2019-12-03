@@ -260,87 +260,9 @@ namespace Sudoku
             return removedCandiates;
         }
 
-        /// <summary>
-        /// Value X is a candidate in only one cell of a square.  Assign X to that cell.
-        /// </summary>
-        public void AssignCandidatesWithSinglePossibleLocationInSquare()
-        {
-            Log.Debug("AssignCandidatesWithSinglePossibleLocationInSquare...");
-            for (int square = 1; square <= 9; square++)  // For each square
-            {
-                for (int candidate = 1; candidate <= 9; candidate++) // For each (possible) candidate value (1-9)
-                {
-                    // If count of possible locations of this candiate in square is only 1
-                    var countOfPossibleLocations = Grid.Cells.Count(c => c.Square == square && c.Candidates.Contains(candidate));
-                    if (countOfPossibleLocations == 1)
-                    {
-                        // Assign Candidate
-                        Log.Verbose($"Only one possible location in square {square} for candidate {candidate}");
-                        if (square == 5 && candidate == 9)
-                        {
-                            Grid.PrintGridWithCandiates();
-                            Log.Verbose($"Square {square}, candidate {candidate}, count of possible locations: {countOfPossibleLocations}");
-
-                        }
-                        var targetCell = Grid.Cells.Where(c => c.Square == square && c.Candidates.Contains(candidate)).FirstOrDefault();
-                        Grid.AssignValueToCell(targetCell.Row, targetCell.Col, candidate);
-                        AssignedWithSinglePossibleLocation++;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Value X is a candidate in only one cell of a row.  Assign X to that cell.
-        /// </summary>
-        public void AssignCandidatesWithSinglePossibleLocationInRow()
-        {
-            Log.Debug("AssignCandidatesWithSinglePossibleLocationInRow...");
-            for (int row = 1; row <= 9; row++)  // For each row
-            {
-                for (int candidate = 1; candidate <= 9; candidate++) // For each (possible) candidate value (1-9)
-                {
-                    // If count of possible locations of this candiate in row is only 1
-                    var countOfPossibleLocations = Grid.Cells.Count(c => c.Row == row && c.Candidates.Contains(candidate));
-                    if (countOfPossibleLocations == 1)
-                    {
-                        Log.Verbose($"One possible location in row {row} for candidate {candidate}");
-                        // Assign Candidate
-                        var targetCell = Grid.Cells.Where(c => c.Row == row && c.Candidates.Contains(candidate)).FirstOrDefault();
-                        Grid.AssignValueToCell(targetCell.Row, targetCell.Col, candidate);
-                        AssignedWithSinglePossibleLocation++;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Value X is a candidate in only one cell of a col.  Assign X to that cell.
-        /// </summary>
-        public void AssignCandidatesWithSinglePossibleLocationInCol()
-        {
-            Log.Debug("SetCandidatesWithSinglePossibleLocationInCol...");
-            for (int col = 1; col <= 9; col++)  // For each col
-            {
-                for (int candidate = 1; candidate <= 9; candidate++) // For each (possible) candidate value (1-9)
-                {
-                    // If count of possible locations of this candiate in col is only 1
-                    var countOfPossibleLocations = Grid.Cells.Count(c => c.Col == col && c.Candidates.Contains(candidate));
-                    if (countOfPossibleLocations == 1)
-                    {
-                        Log.Verbose($"One possible location in col {col} for candidate {candidate}");
-                        // Assign Candidate
-                        var targetCell = Grid.Cells.Where(c => c.Col == col && c.Candidates.Contains(candidate)).FirstOrDefault();
-                        Grid.AssignValueToCell(targetCell.Row, targetCell.Col, candidate);
-                        AssignedWithSinglePossibleLocation++;
-                    }
-                }
-            }
-        }
-
         public void AssignCandidatesWithSinglePossibleLocation()
         {
-            Log.Debug("Assigning candidates with single possible location...");
+            Log.Debug("Assigning candidates with single possible location... ");
             Dictionary<GridCell, int> removeCandidates = new Dictionary<GridCell, int>();
 
             bool assignedValue = false;
@@ -349,7 +271,7 @@ namespace Sudoku
             {
                 assignedValue = AssignFirstValidCandidate(assignedValue);
             } while (assignedValue == true);
-        }
+        } 
 
         private bool AssignFirstValidCandidate(bool assignedValue)
         {
@@ -376,9 +298,6 @@ namespace Sudoku
         /// <summary>
         /// Perform a deep Copy of the object, using Json as a serialisation method. NOTE: Private members are not cloned using this method.
         /// </summary>
-        /// <typeparam name="T">The type of object being copied.</typeparam>
-        /// <param name="source">The object instance to copy.</param>
-        /// <returns>The copied object.</returns>
         public static Grid CloneGridViaJson(Grid source)
         {
             // Don't serialize a null object, simply return the default for that object

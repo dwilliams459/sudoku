@@ -411,14 +411,13 @@ namespace Sudoku
                         Console.WriteLine(" -------------------------------------");
                     }
                 }
-            }
+            }  
 
             Log.Information("Grid");
             Log.Information("============");
             Log.Information(output.ToString());
             Console.WriteLine(" "); Log.Information(" ");
             Console.WriteLine(" ");
-
         }
 
         public void PrintGridWithCandiates(int? iteration = null)
@@ -465,7 +464,7 @@ namespace Sudoku
             }
 
             Log.Information("Grid");
-            Log.Information("============");
+            Log.Information("=============");
             Log.Information(output.ToString());
             Console.WriteLine(" "); Log.Information(" ");
             Console.WriteLine(" ");
@@ -475,7 +474,7 @@ namespace Sudoku
         public void PrintCandidates()
         {
             Log.Debug($"Candidates ({this.TotalCandiates})");
-            Log.Debug("===============");
+            Log.Debug("================");
 
             for (int row = 1; row <= 9; row++)
             {
@@ -494,7 +493,7 @@ namespace Sudoku
         public void PrintCandidatesBySquare()
         {
             Log.Debug($"Candidates ({this.TotalCandiates})");
-            Log.Debug("===============");
+            Log.Debug("================");
 
             for (int square = 1; square <= 9; square++)
             {
