@@ -152,6 +152,10 @@ namespace Sudoku
 
             if (!original)
             {
+                if (row == 1 && col == 2) 
+                {
+                    Log.Verbose("Debug Stop");
+                }
                 Log.Information($"Assigned {value} to {row}, {col} (square {GridCell.GridSquare(row, col)})");
             }
 

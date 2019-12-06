@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/Sudoku/bin/Debug/netcoreapp2.2/Sudoku.dll",
-            "args": ["grids/inputgrid2.json", "4"],
+            "args": ["grids/hard1.json", "10"],
             "cwd": "${workspaceFolder}/Sudoku",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

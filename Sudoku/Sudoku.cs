@@ -242,21 +242,25 @@ namespace Sudoku
             {
                 assignedValue = AssignFirstValidCandidate(assignedValue);
             } while (assignedValue == true);
-        } 
+        }
 
         private bool AssignFirstValidCandidate(bool assignedValue)
         {
             foreach (GridCell cell in Grid.Cells)
             {
+                if (cell.Row == 1 && cell.Col == 2)
+                {
+                    Log.Verbose("Debug stop");
+                }
                 foreach (int candidate in cell.Candidates)
                 {
-                    var targetCells = (Grid.Cells.Where(c => c.Col == cell.Col && c.Candidates.Contains(candidate))
-                        .Where(c => c.Row == cell.Row && c.Candidates.Contains(candidate))
-                        .Where(c => c.Square == cell.Square && c.Candidates.Contains(candidate)));
-                    if (targetCells != null && targetCells.Count() == 1)
+                    bool inOneColumn = (Grid.Cells.Count(c => c.Col == cell.Col && c.Candidates.Contains(candidate) == true) == 1);
+                    bool inOneRow = (Grid.Cells.Count(c => c.Row == cell.Row && c.Candidates.Contains(candidate) == true) == 1);
+                    bool inOneSquare = (Grid.Cells.Count(c => c.Square == cell.Square && c.Candidates.Contains(candidate) == true) == 1);
+
+                    if (inOneColumn && inOneRow && inOneSquare)
                     {
-                        var targetCell = targetCells.FirstOrDefault();
-                        Grid.AssignValueToCell(targetCell.Row, targetCell.Col, candidate, false, true);
+                        Grid.AssignValueToCell(cell.Row, cell.Col, candidate, false, true);
                         AssignedWithSinglePossibleLocation++;
                         return true;
                     }
