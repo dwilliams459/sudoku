@@ -251,8 +251,8 @@ namespace Sudoku
                 foreach (int candidate in cell.Candidates)
                 {
                     var targetCells = (Grid.Cells.Where(c => c.Col == cell.Col && c.Candidates.Contains(candidate))
-                        .Where(c => c.Col == cell.Col && c.Candidates.Contains(candidate))
-                        .Where(c => c.Col == cell.Col && c.Candidates.Contains(candidate)));
+                        .Where(c => c.Row == cell.Row && c.Candidates.Contains(candidate))
+                        .Where(c => c.Square == cell.Square && c.Candidates.Contains(candidate)));
                     if (targetCells != null && targetCells.Count() == 1)
                     {
                         var targetCell = targetCells.FirstOrDefault();
