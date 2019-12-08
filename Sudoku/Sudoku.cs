@@ -57,8 +57,8 @@ namespace Sudoku
                     removeCandidiateIteration++;
                     int candidateCount = Grid.Cells.Sum(c => c.Candidates.Count);
 
-                    RemoveCandidatesByRowAndColumn();
-                    ManagePreemptiveSets();
+                    RemovePointedPairCandidates();
+                    FindHiddenPairsBySquare();
                     Grid.PrintGridWithCandidates();
 
                     removedCandidates = candidateCount - Grid.Cells.Sum(c => c.Candidates.Count);
@@ -69,7 +69,7 @@ namespace Sudoku
                 Grid.AssignedCells = 0;
                 AssignedWithSinglePossibleLocation = 0;
 
-                AssignCandidatesWithSinglePossibleLocation();
+                AssignNakedSingleCandidates();
 
                 Log.Debug($"SinglePossibleLocation set values to unique candidates: Assigned {AssignedWithSinglePossibleLocation} cells");
                 Log.Debug("");
@@ -99,6 +99,7 @@ namespace Sudoku
             return true;
         }
 
+        #region Set candidates
         /// <summary>
         /// For each cell, for each candidate (1-9): candidate is not already assigned in the row, column or square
         /// </summary>
@@ -151,105 +152,48 @@ namespace Sudoku
             var matched = Grid.Cells.Count(c => c.Square == square && c.Value == value);
             return (matched > 0);
         }
+        #endregion Set candidates
 
+
+        #region Assign candidates to cells
         /// <summary>
-        /// Given square, row 1-3, value X.  if X is a candidate in rows 1 AND 2 but NOT in 3, X cannot live on that grid row in other Squares
-        /// Square 5 row 3 = Grid Row 6)
+        /// Assign candidates with only a single possible location: cells that only have a single possible candidate.
         /// </summary>
-        public int RemoveCandidatesByRowAndColumn()
+        public void AssignNakedSingleCandidates()
         {
-            Log.Debug("Remove candidates by row and column...");
-            int removedCandidates = 0;
+            Log.Debug("Assigning cells with only one candidate... ");
+            bool assignedValue = false;
 
-            // Iterate trough squares, values
-            for (int square = 1; square <= 9; square++)
+            foreach (GridCell cell in Grid.Cells)
             {
-                for (int valueX = 1; valueX <= 9; valueX++)
+                if (cell.Candidates.Count == 1)
                 {
-                    removedCandidates += RemoveIfCanidateOnlyInOneRow(square, valueX);
-                    removedCandidates += RemoveIfCanidateOnlyInOneCol(square, valueX);
+                    Grid.AssignValueToCell(cell.Row, cell.Col, cell.Candidates.FirstOrDefault());
                 }
             }
-            Log.Information($"Remove candidates by row and column removed {removedCandidates} candidates");
-            return removedCandidates;
+
+            do
+            {
+                // Repeat until none are assigned.
+                assignedValue = AssignFirstHiddenSingleCandidate(assignedValue);
+            } while (assignedValue == true);
         }
 
-        private int RemoveIfCanidateOnlyInOneRow(int square, int valueX)
-        {
-            int removedCandidates = 0;
-            // For a square, does square row (1, 2, 3) have any of candidate X in them?
-            bool candidateInRow1 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInRow2 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInRow3 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-
-            if (square == 7 && valueX == 4 & this.solveIteration == 6)
-            {
-                Log.Verbose("Debug Stop");
-            }
-
-            // If Candidate X is in row 1 and 2, but not 3, X cannot be a candidate in any of that grid row (i.e. square 5 row 3 = grid row 6)
-            if (candidateInRow1 && !candidateInRow2 && !candidateInRow3)
-            {
-                Log.Verbose($"  For square {square}, candidate {valueX}: in row1, !row2, !row3");
-                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 1), valueX, square);
-            }
-            else if (!candidateInRow1 && candidateInRow2 && !candidateInRow3)
-            {
-                Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, row2, !row3");
-                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 2), valueX, square);
-            }
-            else if (!candidateInRow1 && !candidateInRow2 && candidateInRow3)
-            {
-                Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, !row2, row3");
-                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 3), valueX, square);
-            }
-
-            return removedCandidates;
-        }
-
-        private int RemoveIfCanidateOnlyInOneCol(int square, int valueX)
-        {
-            int removedCandidates = 0;
-
-            // For a square, does square col (1, 2, 3) have any of candidate X in them?
-            bool candidateInCol1 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInCol2 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-            bool candidateInCol3 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
-
-            // If Candidate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
-            if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
-                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
-            }
-            else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
-                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
-            }
-            else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
-            {
-                Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
-                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
-            }
-
-            return removedCandidates;
-        }
-
-        public void AssignCandidatesWithSinglePossibleLocation()
+        /// <summary>
+        /// </summary>
+        public void AssignHiddenSingleCandidates()
         {
             Log.Debug("Assigning candidates with single possible location... ");
-            Dictionary<GridCell, int> removeCandidates = new Dictionary<GridCell, int>();
-
             bool assignedValue = false;
 
             do
             {
-                assignedValue = AssignFirstValidCandidate(assignedValue);
+                // Repeat until none are assigned.
+                assignedValue = AssignFirstHiddenSingleCandidate(assignedValue);
             } while (assignedValue == true);
         }
 
-        private bool AssignFirstValidCandidate(bool assignedValue)
+        private bool AssignFirstHiddenSingleCandidate(bool assignedValue)
         {
             foreach (GridCell cell in Grid.Cells)
             {
@@ -259,14 +203,14 @@ namespace Sudoku
                 }
                 foreach (int candidate in cell.Candidates)
                 {
-                    bool inOneColumn = (Grid.Cells.Count(c => c.Col == cell.Col && c.Candidates.Contains(candidate) == true) == 1);
-                    bool inOneRow = (Grid.Cells.Count(c => c.Row == cell.Row && c.Candidates.Contains(candidate) == true) == 1);
-                    bool inOneSquare = (Grid.Cells.Count(c => c.Square == cell.Square && c.Candidates.Contains(candidate) == true) == 1);
+                    bool inOnlyOneColumn = (Grid.Cells.Count(c => c.Col == cell.Col && c.Candidates.Contains(candidate) == true) == 1);
+                    bool inOnlyOneRow = (Grid.Cells.Count(c => c.Row == cell.Row && c.Candidates.Contains(candidate) == true) == 1);
+                    bool inOnlyOneSquare = (Grid.Cells.Count(c => c.Square == cell.Square && c.Candidates.Contains(candidate) == true) == 1);
 
-                    if (inOneColumn && inOneRow && inOneSquare)
+                    if (inOnlyOneColumn || inOnlyOneRow || inOnlyOneSquare)
                     {
-                        Grid.AssignValueToCell(cell.Row, cell.Col, candidate, false, true);
-                        AssignedWithSinglePossibleLocation++;
+                        Grid.AssignValueToCell(cell.Row, cell.Col, candidate, false);
+                        ++AssignedWithSinglePossibleLocation;
                         return true;
                     }
                 }
@@ -274,34 +218,20 @@ namespace Sudoku
 
             return false;
         }
+        #endregion Assign candidates to cells
 
+        #region Remove Candidates
         /// <summary>
-        /// Perform a deep Copy of the object, using Json as a serialisation method. NOTE: Private members are not cloned using this method.
+        /// Given square, row 1-3, value X.  if X is a candidate in rows 1 AND 2 but NOT in 3, X cannot live on that grid row in other Squares
+        /// Square 5 row 3 = Grid Row 6)
         /// </summary>
-        public static Grid CloneGridViaJson(Grid source)
-        {
-            // Don't serialize a null object, simply return the default for that object
-            if (Object.ReferenceEquals(source, null))
-            {
-                return default(Grid);
-            }
-
-            // initialize inner objects individually
-            // for example in default constructor some list property initialized with some values,
-            // but in 'source' these items are cleaned -
-            // without ObjectCreationHandling.Replace default constructor values will be added to result
-            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
-
-            return JsonConvert.DeserializeObject<Grid>(JsonConvert.SerializeObject(source), deserializeSettings);
-        }
-
         /// <summary>
         /// Find sets of candidates that match in 2 cells.
         /// Example: For cell(candidates): 1(4,9), 3(4,9) --Where 4 and 9 are not candidates in any other cells.
         /// Remove all other candidates from these cells.
         /// </summary>
         /// <returns></returns>
-        public void ManagePreemptiveSets()
+        public void FindHiddenPairsBySquare()
         {
             // Square Premeptive
             for (var index = 1; index <= 9; index++)
@@ -310,18 +240,17 @@ namespace Sudoku
 
                 /// 'index' is a square index
                 valueLocations = Grid.ValueLocationsBySquare(index);
-                ManagePreemptiveSetPairs(PremptiveSetType.Square, index, valueLocations);
+                FindHiddenPairs(PremptiveSetType.Square, index, valueLocations);
 
                 // 'index' is a row number
                 valueLocations = Grid.ValueLocationsByRow(index);
-                ManagePreemptiveSetPairs(PremptiveSetType.Row, index, valueLocations);
+                FindHiddenPairs(PremptiveSetType.Row, index, valueLocations);
 
                 // 'index' is a col number
                 valueLocations = Grid.ValueLocationsByCol(index);
-                ManagePreemptiveSetPairs(PremptiveSetType.Col, index, valueLocations);
+                FindHiddenPairs(PremptiveSetType.Col, index, valueLocations);
             }
         }
-
 
         /// <summary>
         /// Find matces or HIDDEN PAIRS (in a row, col, or square)
@@ -329,8 +258,7 @@ namespace Sudoku
         /// Example: Given Values(with locations): 1(1,3); 2(4,5); 3(1,4,5); 4(1,3)
         ///     Would match values 1(1,3) and 4(1,3) as a pair 
         /// </summary>
-        /// <param name="index"></param>
-        private void ManagePreemptiveSetPairs(PremptiveSetType setType, int index, Dictionary<int, List<int>> valueLocations)
+        private void FindHiddenPairs(PremptiveSetType setType, int index, Dictionary<int, List<int>> valueLocations)
         {
             // valueLocations
             //   For the following calculations, we need grid data as Value/location NOT Candidate/Cell
@@ -388,15 +316,6 @@ namespace Sudoku
             Log.Verbose($"  Existing candidates at {square}-{squareLocations[1]}: {string.Join(",", Grid.CellBySquareIndex(square, squareLocations[1]).Candidates)}");
             Grid.CellBySquareIndex(square, squareLocations[1]).Candidates = values;
 
-            // // Clear these two candidates out of other cells in this square
-            // Log.Verbose($"Clear these two candidates out of other cells in this square");
-            // foreach(GridCell cell in Grid.Cells.Where(c => c.Square == square && !squareLocations.Contains(c.SquareIndex)))
-            // {
-            //     // If location has candidate, remove
-            //     Log.Verbose($"  Candidates at {square}-{cell.SquareIndex}: {string.Join(",", cell.Candidates)}");
-            //     cell.Candidates = cell.Candidates.Except(values).ToList();
-            // }
-
             // Log if candidates removed. 
             int removedCandidates = squareCandidates - Grid.Cells.Where(c => c.Square == square).Sum(c => c.Candidates.Count());
             if (removedCandidates > 0)
@@ -416,13 +335,6 @@ namespace Sudoku
             Grid.Cell(row, cols[0]).Candidates = values;
             Log.Verbose($"  Existing candidates at {row}-{cols[1]}: {string.Join(",", Grid.Cell(cols[1], row).Candidates)}");
             Grid.Cell(row, cols[1]).Candidates = values;
-
-            // Clear these two candidates out of other cells in this row
-            // foreach(GridCell cell in Grid.Cells.Where(c => c.Row == row && !cols.Contains(c.Col)))
-            // {
-            //     // If location has candidate, remove
-            //     cell.Candidates = cell.Candidates.Except(values).ToList();
-            // }
 
             // Log if candidates removed. 
             int removedCandidates = rowCandidates - Grid.Cells.Where(c => c.Row == row).Sum(c => c.Candidates.Count());
@@ -444,13 +356,6 @@ namespace Sudoku
             Log.Verbose($"  Existing candidates at {col}-{rows[1]}: {string.Join(",", Grid.Cell(rows[1], col).Candidates)}");
             Grid.Cell(rows[1], col).Candidates = values;
 
-            // // Clear these two candidates out of other cells in this column
-            // foreach(GridCell cell in Grid.Cells.Where(c => c.Col == col && !rows.Contains(c.Row)))
-            // {
-            //     // If location has candidate, remove
-            //     cell.Candidates = cell.Candidates.Except(values).ToList();
-            // }
-
             // Log if candidates removed. 
             int removedCandidates = rowCandidates - Grid.Cells.Where(c => c.Col == col).Sum(c => c.Candidates.Count());
             if (removedCandidates > 0)
@@ -459,5 +364,96 @@ namespace Sudoku
             }
         }
 
+        public int RemovePointedPairCandidates()
+        {
+            Log.Debug("Remove candidates by row and column...");
+            int removedCandidates = 0;
+
+            // Iterate trough squares, values
+            for (int square = 1; square <= 9; square++)
+            {
+                for (int valueX = 1; valueX <= 9; valueX++)
+                {
+                    removedCandidates += RemovePointedPairsInOneRow(square, valueX);
+                    removedCandidates += RemovePointedPairsInOneCol(square, valueX);
+                }
+            }
+            Log.Information($"Remove candidates by row and column removed {removedCandidates} candidates");
+            return removedCandidates;
+        }
+
+        /// <summary>
+        /// Remove 
+        /// /// </summary>
+        /// <param name="square"></param>
+        /// <param name="valueX"></param>
+        /// <returns></returns>
+        private int RemovePointedPairsInOneRow(int square, int valueX)
+        {
+            /// Example: Candidate 2 is only in Column 1
+            /// (1 *2)    (3 4)  (4 5)
+            /// (*2 4 8)  (4)    (8 9)
+            /// (1 *2 9)  (8)    (7)
+            int removedCandidates = 0;
+            // For a square, does square row (1, 2, 3) have any of candidate X in them?
+            bool candidateInRow1 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+            bool candidateInRow2 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+            bool candidateInRow3 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+
+            if (square == 7 && valueX == 4 & this.solveIteration == 6)
+            {
+                Log.Verbose("Debug Stop");
+            }
+
+            // If Candidate X is in row 1 and 2, but not 3, X cannot be a candidate in any of that grid row (i.e. square 5 row 3 = grid row 6)
+            if (candidateInRow1 && !candidateInRow2 && !candidateInRow3)
+            {
+                Log.Verbose($"  For square {square}, candidate {valueX}: in row1, !row2, !row3");
+                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 1), valueX, square);
+            }
+            else if (!candidateInRow1 && candidateInRow2 && !candidateInRow3)
+            {
+                Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, row2, !row3");
+                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 2), valueX, square);
+            }
+            else if (!candidateInRow1 && !candidateInRow2 && candidateInRow3)
+            {
+                Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, !row2, row3");
+                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 3), valueX, square);
+            }
+
+            return removedCandidates;
+        }
+
+        private int RemovePointedPairsInOneCol(int square, int valueX)
+        {
+            int removedCandidates = 0;
+
+            // For a square, does square col (1, 2, 3) have any of candidate X in them?
+            bool candidateInCol1 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+            bool candidateInCol2 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+            bool candidateInCol3 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
+
+            // If Candidate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
+            if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
+            {
+                Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
+                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
+            }
+            else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
+            {
+                Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
+                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
+            }
+            else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
+            {
+                Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
+                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
+            }
+
+            return removedCandidates;
+        }
+
+        #endregion Remove Candidates
     }
 }
