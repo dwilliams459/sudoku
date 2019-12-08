@@ -49,12 +49,12 @@ namespace Sudoku
             }
         }
 
-        public int TotalCandiates => Cells.Sum(c => c.Candidates.Count());
+        public int TotalCandidates => Cells.Sum(c => c.Candidates.Count());
         public int TotalValues => Cells.Count(c => (c.Value > 0));
 
 
         /// <summary>
-        /// Piviot a columns cell-candiates to value-locations.  (Location is a row index)
+        /// Piviot a columns cell-candidates to value-locations.  (Location is a row index)
         /// </summary>
         /// <param name="col"></param>
         /// <returns></returns>
@@ -62,7 +62,7 @@ namespace Sudoku
         {
             Dictionary<int, List<int>> valueLocations = new Dictionary<int, List<int>>();
 
-            // Convert col cell-candiates to value-locations.  (Location is a row index)
+            // Convert col cell-candidates to value-locations.  (Location is a row index)
             // Example: (Draw the following on a 5x5 grid if needed)
             // For col 1, row(candidates): 1(1,3,4), 2(3,4), 3(4,5)
             // Becomes: Value(# of Locations) 1(1), 2(0), 3(2), 4(3), 5(1) 
@@ -77,7 +77,7 @@ namespace Sudoku
         }
 
         /// <summary>
-        /// Piviot a columns cell-candiates to value-locations.  (Location is a col index)
+        /// Piviot a columns cell-candidates to value-locations.  (Location is a col index)
         /// </summary>
         /// <param name="col"></param>
         /// <returns></returns>
@@ -97,7 +97,7 @@ namespace Sudoku
         }
 
         /// <summary>
-        /// Piviot cell-candiates to value-locations.  (Location is a SquareIndex)
+        /// Piviot cell-candidates to value-locations.  (Location is a SquareIndex)
         /// </summary>
         /// <param name="square"></param>
         /// <returns></returns>
@@ -137,7 +137,7 @@ namespace Sudoku
             return cell;
         }
 
-        public void AssignValueToCell(int row, int col, int value, bool original = false, bool removeCandiates = true)
+        public void AssignValueToCell(int row, int col, int value, bool original = false, bool removeCandidates = true)
         {
             if (row > 9 || row < 1) return;
             if (col > 9 || col < 1) return;
@@ -160,7 +160,7 @@ namespace Sudoku
             }
 
             // Remove value from list of candidates for this row, col, square
-            if (!original && removeCandiates)
+            if (!original && removeCandidates)
             {
                 cell.Candidates.Clear();
                 RemoveCandidatesInCol(col, value);
@@ -193,11 +193,11 @@ namespace Sudoku
 
             if (removedCandidates > 0)
             {
-                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in row {row}");
+                Log.Verbose($"  Removed {removedCandidates} instances of candidate {candidate} in row {row}");
             }
             else
             {
-                Log.Verbose($"  No instances of candiate {candidate} in row {row}");
+                //Log.Verbose($"  No instances of candidate {candidate} in row {row}");
             }
 
             return removedCandidates;
@@ -217,11 +217,11 @@ namespace Sudoku
 
             if (removedCandidates > 0)
             {
-                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in row {row}");
+                Log.Verbose($"  Removed {removedCandidates} instances of candidate {candidate} in row {row}");
             }
             else
             {
-                Log.Verbose($"  No instances of candiate {candidate} in row {row}");
+                //Log.Verbose($"  No instances of candidate {candidate} in row {row}");
             }
 
             return removedCandidates;
@@ -241,11 +241,11 @@ namespace Sudoku
 
             if (removedCandidates > 0)
             {
-                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in col {col}");
+                Log.Verbose($"  Removed {removedCandidates} instances of candidate {candidate} in col {col}");
             }
             else
             {
-                Log.Verbose($"  No instances of candiate {candidate} in col {col}");
+                //Log.Verbose($"  No instances of candidate {candidate} in col {col}");
             }
 
             return removedCandidates;
@@ -265,11 +265,11 @@ namespace Sudoku
 
             if (removedCandidates > 0)
             {
-                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in col {col}");
+                Log.Verbose($"  Removed {removedCandidates} instances of candidate {candidate} in col {col}");
             }
             else
             {
-                Log.Verbose($"  No instances of candiate {candidate} in col {col}");
+                //Log.Verbose($"  No instances of candidate {candidate} in col {col}");
             }
 
             return removedCandidates;
@@ -289,11 +289,11 @@ namespace Sudoku
 
             if (removedCandidates > 0)
             {
-                Log.Verbose($"  Removed {removedCandidates} instances of candiate {candidate} in square {square}");
+                Log.Verbose($"  Removed {removedCandidates} instances of candidate {candidate} in square {square}");
             }
             else
             {
-                Log.Verbose($"  No instances of candiate {candidate} in square {square}");
+                Log.Verbose($"  No instances of candidate {candidate} in square {square}");
             }
 
             return removedCandidates;
@@ -424,7 +424,7 @@ namespace Sudoku
             Console.WriteLine(" ");
         }
 
-        public void PrintGridWithCandiates(int? iteration = null)
+        public void PrintGridWithCandidates(int? iteration = null)
         {
             Console.Write("Grid ");
             if (iteration != null & iteration > 0)
@@ -477,7 +477,7 @@ namespace Sudoku
 
         public void PrintCandidates()
         {
-            Log.Debug($"Candidates ({this.TotalCandiates})");
+            Log.Debug($"Candidates ({this.TotalCandidates})");
             Log.Debug("================");
 
             for (int row = 1; row <= 9; row++)
@@ -496,7 +496,7 @@ namespace Sudoku
 
         public void PrintCandidatesBySquare()
         {
-            Log.Debug($"Candidates ({this.TotalCandiates})");
+            Log.Debug($"Candidates ({this.TotalCandidates})");
             Log.Debug("================");
 
             for (int square = 1; square <= 9; square++)
@@ -514,8 +514,8 @@ namespace Sudoku
                         //{
                         var value = Cell(row, col).Value;
                         var stringValue = (value == null) ? " " : value.ToString();
-                        var candiates = String.Join(", ", Cell(row, col).Candidates);
-                        Log.Debug($"Row {row}, Col {col} (sRow {squareRow}, sCol {squareCol}), Value {stringValue}, Candidates: {candiates}");
+                        var candidates = String.Join(", ", Cell(row, col).Candidates);
+                        Log.Debug($"Row {row}, Col {col} (sRow {squareRow}, sCol {squareCol}), Value {stringValue}, Candidates: {candidates}");
                         //}
                     }
                 }
@@ -558,7 +558,7 @@ namespace Sudoku
             return candidates + "          ".Substring(0, (10 - candidates.Length)); 
         }
 
-        public void PrintSquareGridWithCandiates(int square)
+        public void PrintSquareGridWithCandidates(int square)
         {
             StringBuilder gridSquare = new StringBuilder();
 

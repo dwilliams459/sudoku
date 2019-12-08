@@ -22,6 +22,8 @@ namespace Sudoku
 
         private int AssignedWithSinglePossibleLocation;
 
+        private int solveIteration;
+
         public Sudoku()
         {
             Grid = new Grid();
@@ -36,17 +38,17 @@ namespace Sudoku
             Grid.ValidateGrid();
 
             iterations = (iterations == 0) ? 30 : iterations;
-            for (int i = 1; i <= iterations; i++)
+            for (solveIteration = 1; solveIteration <= iterations; solveIteration++)
             {
                 Log.Information("");
-                Log.Information("Iteration: " + i);
+                Log.Information("Iteration: " + solveIteration);
                 Log.Information("====================================================");
 
                 Log.Debug("Marking Canditates");
                 Log.Debug("============");
 
                 SetCandidates();
-                Grid.PrintGridWithCandiates();
+                Grid.PrintGridWithCandidates();
 
                 int removedCandidates = 0;
                 int removeCandidiateIteration = 0;
@@ -55,20 +57,18 @@ namespace Sudoku
                     removeCandidiateIteration++;
                     int candidateCount = Grid.Cells.Sum(c => c.Candidates.Count);
 
-                    RemoveCandiatesByRowAndColumn();
+                    RemoveCandidatesByRowAndColumn();
                     ManagePreemptiveSets();
-                    Grid.PrintGridWithCandiates();
+                    Grid.PrintGridWithCandidates();
 
                     removedCandidates = candidateCount - Grid.Cells.Sum(c => c.Candidates.Count);
                     Log.Debug($"Removed {removedCandidates} candidates (iteration {removeCandidiateIteration})");
                 } while (removedCandidates > 0 && removeCandidiateIteration < 5);
 
-                Log.Debug($"Assign candiates with Single Possible Location..");
+                Log.Debug($"Assign candidates with Single Possible Location..");
                 Grid.AssignedCells = 0;
                 AssignedWithSinglePossibleLocation = 0;
-                //AssignCandidatesWithSinglePossibleLocationInSquare();
-                //AssignCandidatesWithSinglePossibleLocationInRow();
-                //AssignCandidatesWithSinglePossibleLocationInCol();
+
                 AssignCandidatesWithSinglePossibleLocation();
 
                 Log.Debug($"SinglePossibleLocation set values to unique candidates: Assigned {AssignedWithSinglePossibleLocation} cells");
@@ -76,8 +76,8 @@ namespace Sudoku
 
                 Log.Information($"Assigned {Grid.AssignedCells} cells");
                 Log.Information($"Total cells with assigned values: {Grid.Cells.Count(c => c.Value != null)}");
-                Grid.PrintGridWithCandiates(i);
-                Grid.PrintGrid(i);
+                Grid.PrintGridWithCandidates(solveIteration);
+                Grid.PrintGrid(solveIteration);
 
                 if (!Grid.ValidateGrid())
                 {
@@ -108,7 +108,7 @@ namespace Sudoku
             // Reset all candidates
             Grid.ClearCandidates();
 
-            // Mark candiates.  
+            // Mark candidates.  
             // For values 1-9: for each cell, there is no matching value in row, col, square
             int CandidatesMarked = 0;
             for (int row = 1; row <= 9; row++)
@@ -156,79 +156,84 @@ namespace Sudoku
         /// Given square, row 1-3, value X.  if X is a candidate in rows 1 AND 2 but NOT in 3, X cannot live on that grid row in other Squares
         /// Square 5 row 3 = Grid Row 6)
         /// </summary>
-        public int RemoveCandiatesByRowAndColumn()
+        public int RemoveCandidatesByRowAndColumn()
         {
-            Log.Debug("Remove candiates by row and column...");
-            int removedCandiates = 0;
+            Log.Debug("Remove candidates by row and column...");
+            int removedCandidates = 0;
 
             // Iterate trough squares, values
             for (int square = 1; square <= 9; square++)
             {
                 for (int valueX = 1; valueX <= 9; valueX++)
                 {
-                    removedCandiates += RemoveIfCanidateOnlyInOneRow(square, valueX);
-                    removedCandiates += RemoveIfCanidateOnlyInOneCol(square, valueX);
+                    removedCandidates += RemoveIfCanidateOnlyInOneRow(square, valueX);
+                    removedCandidates += RemoveIfCanidateOnlyInOneCol(square, valueX);
                 }
             }
-            Log.Information($"Remove candiates by row and column removed {removedCandiates} candidates");
-            return removedCandiates;
+            Log.Information($"Remove candidates by row and column removed {removedCandidates} candidates");
+            return removedCandidates;
         }
 
         private int RemoveIfCanidateOnlyInOneRow(int square, int valueX)
         {
-            int removedCandiates = 0;
+            int removedCandidates = 0;
             // For a square, does square row (1, 2, 3) have any of candidate X in them?
             bool candidateInRow1 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
             bool candidateInRow2 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
             bool candidateInRow3 = (Grid.Cells.Count(c => c.Square == square && c.SquareRow == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
 
-            // If Candiate X is in row 1 and 2, but not 3, X cannot be a candidate in any of that grid row (i.e. square 5 row 3 = grid row 6)
+            if (square == 7 && valueX == 4 & this.solveIteration == 6)
+            {
+                Log.Verbose("Debug Stop");
+            }
+
+            // If Candidate X is in row 1 and 2, but not 3, X cannot be a candidate in any of that grid row (i.e. square 5 row 3 = grid row 6)
             if (candidateInRow1 && !candidateInRow2 && !candidateInRow3)
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in row1, !row2, !row3");
-                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 1), valueX, square);
+                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 1), valueX, square);
             }
             else if (!candidateInRow1 && candidateInRow2 && !candidateInRow3)
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, row2, !row3");
-                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 2), valueX, square);
+                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 2), valueX, square);
             }
             else if (!candidateInRow1 && !candidateInRow2 && candidateInRow3)
             {
                 Log.Verbose($"  For square {square}, candidate {valueX}: in !row1, !row2, row3");
-                removedCandiates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 3), valueX, square);
+                removedCandidates += Grid.RemoveCandidatesInRow(GridCell.GridRow(square, 3), valueX, square);
             }
 
-            return removedCandiates;
+            return removedCandidates;
         }
 
         private int RemoveIfCanidateOnlyInOneCol(int square, int valueX)
         {
-            int removedCandiates = 0;
+            int removedCandidates = 0;
 
             // For a square, does square col (1, 2, 3) have any of candidate X in them?
             bool candidateInCol1 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 1 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
             bool candidateInCol2 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 2 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
             bool candidateInCol3 = (Grid.Cells.Count(c => c.Square == square && c.SquareCol == 3 && c.Candidates.Contains(valueX)) > 0); // Has candidates in row 1
 
-            // If Candiate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
+            // If Candidate X is in col 1 and 2, but not 3, X cannot be a candidate in any of that grid col (i.e. square 5 col 3 = grid col 6)
             if (!candidateInCol1 && !candidateInCol2 && candidateInCol3)
             {
                 Log.Verbose($"  Candidate {valueX} square {square}: !col1, !col2, col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
+                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 3), valueX, square);
             }
             else if (candidateInCol1 && !candidateInCol2 && !candidateInCol3)
             {
                 Log.Verbose($"  Candidate {valueX} square {square}: col1, !col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
+                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 1), valueX, square);
             }
             else if (!candidateInCol1 && candidateInCol2 && !candidateInCol3)
             {
                 Log.Verbose($"  Candidate {valueX} square {square}: !col1, col2, !col3");
-                removedCandiates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
+                removedCandidates += Grid.RemoveCandidatesInCol(GridCell.GridCol(square, 2), valueX, square);
             }
 
-            return removedCandiates;
+            return removedCandidates;
         }
 
         public void AssignCandidatesWithSinglePossibleLocation()
@@ -292,7 +297,7 @@ namespace Sudoku
 
         /// <summary>
         /// Find sets of candidates that match in 2 cells.
-        /// Example: For cell(candidates): 1(4,9), 3(4,9) --Where 4 and 9 are not candiates in any other cells.
+        /// Example: For cell(candidates): 1(4,9), 3(4,9) --Where 4 and 9 are not candidates in any other cells.
         /// Remove all other candidates from these cells.
         /// </summary>
         /// <returns></returns>
