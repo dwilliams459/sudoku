@@ -1,10 +1,6 @@
-Starting Sudoku 12/7/2019 10:29:16 PM
+Starting Sudoku 12/7/2019 11:36:32 PM
 ====================================================
  
-Setting in square 2(2,4), value 9
-Setting in square 6(5,7), value 9
-Setting in square 8(7,6), value 9
-Setting in square 7(8,1), value 9
 Starting Grid
 Total cells with assigned values: 21
 Grid
@@ -32,11 +28,11 @@ Valid Grid
 Iteration: 1
 ====================================================
 Marking Canditates
-============
+==================
 Seting Candidates...
 Candidates Marked: 261
-Grid
-=============
+Candidate Grid (1)
+==================
   6*         | (123479)   | (1349)     || (14)       | 5*         | (12348)    || (123478)   | (1234789)  | (34789)   
  -------------------------------------------------------------------------------------------------------------------------
   (123)      | (1234)     | 5*         || 9*         | 7*         | (123468)   || (12348)    | (12348)    | (348)     
@@ -55,32 +51,13 @@ Grid
  -------------------------------------------------------------------------------------------------------------------------
   (3578)     | (34567)    | (3468)     || 2*         | (68)       | (45678)    || (34678)    | (34789)    | 1*        
  
-Remove candidates by row and column...
-  For square 2, candidate 6: in !row1, row2, !row3
-  Candidate 6 square 2: !col1, !col2, col3
-  Removed 4 instances of candidate 6 in col 6
-  Candidate 8 square 2: !col1, !col2, col3
-  Removed 2 instances of candidate 8 in col 6
-  For square 3, candidate 5: in !row1, !row2, row3
-  For square 5, candidate 9: in !row1, !row2, row3
-  Removed 1 instances of candidate 9 in row 6
-  Candidate 9 square 5: !col1, col2, !col3
-  For square 6, candidate 4: in !row1, row2, !row3
-  Candidate 4 square 6: !col1, !col2, col3
-  Removed 3 instances of candidate 4 in col 9
-  For square 8, candidate 5: in !row1, !row2, row3
-  Removed 2 instances of candidate 5 in row 9
-  Candidate 5 square 8: !col1, !col2, col3
-  Removed 3 instances of candidate 5 in col 6
-  Candidate 8 square 8: !col1, col2, !col3
-  For square 9, candidate 2: in !row1, row2, !row3
-  Candidate 6 square 9: col1, !col2, !col3
-  For square 9, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 9: !col1, col2, !col3
-  Removed 2 instances of candidate 9 in col 8
-Remove candidates by row and column removed 17 candidates
-Grid
-=============
+Removing Candidates
+===================
+Remove candidates iteration 1
+Remove pointed candidates by row and column
+Finding Hidden Pairs
+Candidate Grid 
+==================
   6*         | (123479)   | (1349)     || (14)       | 5*         | (12348)    || (123478)   | (123478)   | (3789)    
  -------------------------------------------------------------------------------------------------------------------------
   (123)      | (1234)     | 5*         || 9*         | 7*         | (123468)   || (12348)    | (12348)    | (38)      
@@ -99,32 +76,13 @@ Grid
  -------------------------------------------------------------------------------------------------------------------------
   (378)      | (3467)     | (3468)     || 2*         | (68)       | (457)      || (34678)    | (34789)    | 1*        
  
-Removed 17 candidates (iteration 1)
-Remove candidates by row and column...
-  For square 2, candidate 6: in !row1, row2, !row3
-  Candidate 6 square 2: !col1, !col2, col3
-  Candidate 8 square 2: !col1, !col2, col3
-  For square 3, candidate 5: in !row1, !row2, row3
-  For square 3, candidate 9: in row1, !row2, !row3
-  Removed 2 instances of candidate 9 in row 1
-  Candidate 9 square 3: !col1, !col2, col3
-  For square 4, candidate 9: in row1, !row2, !row3
-  Candidate 5 square 5: col1, !col2, !col3
-  For square 5, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 5: !col1, col2, !col3
-  For square 6, candidate 4: in !row1, row2, !row3
-  Candidate 4 square 6: !col1, !col2, col3
-  For square 7, candidate 5: in row1, !row2, !row3
-  For square 8, candidate 5: in !row1, !row2, row3
-  Candidate 5 square 8: !col1, !col2, col3
-  Candidate 8 square 8: !col1, col2, !col3
-  For square 9, candidate 2: in !row1, row2, !row3
-  Candidate 6 square 9: col1, !col2, !col3
-  For square 9, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 9: !col1, col2, !col3
-Remove candidates by row and column removed 2 candidates
-Grid
-=============
+Remove candidates iteration 1 removed 17 candidates
+ 
+Remove candidates iteration 2
+Remove pointed candidates by row and column
+Finding Hidden Pairs
+Candidate Grid 
+==================
   6*         | (12347)    | (134)      || (14)       | 5*         | (12348)    || (123478)   | (123478)   | (3789)    
  -------------------------------------------------------------------------------------------------------------------------
   (123)      | (1234)     | 5*         || 9*         | 7*         | (123468)   || (12348)    | (12348)    | (38)      
@@ -143,35 +101,13 @@ Grid
  -------------------------------------------------------------------------------------------------------------------------
   (378)      | (3467)     | (3468)     || 2*         | (68)       | (457)      || (34678)    | (34789)    | 1*        
  
-Removed 2 candidates (iteration 2)
-Remove candidates by row and column...
-  For square 1, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 1: !col1, !col2, col3
-  Removed 1 instances of candidate 9 in col 3
-  For square 2, candidate 6: in !row1, row2, !row3
-  Candidate 6 square 2: !col1, !col2, col3
-  Candidate 8 square 2: !col1, !col2, col3
-  For square 3, candidate 5: in !row1, !row2, row3
-  For square 3, candidate 9: in row1, !row2, !row3
-  Candidate 9 square 3: !col1, !col2, col3
-  For square 4, candidate 9: in row1, !row2, !row3
-  Candidate 9 square 4: !col1, col2, !col3
-  Candidate 5 square 5: col1, !col2, !col3
-  For square 5, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 5: !col1, col2, !col3
-  For square 6, candidate 4: in !row1, row2, !row3
-  Candidate 4 square 6: !col1, !col2, col3
-  For square 7, candidate 5: in row1, !row2, !row3
-  For square 8, candidate 5: in !row1, !row2, row3
-  Candidate 5 square 8: !col1, !col2, col3
-  Candidate 8 square 8: !col1, col2, !col3
-  For square 9, candidate 2: in !row1, row2, !row3
-  Candidate 6 square 9: col1, !col2, !col3
-  For square 9, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 9: !col1, col2, !col3
-Remove candidates by row and column removed 1 candidates
-Grid
-=============
+Remove candidates iteration 2 removed 2 candidates
+ 
+Remove candidates iteration 3
+Remove pointed candidates by row and column
+Finding Hidden Pairs
+Candidate Grid 
+==================
   6*         | (12347)    | (134)      || (14)       | 5*         | (12348)    || (123478)   | (123478)   | (3789)    
  -------------------------------------------------------------------------------------------------------------------------
   (123)      | (1234)     | 5*         || 9*         | 7*         | (123468)   || (12348)    | (12348)    | (38)      
@@ -190,34 +126,13 @@ Grid
  -------------------------------------------------------------------------------------------------------------------------
   (378)      | (3467)     | (3468)     || 2*         | (68)       | (457)      || (34678)    | (34789)    | 1*        
  
-Removed 1 candidates (iteration 3)
-Remove candidates by row and column...
-  For square 1, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 1: !col1, !col2, col3
-  For square 2, candidate 6: in !row1, row2, !row3
-  Candidate 6 square 2: !col1, !col2, col3
-  Candidate 8 square 2: !col1, !col2, col3
-  For square 3, candidate 5: in !row1, !row2, row3
-  For square 3, candidate 9: in row1, !row2, !row3
-  Candidate 9 square 3: !col1, !col2, col3
-  For square 4, candidate 9: in row1, !row2, !row3
-  Candidate 9 square 4: !col1, col2, !col3
-  Candidate 5 square 5: col1, !col2, !col3
-  For square 5, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 5: !col1, col2, !col3
-  For square 6, candidate 4: in !row1, row2, !row3
-  Candidate 4 square 6: !col1, !col2, col3
-  For square 7, candidate 5: in row1, !row2, !row3
-  For square 8, candidate 5: in !row1, !row2, row3
-  Candidate 5 square 8: !col1, !col2, col3
-  Candidate 8 square 8: !col1, col2, !col3
-  For square 9, candidate 2: in !row1, row2, !row3
-  Candidate 6 square 9: col1, !col2, !col3
-  For square 9, candidate 9: in !row1, !row2, row3
-  Candidate 9 square 9: !col1, col2, !col3
-Remove candidates by row and column removed 0 candidates
-Grid
-=============
+Remove candidates iteration 3 removed 1 candidates
+ 
+Remove candidates iteration 4
+Remove pointed candidates by row and column
+Finding Hidden Pairs
+Candidate Grid 
+==================
   6*         | (12347)    | (134)      || (14)       | 5*         | (12348)    || (123478)   | (123478)   | (3789)    
  -------------------------------------------------------------------------------------------------------------------------
   (123)      | (1234)     | 5*         || 9*         | 7*         | (123468)   || (12348)    | (12348)    | (38)      
@@ -236,249 +151,76 @@ Grid
  -------------------------------------------------------------------------------------------------------------------------
   (378)      | (3467)     | (3468)     || 2*         | (68)       | (457)      || (34678)    | (34789)    | 1*        
  
-Removed 0 candidates (iteration 4)
-Assign candidates with Single Possible Location..
+Remove candidates iteration 4 removed 0 candidates
+ 
+Assigning candidates to cells
+=============================
 Assigning cells with only one candidate... 
-Debug stop
-Setting in square 3(1,9), value 9
+Assigning candidates with single possible cell... 
 Assigned 9 to 1, 9 (square 3)
-  No instances of candidate 9 in square 3
-Debug stop
 Assigned 6 to 2, 6 (square 2)
-  No instances of candidate 6 in square 2
-Debug stop
 Assigned 8 to 1, 6 (square 2)
-  Removed 2 instances of candidate 8 in row 1
-  No instances of candidate 8 in square 2
-Debug stop
-Setting in square 1(3,3), value 9
 Assigned 9 to 3, 3 (square 1)
-  No instances of candidate 9 in square 1
-Debug stop
-Setting in square 4(4,2), value 9
 Assigned 9 to 4, 2 (square 4)
-  No instances of candidate 9 in square 4
-Debug stop
 Assigned 4 to 5, 9 (square 6)
-  No instances of candidate 4 in square 6
-Debug stop
-Setting in square 5(6,5), value 9
 Assigned 9 to 6, 5 (square 5)
-  No instances of candidate 9 in square 5
-Debug stop
 Assigned 6 to 4, 4 (square 5)
-  Removed 1 instances of candidate 6 in col 4
-  Removed 1 instances of candidate 6 in row 4
-  No instances of candidate 6 in square 5
-Debug stop
 Assigned 5 to 5, 4 (square 5)
-  Removed 2 instances of candidate 5 in row 5
-  No instances of candidate 5 in square 5
-Debug stop
 Assigned 7 to 5, 6 (square 5)
-  Removed 3 instances of candidate 7 in col 6
-  No instances of candidate 7 in square 5
-Debug stop
 Assigned 6 to 6, 2 (square 4)
-  Removed 3 instances of candidate 6 in col 2
-  No instances of candidate 6 in square 4
-Debug stop
 Assigned 5 to 4, 1 (square 4)
-  Removed 1 instances of candidate 5 in col 1
-  Removed 2 instances of candidate 5 in row 4
-  No instances of candidate 5 in square 4
-Debug stop
 Assigned 2 to 4, 6 (square 5)
-  Removed 1 instances of candidate 2 in col 6
-  Removed 1 instances of candidate 2 in square 5
-Debug stop
 Assigned 2 to 3, 5 (square 2)
-  Removed 3 instances of candidate 2 in row 3
-  No instances of candidate 2 in square 2
-Debug stop
 Assigned 3 to 3, 6 (square 2)
-  Removed 1 instances of candidate 3 in col 6
-  Removed 3 instances of candidate 3 in row 3
-  No instances of candidate 3 in square 2
-Debug stop
 Assigned 3 to 5, 5 (square 5)
-  Removed 3 instances of candidate 3 in row 5
-  No instances of candidate 3 in square 5
-Debug stop
 Assigned 3 to 4, 3 (square 4)
-  Removed 3 instances of candidate 3 in col 3
-  Removed 3 instances of candidate 3 in row 4
-  No instances of candidate 3 in square 4
-Debug stop
 Assigned 3 to 2, 9 (square 3)
-  Removed 4 instances of candidate 3 in row 2
-  Removed 2 instances of candidate 3 in square 3
-Debug stop
-Debug Stop
 Assigned 3 to 1, 2 (square 1)
-  Removed 2 instances of candidate 3 in col 2
-  No instances of candidate 3 in square 1
-Debug stop
 Assigned 7 to 3, 1 (square 1)
-  Removed 2 instances of candidate 7 in col 1
-  Removed 2 instances of candidate 7 in row 3
-  No instances of candidate 7 in square 1
-Debug stop
 Assigned 1 to 6, 6 (square 5)
-  Removed 1 instances of candidate 1 in col 6
-  Removed 2 instances of candidate 1 in row 6
-  No instances of candidate 1 in square 5
-Debug stop
 Assigned 5 to 7, 2 (square 7)
-  No instances of candidate 5 in square 7
-Debug stop
 Assigned 7 to 8, 4 (square 8)
-  Removed 3 instances of candidate 7 in row 8
-  No instances of candidate 7 in square 8
-Debug stop
 Assigned 3 to 9, 1 (square 7)
-  Removed 2 instances of candidate 3 in row 9
-  No instances of candidate 3 in square 7
-Debug stop
 Assigned 7 to 9, 2 (square 7)
-  Removed 2 instances of candidate 7 in row 9
-  No instances of candidate 7 in square 7
-Debug stop
 Assigned 5 to 9, 6 (square 8)
-  No instances of candidate 5 in square 8
-Debug stop
 Assigned 4 to 8, 6 (square 8)
-  Removed 4 instances of candidate 4 in row 8
-  No instances of candidate 4 in square 8
-Debug stop
 Assigned 4 to 2, 2 (square 1)
-  Removed 2 instances of candidate 4 in row 2
-  Removed 1 instances of candidate 4 in square 1
-Debug stop
 Assigned 2 to 2, 1 (square 1)
-  Removed 1 instances of candidate 2 in col 1
-  Removed 2 instances of candidate 2 in row 2
-  No instances of candidate 2 in square 1
-Debug stop
 Assigned 1 to 1, 3 (square 1)
-  Removed 2 instances of candidate 1 in col 3
-  Removed 3 instances of candidate 1 in row 1
-  No instances of candidate 1 in square 1
-Debug stop
 Assigned 1 to 3, 4 (square 2)
-  Removed 2 instances of candidate 1 in row 3
-  No instances of candidate 1 in square 2
-Debug stop
 Assigned 4 to 1, 4 (square 2)
-  Removed 2 instances of candidate 4 in row 1
-  No instances of candidate 4 in square 2
-Debug stop
 Assigned 2 to 5, 2 (square 4)
-  No instances of candidate 2 in square 4
-Debug stop
 Assigned 1 to 5, 1 (square 4)
-  Removed 1 instances of candidate 1 in col 1
-  No instances of candidate 1 in square 4
-Debug stop
 Assigned 8 to 5, 3 (square 4)
-  Removed 2 instances of candidate 8 in col 3
-  No instances of candidate 8 in square 4
-Debug stop
 Assigned 8 to 7, 1 (square 7)
-  Removed 4 instances of candidate 8 in row 7
-  No instances of candidate 8 in square 7
-Debug stop
 Assigned 8 to 4, 9 (square 6)
-  Removed 2 instances of candidate 8 in row 4
-  No instances of candidate 8 in square 6
-Debug stop
 Assigned 1 to 7, 5 (square 8)
-  Removed 1 instances of candidate 1 in col 5
-  No instances of candidate 1 in square 8
-Debug stop
 Assigned 6 to 7, 7 (square 9)
-  Removed 2 instances of candidate 6 in col 7
-  No instances of candidate 6 in square 9
-Debug stop
 Assigned 4 to 7, 8 (square 9)
-  Removed 2 instances of candidate 4 in col 8
-  Removed 1 instances of candidate 4 in square 9
-Debug stop
 Assigned 4 to 3, 7 (square 3)
-  No instances of candidate 4 in square 3
-Debug stop
 Assigned 5 to 3, 8 (square 3)
-  Removed 1 instances of candidate 5 in col 8
-  No instances of candidate 5 in square 3
-Debug stop
 Assigned 5 to 6, 7 (square 6)
-  No instances of candidate 5 in square 6
-Debug stop
 Assigned 3 to 6, 8 (square 6)
-  Removed 1 instances of candidate 3 in col 8
-  No instances of candidate 3 in square 6
-Debug stop
 Assigned 7 to 7, 9 (square 9)
-  No instances of candidate 7 in square 9
-Debug stop
 Assigned 1 to 8, 2 (square 7)
-  No instances of candidate 1 in square 7
-Debug stop
 Assigned 3 to 8, 7 (square 9)
-  No instances of candidate 3 in square 9
-Debug stop
 Assigned 2 to 1, 7 (square 3)
-  Removed 1 instances of candidate 2 in row 1
-  No instances of candidate 2 in square 3
-Debug stop
 Assigned 7 to 1, 8 (square 3)
-  Removed 1 instances of candidate 7 in col 8
-  No instances of candidate 7 in square 3
-Debug stop
 Assigned 7 to 4, 7 (square 6)
-  No instances of candidate 7 in square 6
-Debug stop
 Assigned 1 to 2, 7 (square 3)
-  Removed 1 instances of candidate 1 in row 2
-  No instances of candidate 1 in square 3
-Debug stop
 Assigned 8 to 2, 8 (square 3)
-  Removed 2 instances of candidate 8 in col 8
-  No instances of candidate 8 in square 3
-Debug stop
 Assigned 1 to 4, 8 (square 6)
-  No instances of candidate 1 in square 6
-Debug stop
 Assigned 8 to 8, 5 (square 8)
-  Removed 1 instances of candidate 8 in col 5
-  No instances of candidate 8 in square 8
-Debug stop
 Assigned 6 to 8, 3 (square 7)
-  Removed 1 instances of candidate 6 in col 3
-  No instances of candidate 6 in square 7
-Debug stop
 Assigned 2 to 8, 8 (square 9)
-  No instances of candidate 2 in square 9
-Debug stop
 Assigned 4 to 9, 3 (square 7)
-  No instances of candidate 4 in square 7
-Debug stop
 Assigned 6 to 9, 5 (square 8)
-  No instances of candidate 6 in square 8
-Debug stop
 Assigned 8 to 9, 7 (square 9)
-  No instances of candidate 8 in square 9
-Debug stop
-Setting in square 9(9,8), value 9
 Assigned 9 to 9, 8 (square 9)
-  No instances of candidate 9 in square 9
-Debug stop
-SinglePossibleLocation set values to unique candidates: Assigned 60 cells
-
-Assigned 60 cells
+Assigned 60 candidates to cells
 Total cells with assigned values: 81
-Grid
-=============
+Candidate Grid (1)
+==================
   6*         | 3          | 1          || 4          | 5*         | 8          || 2          | 7          | 9         
  -------------------------------------------------------------------------------------------------------------------------
   2          | 4          | 5*         || 9*         | 7*         | 6          || 1          | 8          | 3         
@@ -518,4 +260,4 @@ Grid
    3 | 7 | 4 ||.2 | 6 | 5 || 8 | 9 |.1
  
 Valid Grid
-No empty cells, successful assignment, exit.
+No empty cells, successful assignment!

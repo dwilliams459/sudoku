@@ -378,7 +378,7 @@ namespace Sudoku
         public void PrintGrid(int? iteration = null)
         {
             Console.Write("Grid ");
-            if (iteration != null & iteration > 0)
+            if (iteration != null)
             {
                 Console.Write($"({iteration})");
             }
@@ -427,53 +427,48 @@ namespace Sudoku
 
         public void PrintGridWithCandidates(int? iteration = null)
         {
-            Console.Write("Grid ");
-            if (iteration != null & iteration > 0)
+            string candidateGrid = "Candidate Grid ";
+
+            if (iteration != null & iteration >= 0)
             {
-                Console.Write($"({iteration})");
+                candidateGrid += $"({iteration})";
             }
-            Console.WriteLine();
-            Console.WriteLine("============");
+            Log.Debug(candidateGrid);
+            Log.Debug("==================");
 
             StringBuilder output = new StringBuilder();
             for (int i = 1; i <= 9; i++)
             {
-                Console.Write("  "); output.Append("  ");
+                output.Append("  ");
                 for (int j = 1; j <= 9; j++)
                 {
-                    WriteEmphasis(Cell(i, j).CellValueOrSpace, Cell(i, j).Original); output.Append(Candidates(i, j));
+                    output.Append(Candidates(i, j));
                     if (j == 3 || j == 6)
                     {
-                        Console.Write(" || "); output.Append(" || ");
+                        output.Append(" || ");
                     }
                     else if (j < 9)
                     {
-                        Console.Write(" | "); output.Append(" | ");
+                        output.Append(" | ");
                     }
                 }
 
                 if (i != 9)
                 {
-                    Console.WriteLine(); output.AppendLine("");
+                    output.AppendLine("");
                     if (i == 3 || i == 6)
                     {
                         output.AppendLine(" =========================================================================================================================");
-                        Console.WriteLine(" =====================================");
                     }
                     else
                     {
                         output.AppendLine(" -------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine(" -------------------------------------");
                     }
                 }
             }
 
-            Log.Information("Grid");
-            Log.Information("=============");
             Log.Information(output.ToString());
-            Console.WriteLine(" "); Log.Information(" ");
-            Console.WriteLine(" ");
-
+            Log.Information(" ");
         }
 
         public void PrintCandidates()

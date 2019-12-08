@@ -16,7 +16,7 @@ namespace Sudoku
 
                 Log.Logger = new LoggerConfiguration()
                     .WriteTo.File("./output.txt", outputTemplate: "{Message:lj}{NewLine}")
-                    .MinimumLevel.Verbose()
+                    .MinimumLevel.Debug()
                     .CreateLogger();
 
                 Log.Information($"Starting Sudoku {DateTime.Now}");

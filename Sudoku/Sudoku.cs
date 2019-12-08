@@ -20,7 +20,7 @@ namespace Sudoku
 
         public Grid Grid { get; set; }
 
-        private int AssignedWithSinglePossibleLocation;
+        private int AssignedCandidates;
 
         private int solveIteration;
 
@@ -31,6 +31,7 @@ namespace Sudoku
 
         public bool Solve(int iterations = 10)
         {
+            Console.WriteLine("");
             Log.Information("Starting Grid");
             Log.Information($"Total cells with assigned values: { Grid.Cells.Count(c => c.Value != null)}");
 
@@ -44,17 +45,19 @@ namespace Sudoku
                 Log.Information("Iteration: " + solveIteration);
                 Log.Information("====================================================");
 
-                Log.Debug("Marking Canditates");
-                Log.Debug("============");
+                Log.Information("Marking Canditates");
+                Log.Debug("==================");
+                MarkCandidates();
+                Grid.PrintGridWithCandidates(solveIteration);
 
-                SetCandidates();
-                Grid.PrintGridWithCandidates();
-
+                Log.Information("Removing Candidates");
+                Log.Debug("===================");
                 int removedCandidates = 0;
                 int removeCandidiateIteration = 0;
                 do
                 {
                     removeCandidiateIteration++;
+                    Log.Debug($"Remove candidates iteration {removeCandidiateIteration}");
                     int candidateCount = Grid.Cells.Sum(c => c.Candidates.Count);
 
                     RemovePointedPairCandidates();
@@ -62,19 +65,19 @@ namespace Sudoku
                     Grid.PrintGridWithCandidates();
 
                     removedCandidates = candidateCount - Grid.Cells.Sum(c => c.Candidates.Count);
-                    Log.Debug($"Removed {removedCandidates} candidates (iteration {removeCandidiateIteration})");
+                    Log.Debug($"Remove candidates iteration {removeCandidiateIteration} removed {removedCandidates} candidates");
+                    Log.Debug(" ");
                 } while (removedCandidates > 0 && removeCandidiateIteration < 5);
 
-                Log.Debug($"Assign candidates with Single Possible Location..");
+                Log.Information($"Assigning candidates to cells");
+                Log.Debug($"=============================");
                 Grid.AssignedCells = 0;
-                AssignedWithSinglePossibleLocation = 0;
+                AssignedCandidates = 0;
 
                 AssignNakedSingleCandidates();
+                AssignHiddenSingleCandidates();
 
-                Log.Debug($"SinglePossibleLocation set values to unique candidates: Assigned {AssignedWithSinglePossibleLocation} cells");
-                Log.Debug("");
-
-                Log.Information($"Assigned {Grid.AssignedCells} cells");
+                Log.Debug($"Assigned {Grid.AssignedCells} candidates to cells");
                 Log.Information($"Total cells with assigned values: {Grid.Cells.Count(c => c.Value != null)}");
                 Grid.PrintGridWithCandidates(solveIteration);
                 Grid.PrintGrid(solveIteration);
@@ -86,7 +89,7 @@ namespace Sudoku
 
                 if (Grid.Cells.Count(c => c.Value == null || c.Value == 0) == 0)
                 {
-                    Log.Information("No empty cells, successful assignment, exit.");
+                    Log.Information("No empty cells, successful assignment!");
                     return true;
                 }
 
@@ -99,11 +102,11 @@ namespace Sudoku
             return true;
         }
 
-        #region Set candidates
+        #region Mark candidates
         /// <summary>
         /// For each cell, for each candidate (1-9): candidate is not already assigned in the row, column or square
         /// </summary>
-        public void SetCandidates()
+        public void MarkCandidates()
         {
             Log.Debug("Seting Candidates...");
             // Reset all candidates
@@ -152,8 +155,7 @@ namespace Sudoku
             var matched = Grid.Cells.Count(c => c.Square == square && c.Value == value);
             return (matched > 0);
         }
-        #endregion Set candidates
-
+        #endregion Mark candidates
 
         #region Assign candidates to cells
         /// <summary>
@@ -162,7 +164,6 @@ namespace Sudoku
         public void AssignNakedSingleCandidates()
         {
             Log.Debug("Assigning cells with only one candidate... ");
-            bool assignedValue = false;
 
             foreach (GridCell cell in Grid.Cells)
             {
@@ -171,19 +172,13 @@ namespace Sudoku
                     Grid.AssignValueToCell(cell.Row, cell.Col, cell.Candidates.FirstOrDefault());
                 }
             }
-
-            do
-            {
-                // Repeat until none are assigned.
-                assignedValue = AssignFirstHiddenSingleCandidate(assignedValue);
-            } while (assignedValue == true);
         }
 
         /// <summary>
         /// </summary>
         public void AssignHiddenSingleCandidates()
         {
-            Log.Debug("Assigning candidates with single possible location... ");
+            Log.Debug("Assigning candidates with single possible cell... ");
             bool assignedValue = false;
 
             do
@@ -197,10 +192,6 @@ namespace Sudoku
         {
             foreach (GridCell cell in Grid.Cells)
             {
-                if (cell.Row == 1 && cell.Col == 2)
-                {
-                    Log.Verbose("Debug stop");
-                }
                 foreach (int candidate in cell.Candidates)
                 {
                     bool inOnlyOneColumn = (Grid.Cells.Count(c => c.Col == cell.Col && c.Candidates.Contains(candidate) == true) == 1);
@@ -210,7 +201,7 @@ namespace Sudoku
                     if (inOnlyOneColumn || inOnlyOneRow || inOnlyOneSquare)
                     {
                         Grid.AssignValueToCell(cell.Row, cell.Col, candidate, false);
-                        ++AssignedWithSinglePossibleLocation;
+                        ++AssignedCandidates;
                         return true;
                     }
                 }
@@ -233,6 +224,7 @@ namespace Sudoku
         /// <returns></returns>
         public void FindHiddenPairsBySquare()
         {
+            Log.Debug("Finding Hidden Pairs"); 
             // Square Premeptive
             for (var index = 1; index <= 9; index++)
             {
@@ -240,15 +232,15 @@ namespace Sudoku
 
                 /// 'index' is a square index
                 valueLocations = Grid.ValueLocationsBySquare(index);
-                FindHiddenPairs(PremptiveSetType.Square, index, valueLocations);
+                FindHiddenPairsByRowColOrSquare(PremptiveSetType.Square, index, valueLocations);
 
                 // 'index' is a row number
                 valueLocations = Grid.ValueLocationsByRow(index);
-                FindHiddenPairs(PremptiveSetType.Row, index, valueLocations);
+                FindHiddenPairsByRowColOrSquare(PremptiveSetType.Row, index, valueLocations);
 
                 // 'index' is a col number
                 valueLocations = Grid.ValueLocationsByCol(index);
-                FindHiddenPairs(PremptiveSetType.Col, index, valueLocations);
+                FindHiddenPairsByRowColOrSquare(PremptiveSetType.Col, index, valueLocations);
             }
         }
 
@@ -258,7 +250,7 @@ namespace Sudoku
         /// Example: Given Values(with locations): 1(1,3); 2(4,5); 3(1,4,5); 4(1,3)
         ///     Would match values 1(1,3) and 4(1,3) as a pair 
         /// </summary>
-        private void FindHiddenPairs(PremptiveSetType setType, int index, Dictionary<int, List<int>> valueLocations)
+        private void FindHiddenPairsByRowColOrSquare(PremptiveSetType setType, int index, Dictionary<int, List<int>> valueLocations)
         {
             // valueLocations
             //   For the following calculations, we need grid data as Value/location NOT Candidate/Cell
@@ -275,7 +267,7 @@ namespace Sudoku
                     // Does value1.locations == value2.locations?
                     if (value1.Value.All(value2.Value.Contains) && value1.Value.Count == value2.Value.Count)
                     {
-                        Log.Debug($"Match found in {setType.ToString()} {index} for values: {value1.Key},{value2.Key}");
+                        Log.Verbose($"Match found in {setType.ToString()} {index} for values: {value1.Key},{value2.Key}");
                         Log.Verbose($"  Value1(locations): {value1.Key}({string.Join(",", value1.Value)})");
                         Log.Verbose($"  Value2(locations): {value2.Key}({string.Join(",", value2.Value)})");
 
@@ -320,7 +312,7 @@ namespace Sudoku
             int removedCandidates = squareCandidates - Grid.Cells.Where(c => c.Square == square).Sum(c => c.Candidates.Count());
             if (removedCandidates > 0)
             {
-                Log.Verbose($"  Removed {removedCandidates} candidates in square {square}");
+                Log.Verbose($"Removed {removedCandidates} candidates in square {square}");
             }
         }
 
@@ -366,7 +358,7 @@ namespace Sudoku
 
         public int RemovePointedPairCandidates()
         {
-            Log.Debug("Remove candidates by row and column...");
+            Log.Debug("Remove pointed candidates by row and column");
             int removedCandidates = 0;
 
             // Iterate trough squares, values
@@ -378,7 +370,6 @@ namespace Sudoku
                     removedCandidates += RemovePointedPairsInOneCol(square, valueX);
                 }
             }
-            Log.Information($"Remove candidates by row and column removed {removedCandidates} candidates");
             return removedCandidates;
         }
 
