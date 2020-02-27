@@ -1,4 +1,4 @@
-Starting Sudoku 12/7/2019 11:36:32 PM
+Starting Sudoku 2/27/2020 4:57:57 PM
 ====================================================
  
 Starting Grid

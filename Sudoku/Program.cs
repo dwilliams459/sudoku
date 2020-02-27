@@ -37,6 +37,13 @@ namespace Sudoku
                     int.TryParse(args[1], out iterations);
                 }
 
+                
+                string outfile = null;
+                if (args != null && args.Length > 2)
+                {
+                    
+                }
+
                 //LoadGrid(puzzle, jsonFile);
                 if (LoadFromGridJson(puzzle, jsonFile) == true)
                 {
